@@ -1,0 +1,164 @@
+{
+  "original_run_lock_sha256": "12d78cf0948a04f556cd2a679f891d143ce881eb4026e8dc5b1972e9cdaac9b0",
+  "archive_sha256": "11393167cf8d3789d7f6dd492027582800b223da2ed8f91fd9fa1ac4ae067eea",
+  "source_files": {
+    "snapshot/run/cloud_worker.py": {
+      "bytes": 15587,
+      "sha256": "608f0cbaaa6d84a14e0c61b1a0628293f82905bd012e52df8c74aced233ee2d0",
+      "origin": "completed_run/cloud_worker.py"
+    },
+    "snapshot/run/stage_ops.py": {
+      "bytes": 11570,
+      "sha256": "92bfa9a9cd8d504b398843fbacd37fbc02daf5de82345acc59e392b416e73355",
+      "origin": "completed_run/stage_ops.py"
+    },
+    "snapshot/run/current_jive.py": {
+      "bytes": 5923,
+      "sha256": "03d1a4d31f227f6a525271b675639c0a44f8508a02b461eb27abddf6d684dfab",
+      "origin": "completed_run/current_jive.py"
+    },
+    "snapshot/run/author_parser.py": {
+      "bytes": 772,
+      "sha256": "92163f3a5389c4a7e25868ff931fc919703eb1e500ef74dc03b4810ab6f0225d",
+      "origin": "completed_run/author_parser.py"
+    },
+    "snapshot/run/cloud_common.py": {
+      "bytes": 2944,
+      "sha256": "02be73b3b09ae86898ec606500dab86139e0d4e9d4814c1e1181eb126e20fc5f",
+      "origin": "completed_run/cloud_common.py"
+    },
+    "snapshot/run/queue_logic.py": {
+      "bytes": 364,
+      "sha256": "a68a4fb9b30f5e18e9002a14da792e6aaf943151a06a07e3f79d0cfd53d1fe5c",
+      "origin": "completed_run/queue_logic.py"
+    },
+    "snapshot/run/manager_main448.py": {
+      "bytes": 4985,
+      "sha256": "98d23311e9c52fa1e99061282f3fbf1c9e4764c52011110aaffdd28b0a4cb59a",
+      "origin": "completed_run/manager_main448.py"
+    },
+    "snapshot/run/author_manifest.json": {
+      "bytes": 704,
+      "sha256": "46ccf02dad406d8bd38831e93becce6bc3506bd8c6cda81eff83c51b1ea87a15",
+      "origin": "completed_run/author_manifest.json"
+    },
+    "snapshot/bundle/runtime/experiment_worker.py": {
+      "bytes": 16091,
+      "sha256": "6a485de27574760fd64bb3b65e4187f2e9575f592291b71bac0516c67c80576a",
+      "origin": "referenced_bundle37/runtime/experiment_worker.py"
+    },
+    "snapshot/bundle/runtime/inference_engine.py": {
+      "bytes": 9014,
+      "sha256": "31afb4f7b26afa01b72e1960127dc51749e98aa66d4dc7d37548d0eb8c9051e5",
+      "origin": "referenced_bundle37/runtime/inference_engine.py"
+    },
+    "snapshot/bundle/runtime/kv_compact_mapping.py": {
+      "bytes": 1517,
+      "sha256": "1687dcd0ecb27a7c50c4ba3c2769870b180e5cffbfa4ddf48d1c84c39c58c70c",
+      "origin": "referenced_bundle37/runtime/kv_compact_mapping.py"
+    },
+    "snapshot/bundle/runtime/kv_packet.py": {
+      "bytes": 9392,
+      "sha256": "f779c633a982fb15d95304425474f9a90de4fa3c4d632debda6c0486d39a44b3",
+      "origin": "referenced_bundle37/runtime/kv_packet.py"
+    },
+    "snapshot/bundle/runtime/pinned_core.py": {
+      "bytes": 4711,
+      "sha256": "c4880b661e29669c2f1dc3692aedc337600813b40fa18e3f6b90cbf5a3083e58",
+      "origin": "referenced_bundle37/runtime/pinned_core.py"
+    },
+    "snapshot/bundle/runtime/prompt_builders.py": {
+      "bytes": 1235,
+      "sha256": "241540d08e1e5b33b938e5e032f4d95ec5a2f77118e743a109f337278e505741",
+      "origin": "referenced_bundle37/runtime/prompt_builders.py"
+    },
+    "snapshot/bundle/runtime/runtime_common.py": {
+      "bytes": 4069,
+      "sha256": "6cdf115f59fae07062ca0fe9a02c6940dde346fab7b01a8ea015bad93020a355",
+      "origin": "referenced_bundle37/runtime/runtime_common.py"
+    },
+    "snapshot/bundle/runtime/model_lock.json": {
+      "bytes": 5916,
+      "sha256": "750aca4081235d2ae0f00c259c1b6203c172450a97dd7aaf349a1130ee6befcf",
+      "origin": "referenced_bundle37/runtime/model_lock.json"
+    },
+    "snapshot/bundle/runtime/vendor/LatentMAS/LICENSE": {
+      "bytes": 11558,
+      "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6",
+      "origin": "referenced_bundle37/runtime/vendor/LatentMAS/LICENSE"
+    },
+    "snapshot/bundle/runtime/vendor/LatentMAS/models.py": {
+      "bytes": 17599,
+      "sha256": "020e68c1c6a42eb113bc526ddb93171e6fd1c74768ac5d57a9af813bea8bd3be",
+      "origin": "referenced_bundle37/runtime/vendor/LatentMAS/models.py"
+    },
+    "snapshot/bundle/runtime/vendor/LatentMAS/prompts.py": {
+      "bytes": 27899,
+      "sha256": "8cf16184937f2d0bb78c856426685ccc8d5cd639e8df0f5c7642dfa87064e800",
+      "origin": "referenced_bundle37/runtime/vendor/LatentMAS/prompts.py"
+    },
+    "snapshot/bundle/runtime/vendor/LatentMAS/README.md": {
+      "bytes": 12716,
+      "sha256": "677864d01cc61f43ebf8c28073b493426f24faaf3223a0596e5166b51eff90a7",
+      "origin": "referenced_bundle37/runtime/vendor/LatentMAS/README.md"
+    },
+    "snapshot/bundle/runtime/vendor/LatentMAS/methods/baseline.py": {
+      "bytes": 4553,
+      "sha256": "6c12aac54ab81e3f95f67338853a7cbc637d965b50df67502e24c3e1220f718c",
+      "origin": "referenced_bundle37/runtime/vendor/LatentMAS/methods/baseline.py"
+    },
+    "snapshot/bundle/runtime/vendor/LatentMAS/methods/latent_mas.py": {
+      "bytes": 19651,
+      "sha256": "3fb7b5a7032c2ebe912a39b681ca6a19aec6664eb1742c71dfbca4cf5e164d33",
+      "origin": "referenced_bundle37/runtime/vendor/LatentMAS/methods/latent_mas.py"
+    },
+    "snapshot/bundle/runtime/vendor/LatentMAS/methods/text_mas.py": {
+      "bytes": 7166,
+      "sha256": "fe1bb91e0bf272ba8becfb8f46d2a2cd14280216b317b707f1eb6c1581f5d2d1",
+      "origin": "referenced_bundle37/runtime/vendor/LatentMAS/methods/text_mas.py"
+    },
+    "snapshot/bundle/runtime/vendor/LatentMAS/methods/__init__.py": {
+      "bytes": 414,
+      "sha256": "5236febbf5bcaaff221fd81c4bf6d50e1cc9ea22d568a6264717ee027525c279",
+      "origin": "referenced_bundle37/runtime/vendor/LatentMAS/methods/__init__.py"
+    },
+    "provenance/original_run_lock.json": {
+      "bytes": 2976,
+      "sha256": "12d78cf0948a04f556cd2a679f891d143ce881eb4026e8dc5b1972e9cdaac9b0",
+      "origin": "completed_run/run_lock.json"
+    },
+    "provenance/original_bundle37_lock.json": {
+      "bytes": 5867,
+      "sha256": "d2ad1dce43ebb00e8232b18514beb2e8f8ef3ea6a91474f0940dc9c39c312aeb",
+      "origin": "referenced_bundle37/source_lock.json"
+    },
+    "provenance/cloud_environment.json": {
+      "bytes": 203,
+      "sha256": "e8b7515f65dba45a9bfa5d51ba55300256d9b9b616451e84f777fd6f8b5ec01a",
+      "origin": "read_only_cloud_package_metadata_20261102"
+    },
+    "results/gpqa_main448/summary.json": {
+      "bytes": 7057,
+      "sha256": "0bc2665a7fe2fbab7a570aa8a3bc6b555ff7d72a864ffdf63ba9d2da90e93934",
+      "origin": "completed_result/summary.json"
+    },
+    "results/gpqa_main448/cells.csv": {
+      "bytes": 1787,
+      "sha256": "bfa0ddabb65f4a7ed295ce6125c58dc65357f90373d9dbf5146861b6fc173087",
+      "origin": "completed_result/cells.csv"
+    },
+    "results/gpqa_main448/case_metrics.csv": {
+      "bytes": 307514,
+      "sha256": "7d67f70980c55befd262519e2d5b876aff8bcc3a65a2ac2ee76dbd176c985531",
+      "origin": "completed_result/case_metrics.csv"
+    }
+  },
+  "omissions": [
+    "licensed benchmark question text, options and gold labels",
+    "raw answers, token IDs, requests, traces, process identities and private ledgers",
+    "model weights, local archives, credentials and SSH configuration",
+    "external OBF files (pinned URLs/SHA in snapshot/run/author_manifest.json)",
+    "unvalidated follow-up SVD/nuclear-norm candidate code"
+  ],
+  "snapshot_status": "audited historical source snapshot; offline metrics reproduction supported; historical GPU launcher requires original private deployment configuration"
+}

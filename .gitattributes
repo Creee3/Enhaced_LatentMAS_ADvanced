@@ -1,0 +1,8 @@
+* text=auto
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.csv text eol=lf
+# Preserve exact historical bytes, including intentional prompt whitespace.
+snapshot/** -text -whitespace
+provenance/original*_lock.json -text -whitespace

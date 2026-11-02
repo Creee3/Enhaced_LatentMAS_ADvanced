@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "sha256": "11393167cf8d3789d7f6dd492027582800b223da2ed8f91fd9fa1ac4ae067eea",
+  "bytes": 195962206,
+  "members": 6941,
+  "gzip_crc": true,
+  "exact_tar_member_set": true,
+  "remote_manifest_and_safe_full_extraction_sha": true,
+  "total_unique": 3584,
+  "new_unique": 2164,
+  "reused": 1420,
+  "diamond_unique": 1584,
+  "all_owned_processes_exited": true,
+  "own_reserved": 0,
+  "pretrained_weights_copied": false,
+  "fees_modified": false
+}

@@ -1,0 +1,15 @@
+{
+  "revision": "36f43183e84d2fbf3b84c9bf4e3e06b7c442a523",
+  "files": {
+    "BaseKVCompressor": {
+      "url": "https://raw.githubusercontent.com/markli404/When-Less-Latent-Leads-to-Better-Relay/36f43183e84d2fbf3b84c9bf4e3e06b7c442a523/compression_methods/BaseKVCompressor.py",
+      "sha256": "b441059985f3355e3eb4977fda2da544dbbfabb1ebd2b5c3e48cc7479e195907",
+      "bytes": 1390
+    },
+    "HOBF": {
+      "url": "https://raw.githubusercontent.com/markli404/When-Less-Latent-Leads-to-Better-Relay/36f43183e84d2fbf3b84c9bf4e3e06b7c442a523/compression_methods/HOBF.py",
+      "sha256": "d4e5965eb0ba1e5ac03c9131f710e252b9dc6d2dfd55debabdd6c86109663d03",
+      "bytes": 20527
+    }
+  }
+}

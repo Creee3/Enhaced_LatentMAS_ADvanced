@@ -1,0 +1,153 @@
+{
+  "variant": "supplement_two_methods_frozen_science",
+  "files": {
+    "data/arc_easy.jsonl": {
+      "bytes": 1126368,
+      "sha256": "76fa2bb721f8bee7201533627e4a9f0731b992831e3fe51c7c62d26b3b13d855"
+    },
+    "data/gpqa_diamond.jsonl": {
+      "bytes": 146728,
+      "sha256": "6b479e31251f0e372adee53d29075e2ad0de982e34b47be8e0c68ca5ef6eee9c"
+    },
+    "data/manifest.json": {
+      "bytes": 543,
+      "sha256": "435eb8c4db562d3882150020994a25a6c89504ca7b0b741bb3e5e80cb6fd0137"
+    },
+    "data/questions.jsonl": {
+      "bytes": 1273096,
+      "sha256": "704c2dccd4675df7bdc355eb91e8ee87e25e3d64d47dd6fcb0915a5dc7b27ee5"
+    },
+    "runtime/experiment_worker.py": {
+      "bytes": 16091,
+      "sha256": "6a485de27574760fd64bb3b65e4187f2e9575f592291b71bac0516c67c80576a"
+    },
+    "runtime/inference_engine.py": {
+      "bytes": 9014,
+      "sha256": "31afb4f7b26afa01b72e1960127dc51749e98aa66d4dc7d37548d0eb8c9051e5"
+    },
+    "runtime/kv_compact_mapping.py": {
+      "bytes": 1517,
+      "sha256": "1687dcd0ecb27a7c50c4ba3c2769870b180e5cffbfa4ddf48d1c84c39c58c70c"
+    },
+    "runtime/kv_packet.py": {
+      "bytes": 9392,
+      "sha256": "f779c633a982fb15d95304425474f9a90de4fa3c4d632debda6c0486d39a44b3"
+    },
+    "runtime/model_lock.json": {
+      "bytes": 5916,
+      "sha256": "750aca4081235d2ae0f00c259c1b6203c172450a97dd7aaf349a1130ee6befcf"
+    },
+    "runtime/pinned_core.py": {
+      "bytes": 4711,
+      "sha256": "c4880b661e29669c2f1dc3692aedc337600813b40fa18e3f6b90cbf5a3083e58"
+    },
+    "runtime/prompt_builders.py": {
+      "bytes": 1235,
+      "sha256": "241540d08e1e5b33b938e5e032f4d95ec5a2f77118e743a109f337278e505741"
+    },
+    "runtime/runtime_common.py": {
+      "bytes": 4069,
+      "sha256": "6cdf115f59fae07062ca0fe9a02c6940dde346fab7b01a8ea015bad93020a355"
+    },
+    "runtime/supplement_worker.py": {
+      "bytes": 12200,
+      "sha256": "cf420492679b3bed28e66224bddf4edb0d8d43a1debf908bf0b0b9cdfb13eb5b"
+    },
+    "runtime/vendor/LatentMAS/LICENSE": {
+      "bytes": 11558,
+      "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+    },
+    "runtime/vendor/LatentMAS/methods/__init__.py": {
+      "bytes": 414,
+      "sha256": "5236febbf5bcaaff221fd81c4bf6d50e1cc9ea22d568a6264717ee027525c279"
+    },
+    "runtime/vendor/LatentMAS/methods/baseline.py": {
+      "bytes": 4553,
+      "sha256": "6c12aac54ab81e3f95f67338853a7cbc637d965b50df67502e24c3e1220f718c"
+    },
+    "runtime/vendor/LatentMAS/methods/latent_mas.py": {
+      "bytes": 19651,
+      "sha256": "3fb7b5a7032c2ebe912a39b681ca6a19aec6664eb1742c71dfbca4cf5e164d33"
+    },
+    "runtime/vendor/LatentMAS/methods/text_mas.py": {
+      "bytes": 7166,
+      "sha256": "fe1bb91e0bf272ba8becfb8f46d2a2cd14280216b317b707f1eb6c1581f5d2d1"
+    },
+    "runtime/vendor/LatentMAS/models.py": {
+      "bytes": 17599,
+      "sha256": "020e68c1c6a42eb113bc526ddb93171e6fd1c74768ac5d57a9af813bea8bd3be"
+    },
+    "runtime/vendor/LatentMAS/prompts.py": {
+      "bytes": 27899,
+      "sha256": "8cf16184937f2d0bb78c856426685ccc8d5cd639e8df0f5c7642dfa87064e800"
+    },
+    "runtime/vendor/LatentMAS/README.md": {
+      "bytes": 12716,
+      "sha256": "677864d01cc61f43ebf8c28073b493426f24faaf3223a0596e5166b51eff90a7"
+    },
+    "scope256_manifest.json": {
+      "bytes": 63792,
+      "sha256": "6e601c3cd1db12ca8ec961fae20fd3985707f893532e9db5a7b9e9bf4c2a3cf4"
+    },
+    "source/freeze_data.py": {
+      "bytes": 1953,
+      "sha256": "3c36b054183bce97ce8a526c9edff67ee77a34bc793b4a277c235c229b6a17c5"
+    },
+    "source/harness/inference_engine.py": {
+      "bytes": 9014,
+      "sha256": "31afb4f7b26afa01b72e1960127dc51749e98aa66d4dc7d37548d0eb8c9051e5"
+    },
+    "source/harness/kv_packet.py": {
+      "bytes": 5479,
+      "sha256": "ca2e41e9793e65a447a366df647dab6f308b44ac1226741f9395ef156a7fc874"
+    },
+    "source/harness/pinned_core.py": {
+      "bytes": 3052,
+      "sha256": "5bce70208fcf5713dd5ffe4a265c6197aba46d5e65e05e1a0c931b365b338525"
+    },
+    "source/harness/runtime_common.py": {
+      "bytes": 4069,
+      "sha256": "6cdf115f59fae07062ca0fe9a02c6940dde346fab7b01a8ea015bad93020a355"
+    },
+    "source/new_round3_prompts.json": {
+      "bytes": 750,
+      "sha256": "fd4e36d526a67940d1dc75e7bc44bed509e0d02609a0085e46078f2fe1d27473"
+    },
+    "source/prompt_builders.py": {
+      "bytes": 1235,
+      "sha256": "241540d08e1e5b33b938e5e032f4d95ec5a2f77118e743a109f337278e505741"
+    },
+    "source/vendor/LatentMAS/LICENSE": {
+      "bytes": 11558,
+      "sha256": "1eb85fc97224598dad1852b5d6483bbcf0aa8608790dcc657a5a2a761ae9c8c6"
+    },
+    "source/vendor/LatentMAS/methods/__init__.py": {
+      "bytes": 414,
+      "sha256": "5236febbf5bcaaff221fd81c4bf6d50e1cc9ea22d568a6264717ee027525c279"
+    },
+    "source/vendor/LatentMAS/methods/baseline.py": {
+      "bytes": 4553,
+      "sha256": "6c12aac54ab81e3f95f67338853a7cbc637d965b50df67502e24c3e1220f718c"
+    },
+    "source/vendor/LatentMAS/methods/latent_mas.py": {
+      "bytes": 19651,
+      "sha256": "3fb7b5a7032c2ebe912a39b681ca6a19aec6664eb1742c71dfbca4cf5e164d33"
+    },
+    "source/vendor/LatentMAS/methods/text_mas.py": {
+      "bytes": 7166,
+      "sha256": "fe1bb91e0bf272ba8becfb8f46d2a2cd14280216b317b707f1eb6c1581f5d2d1"
+    },
+    "source/vendor/LatentMAS/models.py": {
+      "bytes": 17599,
+      "sha256": "020e68c1c6a42eb113bc526ddb93171e6fd1c74768ac5d57a9af813bea8bd3be"
+    },
+    "source/vendor/LatentMAS/prompts.py": {
+      "bytes": 27899,
+      "sha256": "8cf16184937f2d0bb78c856426685ccc8d5cd639e8df0f5c7642dfa87064e800"
+    },
+    "source/vendor/LatentMAS/README.md": {
+      "bytes": 12716,
+      "sha256": "677864d01cc61f43ebf8c28073b493426f24faaf3223a0596e5166b51eff90a7"
+    }
+  }
+}

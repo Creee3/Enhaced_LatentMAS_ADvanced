@@ -1,0 +1,36 @@
+{
+  "seed": 42,
+  "precision": "BF16",
+  "alignment": "norm_only",
+  "context_positions": 32768,
+  "temperature": 0.6,
+  "top_p": 0.95,
+  "top_k": 20,
+  "prompt_budget_per_role": 32,
+  "sink_size": 4,
+  "methods": [
+    "full",
+    "headobf",
+    "jive",
+    "receiver_attention_sink_recent"
+  ],
+  "output_caps": {
+    "gpqa_main_minus_diamond": 8192,
+    "gpqa_diamond": 8192
+  },
+  "author_parser_revision": "92163f3a5389c4a7e25868ff931fc919703eb1e500ef74dc03b4810ab6f0225d",
+  "model": "Qwen3-8B",
+  "latent_steps": [
+    10,
+    40
+  ],
+  "cohort_questions": 448,
+  "diamond_subset_questions": 198,
+  "target_unique": 3584,
+  "reused_answers": 1420,
+  "new_answers": 2164,
+  "receiver_recent_positions": 8,
+  "receiver_attention_positions": 24,
+  "receiver_probe_query_count": 16,
+  "generation_time_evaluated": false
+}

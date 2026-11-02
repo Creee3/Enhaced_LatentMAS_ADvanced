@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "source_sha_verified_worktree": 30,
+  "source_sha_verified_git_index": 30,
+  "result_unique": 3584,
+  "result_cells": 16,
+  "offline_unit_tests": 4,
+  "offline_unit_tests_passed": 4,
+  "tensor_test_device": "CPU",
+  "local_python": "3.14.5",
+  "local_torch": "2.13.0+cpu",
+  "inference_rerun": false,
+  "cloud_jobs_launched": 0,
+  "raw_answers_published": false,
+  "upstream_obf_files_redistributed": false,
+  "notes": [
+    "This checks snapshot integrity, metric consistency and synthetic tensor mechanics; it is not independent model-level reproduction.",
+    "Historical source bytes and prompt whitespace are preserved by Git attributes."
+  ]
+}
