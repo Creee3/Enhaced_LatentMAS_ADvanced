@@ -1,0 +1,11 @@
+{
+  "scientific_functions_ast_equal": true,
+  "selector_byte_equal": true,
+  "parent_worker_sha256": "5d78b9846636bfaf08dbfb66e92ae546c928e33b6b584af54b019a1cfebdba20",
+  "worker_sha256": "9afeb9bb3a928889b3c8b8ac28b74bbd790005c8a2758964285df3dd1b631c08",
+  "changes": [
+    "dynamic queue and per-key durable commit",
+    "one repeat only",
+    "metadata and actual tensor byte count"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "run_name": "role_blocks_gpqa_main448_s42_l10_20261102T142146Z",
+  "target": 1344,
+  "new_target": 1338,
+  "reused": 6,
+  "baseline_reused": 1792,
+  "max_workers": 6,
+  "allowed_gpus": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "source_lock_sha256": "70828faf23244d950cc1a562af9253773a2848ef962f718ba6c40e5e92468de9"
+}
