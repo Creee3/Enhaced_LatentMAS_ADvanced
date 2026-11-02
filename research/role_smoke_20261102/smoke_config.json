@@ -1,0 +1,46 @@
+{
+  "run_name": "role_blocks_smoke2x3_s42_l10_20261102T133253Z",
+  "kind": "engineering_smoke_not_effectiveness",
+  "seed": 42,
+  "latent_steps": 10,
+  "repeats": 3,
+  "questions": [
+    {
+      "question_id": "gpqa_main_minus_diamond_0000",
+      "is_diamond": false,
+      "question_sha256": "c5859c729f1f8217c8555103da018a579f07eb8df38d8389383b2f4634573327"
+    },
+    {
+      "question_id": "gpqa_diamond_test_147",
+      "is_diamond": true,
+      "question_sha256": "b698ebb0cb6d3abffa554435859e51f21dd11a9955cfceece2c7a6fa9b0e2023"
+    }
+  ],
+  "arms": [
+    "T",
+    "R",
+    "R-shuffle"
+  ],
+  "terminal_answers": 18,
+  "selection_queries": 16,
+  "prompt_budget": 96,
+  "protected_latent": 30,
+  "sink": 4,
+  "mandatory_refiner_recent": 8,
+  "bank_max": 192,
+  "output_cap": 8192,
+  "gpu_pool": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "max_workers": 1,
+  "question_selection": "First canonical main entry of each membership; no use of gold or historical outcomes",
+  "fake_roles": "Rotate nonzero role block sequence by half the smallest positive block size; block0 unchanged",
+  "timing": "CUDA sync both boundaries; shared prefix/probe once; standalone sum explicitly reconstructed"
+}
