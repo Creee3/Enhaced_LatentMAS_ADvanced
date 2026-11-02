@@ -1,0 +1,276 @@
+{
+  "complete": true,
+  "answers": 18,
+  "unique": 18,
+  "missing": 0,
+  "archive": {
+    "archive_sha256": "df93680182551bd4f14f92dc18298e9cd34df799808d13b1ffb06f34e2d9bb8b",
+    "archive_bytes": 1662436,
+    "members": 82,
+    "stream_sha": true,
+    "gzip_crc": true,
+    "tar_exact_set": true,
+    "all_member_sha": true,
+    "safe_full_extract_sha": true
+  },
+  "model_summary": {
+    "device": "NVIDIA GeForce RTX 4090",
+    "verified_weight_files": 15,
+    "bf16_cuda": true,
+    "parameter_bytes": 16381470720,
+    "identity_norm": true,
+    "target_norm": 1.3758320808410645,
+    "model_load_hash_prepare_seconds": 921.8889546669088
+  },
+  "nonempty_frozen_parser_outputs": 18,
+  "output_cap_reached": 0,
+  "requests": 54,
+  "actual_positions": 41472,
+  "new_unknown": 0,
+  "repeats": [
+    {
+      "question_id": "gpqa_main_minus_diamond_0000",
+      "method": "T",
+      "completed": 3,
+      "identical_position_selection": true,
+      "identical_generated_tokens": true
+    },
+    {
+      "question_id": "gpqa_main_minus_diamond_0000",
+      "method": "R",
+      "completed": 3,
+      "identical_position_selection": true,
+      "identical_generated_tokens": true
+    },
+    {
+      "question_id": "gpqa_main_minus_diamond_0000",
+      "method": "R-shuffle",
+      "completed": 3,
+      "identical_position_selection": true,
+      "identical_generated_tokens": true
+    },
+    {
+      "question_id": "gpqa_diamond_test_147",
+      "method": "T",
+      "completed": 3,
+      "identical_position_selection": true,
+      "identical_generated_tokens": true
+    },
+    {
+      "question_id": "gpqa_diamond_test_147",
+      "method": "R",
+      "completed": 3,
+      "identical_position_selection": true,
+      "identical_generated_tokens": true
+    },
+    {
+      "question_id": "gpqa_diamond_test_147",
+      "method": "R-shuffle",
+      "completed": 3,
+      "identical_position_selection": true,
+      "identical_generated_tokens": true
+    }
+  ],
+  "timings": [
+    {
+      "question_id": "gpqa_main_minus_diamond_0000",
+      "method": "T",
+      "required_shared_judger_probe_seconds": {
+        "mean": 0.5923474170267582,
+        "min": 0.17795613990165293,
+        "max": 0.8999394089914858
+      },
+      "selector_and_gather_seconds": {
+        "mean": 2.665339449653402,
+        "min": 2.40123726404272,
+        "max": 3.192416821839288
+      },
+      "judger_seconds": {
+        "mean": 71.21884018105145,
+        "min": 66.751714698039,
+        "max": 78.22504914994352
+      },
+      "reconstructed_standalone_seconds": {
+        "mean": 79.85881684736039,
+        "min": 73.7431229420472,
+        "max": 83.00526841171086
+      },
+      "generated_tokens": [
+        1878,
+        1878,
+        1878
+      ]
+    },
+    {
+      "question_id": "gpqa_main_minus_diamond_0000",
+      "method": "R",
+      "required_shared_judger_probe_seconds": {
+        "mean": 0.5923474170267582,
+        "min": 0.17795613990165293,
+        "max": 0.8999394089914858
+      },
+      "selector_and_gather_seconds": {
+        "mean": 2.444431588674585,
+        "min": 2.421317795990035,
+        "max": 2.4566066870465875
+      },
+      "judger_seconds": {
+        "mean": 55.40667040545183,
+        "min": 52.249325023032725,
+        "max": 59.94620513613336
+      },
+      "reconstructed_standalone_seconds": {
+        "mean": 63.825739210781954,
+        "min": 59.26081379898824,
+        "max": 67.43697341554798
+      },
+      "generated_tokens": [
+        1505,
+        1505,
+        1505
+      ]
+    },
+    {
+      "question_id": "gpqa_main_minus_diamond_0000",
+      "method": "R-shuffle",
+      "required_shared_judger_probe_seconds": {
+        "mean": 0.5923474170267582,
+        "min": 0.17795613990165293,
+        "max": 0.8999394089914858
+      },
+      "selector_and_gather_seconds": {
+        "mean": 2.729397570636744,
+        "min": 2.631792505038902,
+        "max": 2.7800747118890285
+      },
+      "judger_seconds": {
+        "mean": 38.245303074053176,
+        "min": 36.84468564996496,
+        "max": 38.957379264058545
+      },
+      "reconstructed_standalone_seconds": {
+        "mean": 46.94933786134546,
+        "min": 43.94349181186408,
+        "max": 50.580646033165976
+      },
+      "generated_tokens": [
+        1094,
+        1094,
+        1094
+      ]
+    },
+    {
+      "question_id": "gpqa_diamond_test_147",
+      "method": "T",
+      "required_shared_judger_probe_seconds": {
+        "mean": 0.3635480096563697,
+        "min": 0.3433236791752279,
+        "max": 0.4000150947831571
+      },
+      "selector_and_gather_seconds": {
+        "mean": 2.4819188490509987,
+        "min": 2.4452260930556804,
+        "max": 2.5127879090141505
+      },
+      "judger_seconds": {
+        "mean": 34.18504778466498,
+        "min": 32.92088975501247,
+        "max": 35.32653413899243
+      },
+      "reconstructed_standalone_seconds": {
+        "mean": 39.852867424022406,
+        "min": 38.21953522693366,
+        "max": 40.82385213323869
+      },
+      "generated_tokens": [
+        975,
+        975,
+        975
+      ]
+    },
+    {
+      "question_id": "gpqa_diamond_test_147",
+      "method": "R",
+      "required_shared_judger_probe_seconds": {
+        "mean": 0.3635480096563697,
+        "min": 0.3433236791752279,
+        "max": 0.4000150947831571
+      },
+      "selector_and_gather_seconds": {
+        "mean": 2.4685801051091403,
+        "min": 2.4580045621842146,
+        "max": 2.4778646600898355
+      },
+      "judger_seconds": {
+        "mean": 42.49321646227812,
+        "min": 39.729119086870924,
+        "max": 44.50843815598637
+      },
+      "reconstructed_standalone_seconds": {
+        "mean": 48.14769735769369,
+        "min": 45.06040312582627,
+        "max": 50.96978748240508
+      },
+      "generated_tokens": [
+        1181,
+        1181,
+        1181
+      ]
+    },
+    {
+      "question_id": "gpqa_diamond_test_147",
+      "method": "R-shuffle",
+      "required_shared_judger_probe_seconds": {
+        "mean": 0.3635480096563697,
+        "min": 0.3433236791752279,
+        "max": 0.4000150947831571
+      },
+      "selector_and_gather_seconds": {
+        "mean": 2.670754436791564,
+        "min": 2.577211541123688,
+        "max": 2.8103652021382004
+      },
+      "judger_seconds": {
+        "mean": 90.50028816664901,
+        "min": 85.55822949809954,
+        "max": 96.98899847804569
+      },
+      "reconstructed_standalone_seconds": {
+        "mean": 96.35694339374702,
+        "min": 91.22201407910325,
+        "max": 103.56955478340387
+      },
+      "generated_tokens": [
+        2462,
+        2462,
+        2462
+      ]
+    }
+  ],
+  "no_effectiveness_claim": true,
+  "reconstructed_times_not_independent_e2e": true,
+  "timing_scope_notes": [
+    "selector_and_gather_seconds includes objective diagnostics and scalar readbacks; it is an outer compressor time, not pure kernel/core time",
+    "native model metering and position proof hooks are present",
+    "row peak_allocated_bytes is cumulative since start of its repeat, not independent per-arm peak",
+    "shared probe is charged once; reconstructed per-arm time includes it once",
+    "KV bytes use measured 36x8x130 positions and locked BF16 128-dimension paired K/V geometry, rather than a separately serialized packet size"
+  ],
+  "exit": {
+    "unix": 1793628399.717791,
+    "identity": {
+      "pid": 617701,
+      "uid": 1033,
+      "start_ticks": "183626899",
+      "argv": [
+        "/home/liuxin/.conda/envs/kv-graph/bin/python",
+        "/home/liuxin/ICML2027/experiments/latentmas_cumulative_history_20261025/evidence/role_blocks_smoke2x3_s42_l10_20261102T133253Z/smoke_worker.py",
+        "--out",
+        "/home/liuxin/ICML2027/experiments/latentmas_cumulative_history_20261025/evidence/role_blocks_smoke2x3_s42_l10_20261102T133253Z/attempts/gpu1_attempt1"
+      ],
+      "CUDA_VISIBLE_DEVICES": "1"
+    },
+    "completed": true,
+    "committed": 18
+  }
+}

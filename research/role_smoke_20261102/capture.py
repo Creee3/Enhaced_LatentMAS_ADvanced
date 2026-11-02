@@ -8,7 +8,7 @@ PRIVATE=HERE.parents[1].parent/'advanced_MOC/experiments/latentmas_role_blocks_s
 
 def main():
     active=json.loads((PRIVATE/'active.json').read_text(encoding='utf-8'))
-    script='''import json,os,sys,hashlib
+    script='''import json,os,sys,hashlib,re
 from pathlib import Path
 run=Path(RUN_VALUE);out=Path(OUT_VALUE);sys.path.insert(0,str(run))
 from cloud_common import identity,load
@@ -19,6 +19,9 @@ value=dict(run=run.name,identity=ident,current=load(out/'current.json'),model_re
  committed=len(rows),unique=len({(r['question_id'],r['repeat'],r['method']) for r in rows}),
  metadata=[{k:r[k] for k in ['question_id','repeat','method','generated_tokens','token_sha','selected_position_sha','retained_kv_bytes','positions_shape','timing']} for r in rows],
  budget={k:b[k] for k in ['actual_tokens','reserved_tokens','unknown_cost_upper_bound_tokens']},own_reservations={k:v for k,v in b['active_reservations'].items() if v['pid']==a['identity']['pid']})
+log=(run/'worker.log').read_text(errors='replace') if (run/'worker.log').exists() else ''
+progress=re.findall(r'Loading checkpoint shards:.*?([0-5])/5',log)
+value['loaded_checkpoint_shards']=int(progress[-1]) if progress else 0
 trace=out/'trace.jsonl'
 if trace.exists():
  lines=trace.read_bytes().split(b'\\n');events=[json.loads(x) for x in lines[-12:] if x]
@@ -28,6 +31,11 @@ print(json.dumps(value,ensure_ascii=False))
     raw=call(script,90);stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
     (PRIVATE/('inspect_'+stamp+'.json')).write_bytes(raw);(PRIVATE/'inspect_latest.json').write_bytes(raw)
     v=json.loads(raw)
-    print(json.dumps(dict(run=v['run'],identity=v['identity'],model_ready=bool(v['model_ready']),committed=v['committed'],unique=v['unique'],remaining=18-v['unique'],current=v['current'],failure=v['failure'],exit=v['exit'],budget=v['budget'],own_reservation_count=len(v['own_reservations']),last_events=v.get('last_events')),ensure_ascii=False))
+    ident=v['identity'];current=v['current'] or {}
+    print(json.dumps(dict(run=v['run'],process={k:ident[k] for k in ['pid','uid','start_ticks','CUDA_VISIBLE_DEVICES']} if ident else None,
+        model_ready=bool(v['model_ready']),loaded_checkpoint_shards=v['loaded_checkpoint_shards'],
+        unique=v['unique'],remaining=18-v['unique'],current={k:current[k] for k in ['question_id','repeat','method','phase'] if k in current},
+        failure=v['failure'],exit=v['exit'],budget=v['budget'],own_reservation_count=len(v['own_reservations']),
+        last_event=(v.get('last_events') or [None])[-1]),ensure_ascii=False))
 
 if __name__=='__main__':main()
