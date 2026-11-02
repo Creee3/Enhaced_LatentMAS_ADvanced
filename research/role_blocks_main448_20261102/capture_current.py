@@ -20,7 +20,8 @@ def main():
             CVD=ident['CUDA_VISIBLE_DEVICES'] if ident else None,model_ready=bool(w['model_ready']),
             new_committed=w['committed'],formal_labels=w['formal_labels'],
             current={k:w['current'][k] for k in ['question_id','method','phase'] if w.get('current') and k in w['current']},
-            failure=w['failure'],exit=w['exit']))
+            failure=dict(error=w['failure'].get('error','')[:240],current=w['failure'].get('current'),committed=w['failure'].get('committed')) if w['failure'] else None,
+            exit={k:w['exit'][k] for k in ['completed','committed','released_idle_tail'] if k in w['exit']} if w['exit'] else None))
     summary=dict(run=v['run'],unique=v['combined_unique'],target=v['target'],remaining=v['remaining'],new_unique=v['new_unique'],reused=v['reused'],duplicates=v['duplicates'],unexpected=v['unexpected'],
         snapshots_valid=all(v['snapshots'].values()),diamond_unique=v['diamond_unique'],diamond_target=v['diamond_target'],queue=v['queue'],
         manager_pid=v['manager_identity']['pid'] if v['manager_identity'] else None,

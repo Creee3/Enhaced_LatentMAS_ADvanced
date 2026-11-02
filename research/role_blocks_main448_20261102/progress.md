@@ -18,3 +18,11 @@
 - 独立审计随后已核验该PID本attempt 7条新答案，覆盖T/R/R-shuffle；raw输入/输出RID与generated_ids SHA、36×8×130位置npz SHA、原RoPE与全部latent/sink保护、实际19169280B及源KV gather运行时证明通过。证明formal_gpu1_pid650904_verified.json两地保存，父6不冒充新worker答案。
 - 捕获时账本actual71748150/unknown33278/reserved8504，单个健康Judger RID预留正常；审计时仍1个健康在途RID，不手工结算，无重复费用结算和新unknown。
 - 当前仅GPU1 worker接入，其余卡由既有manager按fresh原门槛继续检测；没有故障/held，不重载、重排或改变任何科学参数。首次正式接入仅通知一次，之后同样健康进展安静。
+
+## 2026-11-02T15:55Z巡检：GPU3加载失败已归档
+
+- 一次capture为39/1344唯一（新增33+复用6），剩1305；11case complete/1running/434pending/0held，无重复或越界、快照SHA完好。manager650899及健康GPU1 PID650904持续运行。
+- GPU3 PID695578（UID1033/start_ticks184305622/CVD3）以fresh util22%、free22947/24564MiB准入后，在from_pretrained加载时CUDA OOM并退出。失败时仅38MiB剩余，未完成模型加载，未领题、0请求/0raw/0终态答案/0自有RID预留；不能把NVML报错中的宿主PID当容器PID。
+- 没有手工结算、没有新增unknown（仍33278），不制造held或重排已完成答案。GPU3保持本run已尝试状态，不盲重载，不改变分配器或科学参数，不碰其他进程。
+- 完整停止现场、日志、16锁文件、两份原答快照、当时队列/manager/workers/账本归属证明和bundle37已本地流式归档；无预训练权重。archive SHA66978e559a809f70d504814be668e2c65a98152abb699f20026a22c9211b45c8，22675639B/70成员，远端流SHA/gzipCRC/tar精确集合/逐成员与全安全解包SHA全部通过，failure_pid695578_verified.json已两地保存。
+- 本次新增归档器archive_failed_worker.py仅归档停止的自有worker；capture摘要改为截短异常，不回显完整traceback，完整inspect仍私有落盘。源锁70828faf不变。新故障仅通知一次，后续健康进展或相同等待保持安静。
