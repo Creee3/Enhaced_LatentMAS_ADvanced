@@ -21,7 +21,7 @@ files={}
 def add(name,p):
  assert p.is_file() and not p.is_symlink();files[name]=p.read_bytes()
 lock=load(run/'run_lock.json')
-for name in list(lock['files'])+list(lock['snapshots'])+['run_lock.json','queue.json','manager.json','manager_status.json','workers.json','launch_receipt.json','launch_preflight.json']:
+for name in list(lock['files'])+list(lock['snapshots'])+['run_lock.json','queue.json','manager.json','manager_status.json','manager_failure.json','manager_exit.json','manager.log','workers.json','launch_receipt.json','launch_preflight.json']:
  if (run/name).is_file():add('run_snapshot/'+name,run/name)
 for p in out.rglob('*'):
  if p.is_file():add('stopped_attempt/'+p.relative_to(out).as_posix(),p)

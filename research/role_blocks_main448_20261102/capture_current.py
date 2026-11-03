@@ -8,7 +8,7 @@ from deploy import PRIVATE
 
 def main():
     active=json.loads((PRIVATE/'cloud_active.json').read_text(encoding='utf-8'));run=active['run']
-    source='import runpy,sys\nsys.path.insert(0,'+repr(run)+')\nrunpy.run_path('+repr(run+'/inspect_run.py')+',run_name="__main__")'
+    source='import runpy,sys\nfrom pathlib import Path\nsys.path.insert(0,'+repr(run)+')\nif Path('+repr(run+'/manager_recovery.py')+').exists():\n from manager_recovery import install\n install()\nrunpy.run_path('+repr(run+'/inspect_run.py')+',run_name="__main__")'
     raw=call(source,180);stamp=datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
     (PRIVATE/('inspect_'+stamp+'.json')).write_bytes(raw);(PRIVATE/'inspect_latest.json').write_bytes(raw)
     v=json.loads(raw)

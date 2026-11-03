@@ -1,5 +1,7 @@
 # main448角色块固定比较
 
+管理接续：2026-11-03T03:25Z，原manager650899因读取退出中worker的/proc/environ产生PermissionError退出。完整故障归档核验后，以manager_recovery.py管理包装入口保守处理无权限/异UID进程并委托原manager.py，接管健康驻留worker、不重启模型。原16文件科学锁和worker源码不改。具体PID、缺失键单次派发与费用见progress及management恢复记录。
+
 2026-11-02用户授权启动完整实验，最多六卡。
 
 范围：同一GPQA-main448，包含Diamond198；seed42、latent10。T总读出匹配、R真实四块读出匹配、R-shuffle等大小错位连续边界，各448个唯一答案，共1344。完整复用两题试跑第一遍6条，新增446题1338条；后两遍只作工程证据，不当新增样本。旧Full/HeadOBF/JIVE/receiver的latent10共1792条只读复用，最终七方法主集3136键；Diamond子集1386键，不另生成。latent40不在本轮范围。

@@ -48,3 +48,13 @@
 - GPU7 PID1130369/UID1033/start_ticks188146611/CVD7独立核验10条本attempt新答，T/R/R-shuffle均通过：15文件SHA/fullBF16CUDA16381470720B/identity norm、raw RID/token SHA、实际36×8×130位置SHA/实际KV字节及源KV gather、原RoPE和全部latent/sink保护通过。formal_gpu7_pid1130369_verified.json两地保存。
 - 当前GPU0/1/2/6/7五卡正式健康，均未重启/迁移。五个在途Judger RID预留42385正常，捕获actual73829869/unknown33278，无新故障、unknown或手工/重复结算。旧GPU3失败继续归档保留、不重试。
 - inspection_20261103T0255Z.json保存全部五worker真实身份及native/trace/raw进展，两地UTF8同步。首次GPU7正式接入本次通知一次，此后相同健康进展安静。源锁70828faf不变。
+
+## 2026-11-03T03:25Z：GPU6运行OOM与管理器权限故障修复
+
+- 一次capture为503/1344唯一（新增497+复用6），剩841；164case complete/4running/277pending/1held，无重复/越界，原答快照SHA完好。
+- GPU6 PID1132908在gpqa_diamond_test_192的R-shuffle Judger阶段CUDA OOM退出，原11条正式答案完整保留；该题T/R已提交。失败RID1132908-1793674477464879616由Engine一次结算actual8063、unknown428（bound8491），36请求/72 raw记录完整，自有RID预留0；unknown从33278至33706，不再结算。
+- manager650899因读取/proc/1132908/environ PermissionError退出。已完整停止归档该worker、原管理器日志/故障与状态、锁文件/快照/队列及bundle37，无权重：SHA6732574ec52d9c19d1f43b4269bf9d4617ec863e7c5efb71320fe703f091c780，23471472B/91成员，流SHA/gzipCRC/tar精确集合/逐成员及安全全解包SHA全通过，failure_pid1132908_verified.json两地保存。
+- 明确管理修复：management_identity.py先核对UID，PermissionError/消失进程仅返回不可认领，不读取异UID环境；原PID/UID/start_ticks/argv/CVD判定保留。4项CPU测试通过。manager_recovery.py只在管理进程包装identity并委托原manager.py，原16锁文件/worker/算法/参数均不改。捕获器使用同一管理guard避免旧退出PID权限异常。
+- 新manager1180054/UID1033/start_ticks188635966已实际启动并健康接管GPU0/1/2/7原驻留PID1039794/650904/1039151/1130369，无模型重启/迁移、无GPU6重载。完整故障归档后，四个健康驻留worker且其实际可用显存高于失败时5.88MiB，构成接续资源改善；仅一次将case_0151从held转高优先pending，methods仅R-shuffle、recovery_attempt=1，T/R不再生成。
+- 复查new_unique502（加复用6为508），无重复；新管理器无故障，缺失R-shuffle尚pending，不能称恢复完成。新Manager及派发证明manager_recovery_20261103T0325Z.json、recovery_check_20261103T0325Z.json两地保存；原manager_failure已移到management保留原件，完整归档同时保留原路径快照。
+- GPU3旧加载失败和GPU6本次运行失败均不盲重载，不修改allocator，不碰其他进程。旧未知费用一次结算已证明，健康四卡在途预留不手工处理；本次新故障及管理修复/缺失臂派发通知一次，后续实际补齐再记录，若再失败保留新现场不盲试。
