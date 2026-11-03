@@ -58,3 +58,9 @@
 - 新manager1180054/UID1033/start_ticks188635966已实际启动并健康接管GPU0/1/2/7原驻留PID1039794/650904/1039151/1130369，无模型重启/迁移、无GPU6重载。完整故障归档后，四个健康驻留worker且其实际可用显存高于失败时5.88MiB，构成接续资源改善；仅一次将case_0151从held转高优先pending，methods仅R-shuffle、recovery_attempt=1，T/R不再生成。
 - 复查new_unique502（加复用6为508），无重复；新管理器无故障，缺失R-shuffle尚pending，不能称恢复完成。新Manager及派发证明manager_recovery_20261103T0325Z.json、recovery_check_20261103T0325Z.json两地保存；原manager_failure已移到management保留原件，完整归档同时保留原路径快照。
 - GPU3旧加载失败和GPU6本次运行失败均不盲重载，不修改allocator，不碰其他进程。旧未知费用一次结算已证明，健康四卡在途预留不手工处理；本次新故障及管理修复/缺失臂派发通知一次，后续实际补齐再记录，若再失败保留新现场不盲试。
+
+## 2026-11-03T03:55Z：缺失臂实际补齐
+
+- 一次capture为542/1344唯一（新增536+复用6），剩802；178 complete/4 running/264 pending/0 held，无重复越界，源与快照SHA完好。manager1180054及GPU0/1/2/7健康，未重启或迁移模型，无新故障。
+- case_0151仅缺失的R-shuffle由GPU1 PID650904实际提交，RID 650904-1793676859204368277；队列complete、recovery_attempt=1，原GPU6的T/R原答保留。独立审计GPU1当前341条提交，覆盖raw RID/token SHA、36×8×130位置SHA、原KV gather/原RoPE及latent/sink保护，均通过。恢复RID已无预留，unknown仍33706，无手工/重复结算。
+- recovered_case0151_verified.json两地保存，本次仅通知实际恢复一次，后续健康进展安静。GPU3/GPU6旧失败均不重载，原科学锁不变。
