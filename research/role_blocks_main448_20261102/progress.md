@@ -26,3 +26,10 @@
 - 没有手工结算、没有新增unknown（仍33278），不制造held或重排已完成答案。GPU3保持本run已尝试状态，不盲重载，不改变分配器或科学参数，不碰其他进程。
 - 完整停止现场、日志、16锁文件、两份原答快照、当时队列/manager/workers/账本归属证明和bundle37已本地流式归档；无预训练权重。archive SHA66978e559a809f70d504814be668e2c65a98152abb699f20026a22c9211b45c8，22675639B/70成员，远端流SHA/gzipCRC/tar精确集合/逐成员与全安全解包SHA全部通过，failure_pid695578_verified.json已两地保存。
 - 本次新增归档器archive_failed_worker.py仅归档停止的自有worker；capture摘要改为截短异常，不回显完整traceback，完整inspect仍私有落盘。源锁70828faf不变。新故障仅通知一次，后续健康进展或相同等待保持安静。
+
+## 2026-11-03T00:25Z巡检：GPU0/2正式接入，三卡运行
+
+- 一次capture为292/1344唯一（新增286、复用6），剩1052；94case complete/3running/349pending/0held，无重复/越界，两个原答快照SHA通过。manager650899、GPU1 PID650904及模型不变。
+- GPU2 PID1039151/UID1033/start_ticks187320842/CVD2、GPU0 PID1039794/UID1033/start_ticks187326404/CVD0均完成模型加载和本attempt T/R/R-shuffle三臂新答案。独立审计分别9条、8条正式新提交，15文件SHA/fullBF16CUDA16381470720B/identity norm、raw RID/token SHA、实际36×8×130位置SHA与原KV gather/原RoPE/全部latent和sink保护通过；formal_gpu2_pid1039151_verified.json及formal_gpu0_pid1039794_verified.json两地保存。
+- 三个健康Judger RID在途预留25497正常，账本捕获actual73025645/unknown33278，无新unknown、无手工或重复结算。没有重载、迁移或重新派发已完成任务。
+- GPU3旧PID695578加载失败继续保留原档，不重试；其他候选仍由manager原门槛检测。首次正式三卡接入本次通知一次，之后相同健康进展安静。科学锁70828faf不变。
