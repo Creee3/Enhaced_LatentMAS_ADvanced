@@ -64,3 +64,10 @@
 - 一次capture为542/1344唯一（新增536+复用6），剩802；178 complete/4 running/264 pending/0 held，无重复越界，源与快照SHA完好。manager1180054及GPU0/1/2/7健康，未重启或迁移模型，无新故障。
 - case_0151仅缺失的R-shuffle由GPU1 PID650904实际提交，RID 650904-1793676859204368277；队列complete、recovery_attempt=1，原GPU6的T/R原答保留。独立审计GPU1当前341条提交，覆盖raw RID/token SHA、36×8×130位置SHA、原KV gather/原RoPE及latent/sink保护，均通过。恢复RID已无预留，unknown仍33706，无手工/重复结算。
 - recovered_case0151_verified.json两地保存，本次仅通知实际恢复一次，后续健康进展安静。GPU3/GPU6旧失败均不重载，原科学锁不变。
+
+## 2026-11-03T05:52Z：真人要求暂停并统计同题准确率
+
+- 真人明确先停止、不继续生成；automation gpqa-448已PAUSED，未经明确恢复不得启动/接续。先核对真实UID/start_ticks/argv/CVD，停止manager1180054及GPU0/1/2/7四worker；均已实际退出，未触碰他人进程，原答和现场保留。四个中断case由原程序记录KeyboardInterrupt/failed_held，非新增硬件故障，不重排或恢复。
+- 停止capture覆盖675/1344（新669+复用6），剩669；223 complete/0 running/219 pending/4 held。源及两快照SHA通过，无重复越界。自有RID预留0，共享actual74904532/reserved0/unknown58106；中断费用由原Engine处理，无手工或重复结算。
+- 按真人本次明确要求做阶段性统计：并集合并旧四方法1792、复用6和本轮实际新答；三臂均225题，七方法共同225题，其中Diamond106。所有答案使用冻结解析器重算，原correct字段0不一致。旧四方法只读复用，未生成。此为暂停时已完成子集，不是main448完整结果，不因本次阶段性观察调参或宣称显著。
+- user_pause_20261103.json及user_paused_paired_accuracy_20261103.json两地UTF8保存，后者固定输入SHA与同题键列表。
