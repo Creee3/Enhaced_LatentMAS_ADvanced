@@ -13,7 +13,9 @@ def main():
         status=active['status'],old_run_stays_paused=True,automation_id=active.get('automation_id'),
         local_commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=HERE,text=True).strip(),
         source_lock_sha256=active['source_lock_sha256']))
-    for name in ['launch_receipt.json','launch_preflight.json','monitor_prompt.txt']:
+    for name in ['launch_receipt.json','launch_preflight.json','user_pause_20261103.json',
+                 'cuda_initialization_failure.json','cuda_uuid_diagnostic.json','cuda_driver_readonly_diagnostic.json',
+                 'failure_pid1460585_verified.json','failure_pid1460591_verified.json']:
         if (PRIVATE/name).exists():files[name]=(PRIVATE/name).read_bytes()
     destination=PRIVATE/'management';destination.mkdir(exist_ok=True)
     for n,b in files.items():(destination/n).write_bytes(b)
@@ -22,10 +24,12 @@ def main():
     raw=call('''import json,hashlib,base64
 from pathlib import Path
 run=Path(RUN);assert hashlib.sha256((run/'run_lock.json').read_bytes()).hexdigest()==LOCK
-dest=run/'management';dest.mkdir(exist_ok=True)
-for n,b in PAYLOAD.items():
- p=dest/n;p.write_bytes(base64.b64decode(b));assert hashlib.sha256(p.read_bytes()).hexdigest()==DIGESTS[n]
-print(json.dumps(dict(files=len(PAYLOAD),all_sha_match=True,scientific_lock_unchanged=True)))
+destinations=[run/'management',run.parents[1]/'management'/run.name]
+for dest in destinations:
+ dest.mkdir(parents=True,exist_ok=True)
+ for n,b in PAYLOAD.items():
+  p=dest/n;p.write_bytes(base64.b64decode(b));assert hashlib.sha256(p.read_bytes()).hexdigest()==DIGESTS[n]
+print(json.dumps(dict(files=len(PAYLOAD),remote_destinations=len(destinations),all_sha_match=True,scientific_lock_unchanged=True)))
 '''.replace('RUN',repr(active['run'])).replace('LOCK',repr(active['source_lock_sha256'])).replace('PAYLOAD',repr(payload)).replace('DIGESTS',repr(expected)),90)
     (PRIVATE/'management_sync_verified.json').write_bytes(raw)
     print(raw.decode('utf-8'))

@@ -17,3 +17,5 @@ GPU7 PID1460585/UID1033/start191425888/CVD7（fresh util0%、free20923/24564MiB�
 独立UUID定位的全新进程也CUDA unavailable/count0，直接cuInit999；/dev/nvidia-uvm open errno5/EIO，ctl和nvidia2/7 open正常，注册major234一致，libcuda与内核驱动均580.173.02。这是当前环境阻塞，未执行重启、reset、驱动重载或更改他人进程。暂无修复证据，不重试模型。
 
 两失败完整本地归档及远端流SHA/gzipCRC/tar精确85成员/逐成员/安全全解包SHA全部通过：GPU7 archive48305946bf1c1f668e0e98cb2c4618c2b156ffb2ad48423b342dd60cb103ffc0（17231401B），GPU2 archivee402dafef20214631d8f0afb05886eb0f33be7c1455670dfb3f627fa38a76224（17231402B）。费用/归属证明均0新增请求/unknown/手工结算；unknown仍58106。CUDA恢复需要外部环境变化，原三臂持续暂停。
+
+2026-11-03T11:19Z真人再次明确“应该是云端gpu又出问题了，先不弄了”。立即将automation gpqa-448明确更新为PAUSED，并对G当前run、旧暂存与原三臂run写入真人STOP。精确身份核查：G manager1460521、worker1460585/1460591、bootstrap1460520、迟到旧暂存manager1462055、旧零forward预检以及原全部worker/manager均已退出，无需再发信号。自有预留0，账本不变；user_pause_20261103.json保存两地。G状态PAUSED_BY_USER，未经真人明确恢复不做CUDA探测、轮询或自动接续。阶段实验未完成，不删除来源或宣称完成。

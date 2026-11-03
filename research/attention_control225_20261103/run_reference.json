@@ -1,11 +1,13 @@
 {
   "run_name": "attention_G_gpqa_matched225_s42_l10_v2_20261103T111226Z",
-  "status": "BLOCKED_CUDA_INIT",
+  "status": "PAUSED_BY_USER",
   "target": 225,
   "new_target": 225,
   "max_workers": 6,
   "source_lock_sha256": "ad5a0edf3b9049f831a53f505ea89ea11ea3bcbfe18233ae09bb15ac86fbfc6a",
   "old_run_stays_paused": true,
   "manager_pid": 1460521,
-  "max_new_positions": 2362443
+  "max_new_positions": 2362443,
+  "no_resume_without_explicit_user": true,
+  "automation_status": "PAUSED"
 }
