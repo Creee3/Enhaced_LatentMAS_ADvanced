@@ -33,3 +33,11 @@
 - GPU2 PID1039151/UID1033/start_ticks187320842/CVD2、GPU0 PID1039794/UID1033/start_ticks187326404/CVD0均完成模型加载和本attempt T/R/R-shuffle三臂新答案。独立审计分别9条、8条正式新提交，15文件SHA/fullBF16CUDA16381470720B/identity norm、raw RID/token SHA、实际36×8×130位置SHA与原KV gather/原RoPE/全部latent和sink保护通过；formal_gpu2_pid1039151_verified.json及formal_gpu0_pid1039794_verified.json两地保存。
 - 三个健康Judger RID在途预留25497正常，账本捕获actual73025645/unknown33278，无新unknown、无手工或重复结算。没有重载、迁移或重新派发已完成任务。
 - GPU3旧PID695578加载失败继续保留原档，不重试；其他候选仍由manager原门槛检测。首次正式三卡接入本次通知一次，之后相同健康进展安静。科学锁70828faf不变。
+
+## 2026-11-03T02:25Z巡检：GPU6正式接入，GPU7首题运行
+
+- 一次capture为416/1344唯一（新增410+复用6），剩928；135case complete/5running/306pending/0held，无重复/越界，源与两快照SHA通过，manager650899不变。
+- GPU6 PID1132908完成三臂，独立核验本attempt 3条新答：15模型文件SHA/fullBF16CUDA16381470720B/identity norm、raw RID/token SHA、36×8×130原位置SHA、实际KV字节及原KV gather、全部latent/sink保护通过。formal_gpu6_pid1132908_verified.json两地保存。
+- GPU7 PID1130369/UID1033/start_ticks188146611/CVD7以fresh util18%、free18376/24564MiB准入，已完成加载并提交首个T新答，正在首题R生成；尚未完成三臂独立核验，不称正式三臂worker。inspection_20261103T0225Z.json记录真实身份/原准入/持续native及raw进展。
+- 当前0/1/2/6四张卡完成正式三臂核验，GPU7为第五个健康运行中的worker且待三臂验证。健康既有模型均未重启或迁移。五个健康在途Judger预留42646正常；捕获actual73592965/unknown33278，无新故障/unknown或手工结算。
+- 旧GPU3加载失败仍保留完整归档不重试；其他候选继续按原规则。仅本次正式扩展通知一次；正常首题生成与后续同样健康进展安静。源锁70828faf不变。
