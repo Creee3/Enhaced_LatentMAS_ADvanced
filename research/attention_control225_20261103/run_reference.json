@@ -1,0 +1,22 @@
+{
+  "run_name": "attention_G_gpqa_matched225_s42_l10_20261103T110307Z",
+  "status": "STAGED_PREFLIGHT",
+  "target": 225,
+  "new_target": 225,
+  "reused": 0,
+  "baseline_reused": 1575,
+  "max_workers": 6,
+  "allowed_gpus": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "manager_entry": "manager_recovery.py",
+  "source_lock_sha256": "be098afeca58d1f98be3987ccfde6b2c878faea68132d9ce6d4e3e83ba90f9db",
+  "old_run_stays_paused": true
+}

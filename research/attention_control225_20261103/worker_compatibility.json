@@ -1,0 +1,29 @@
+{
+  "parent_worker_sha256": "9afeb9bb3a928889b3c8b8ac28b74bbd790005c8a2758964285df3dd1b631c08",
+  "worker_sha256": "2e773df9c0817be1df922ac6706a060338a56b499d361bf2252b8b178a94486d",
+  "science_functions_ast_equal": [
+    "args_for",
+    "final_select",
+    "judge",
+    "probe",
+    "stage",
+    "timed",
+    "validate"
+  ],
+  "selector": "attention mass G; no V-dependent ranking",
+  "immutable_copied_files": {
+    "block_selector.py": "edb1e60a9a72c9b3eaa9fe96adfb422d783c3e600c0253079949270b8c555d85",
+    "stage_ops.py": "92bfa9a9cd8d504b398843fbacd37fbc02daf5de82345acc59e392b416e73355",
+    "current_jive.py": "03d1a4d31f227f6a525271b675639c0a44f8508a02b461eb27abddf6d684dfab",
+    "author_parser.py": "92163f3a5389c4a7e25868ff931fc919703eb1e500ef74dc03b4810ab6f0225d",
+    "queue_logic.py": "a68a4fb9b30f5e18e9002a14da792e6aaf943151a06a07e3f79d0cfd53d1fe5c"
+  },
+  "control_checks": [
+    "G-only queue",
+    "frozen T prefix selected-position SHA before each final probe"
+  ],
+  "management_changes": [
+    "dynamic plan counts",
+    "UID-first PermissionError identity guard"
+  ]
+}
