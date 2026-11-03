@@ -32,7 +32,9 @@ def main():
                     if slots<=0 or choose(load(RUN/'queue.json')['tasks']) is None:break
                     gpu=candidate['gpu']
                     if gpu not in policy['allowed_gpus'] or gpu in attempted:continue
-                    fresh=next(g for g in gpu_rows() if g['gpu']==gpu)
+                    fresh_rows=gpu_rows([gpu])
+                    if not fresh_rows:continue
+                    fresh=fresh_rows[0]
                     if fresh['utilization']>30 or fresh['free_mib']/fresh['total_mib']<.70:continue
                     # Failure-specific evidence, not a new global resource threshold.
                     block=policy.get('historical_loading_failure',{}).get(str(gpu))

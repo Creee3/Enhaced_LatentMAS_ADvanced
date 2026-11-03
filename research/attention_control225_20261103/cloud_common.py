@@ -28,9 +28,12 @@ def identity(pid):
         env=dict(x.split(b'=',1) for x in (p/'environ').read_bytes().split(b'\0') if b'=' in x)
         return dict(pid=pid,uid=p.stat().st_uid,start_ticks=fields[19],argv=[s.decode() for s in (p/'cmdline').read_bytes().split(b'\0') if s],CUDA_VISIBLE_DEVICES=env.get(b'CUDA_VISIBLE_DEVICES',b'').decode())
     except (PermissionError,FileNotFoundError,ProcessLookupError):return None
-def gpu_rows():
-    raw=subprocess.check_output(['nvidia-smi','--query-gpu=index,uuid,utilization.gpu,memory.free,memory.total','--format=csv,noheader,nounits'],text=True)
-    return [dict(gpu=int(a),uuid=b.strip(),utilization=float(c),free_mib=float(d),total_mib=float(e)) for a,b,c,d,e in (line.split(',') for line in raw.strip().splitlines())]
+def gpu_rows(gpus=None):
+    from gpu_probe import collect
+    rows,errors=collect(range(8) if gpus is None else gpus)
+    save(RUN/'gpu_health_latest.json',dict(unix=time.time(),checked=[r['gpu'] for r in rows]+list(errors),errors=errors))
+    return rows
+
 def verify():
     lock=load(RUN/'run_lock.json')
     for n,v in lock['files'].items():

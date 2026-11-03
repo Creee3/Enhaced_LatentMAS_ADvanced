@@ -1,22 +1,11 @@
 {
-  "run_name": "attention_G_gpqa_matched225_s42_l10_20261103T110307Z",
-  "status": "STAGED_PREFLIGHT",
+  "run_name": "attention_G_gpqa_matched225_s42_l10_v2_20261103T111226Z",
+  "status": "BLOCKED_CUDA_INIT",
   "target": 225,
   "new_target": 225,
-  "reused": 0,
-  "baseline_reused": 1575,
   "max_workers": 6,
-  "allowed_gpus": [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7
-  ],
-  "manager_entry": "manager_recovery.py",
-  "source_lock_sha256": "be098afeca58d1f98be3987ccfde6b2c878faea68132d9ce6d4e3e83ba90f9db",
-  "old_run_stays_paused": true
+  "source_lock_sha256": "ad5a0edf3b9049f831a53f505ea89ea11ea3bcbfe18233ae09bb15ac86fbfc6a",
+  "old_run_stays_paused": true,
+  "manager_pid": 1460521,
+  "max_new_positions": 2362443
 }

@@ -31,7 +31,7 @@ def main():
     try:
         source=verify(snapshots=True);plan=load(RUN/'plan.json');items=load(RUN/'questions.json')
         assert plan['methods']==['G']
-        references=[json.loads(x) for x in (RUN/'baseline_results.jsonl').read_text(encoding='utf-8').splitlines() if x]
+        references=[json.loads(x) for x in (RUN/'baseline_results.jsonl').read_bytes().split(b'\n') if x]
         reference_T={r['question_id']:r for r in references if r['method']=='T'}
         assert len(reference_T)==len(items)==225
         assert os.environ['LATENTMAS_SHARED_LEDGER']==str(ROOT/'cumulative_budget.json')

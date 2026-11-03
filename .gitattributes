@@ -6,3 +6,7 @@
 # Preserve exact historical bytes, including intentional prompt whitespace.
 snapshot/** -text -whitespace
 provenance/original*_lock.json -text -whitespace
+# Byte-identical runtime copies are hashed against the historical source.
+research/attention_control225_20261103/author_parser.py -text -whitespace
+research/attention_control225_20261103/stage_ops.py -text -whitespace
+research/attention_control225_20261103/queue_logic.py -text -whitespace

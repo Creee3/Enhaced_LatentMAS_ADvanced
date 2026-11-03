@@ -23,7 +23,7 @@ def build():
     worker=worker.replace("source=verify(snapshots=True);plan=load(RUN/'plan.json');items=load(RUN/'questions.json')",
         "source=verify(snapshots=True);plan=load(RUN/'plan.json');items=load(RUN/'questions.json')\n"
         "        assert plan['methods']==['G']\n"
-        "        references=[json.loads(x) for x in (RUN/'baseline_results.jsonl').read_text(encoding='utf-8').splitlines() if x]\n"
+        "        references=[json.loads(x) for x in (RUN/'baseline_results.jsonl').read_bytes().split(b'\\n') if x]\n"
         "        reference_T={r['question_id']:r for r in references if r['method']=='T'}\n"
         "        assert len(reference_T)==len(items)==225")
     marker="                (captured,pr),probe_seconds=timed(lambda:probe(item,'judger',cache,absolute,True))"
@@ -47,6 +47,8 @@ def build():
     manager=(OLD/'manager.py').read_text(encoding='utf-8')
     manager=manager.replace('target=1344,reused=6,new_target=1338',
                             "target=plan['total_target'],reused=0,new_target=plan['new_target']")
+    manager=manager.replace("fresh=next(g for g in gpu_rows() if g['gpu']==gpu)",
+        "fresh_rows=gpu_rows([gpu])\n                    if not fresh_rows:continue\n                    fresh=fresh_rows[0]")
     (HERE/'manager.py').write_text(manager,encoding='utf-8',newline='\n')
     for name in ['cloud_common.py','stage_ops.py','current_jive.py','author_parser.py','queue_logic.py']:
         (HERE/name).write_bytes((REPO/'snapshot/run'/name).read_bytes())
@@ -56,6 +58,13 @@ def build():
     common=common.replace("        fields=(p/'stat')", "        if p.stat().st_uid != os.getuid():return None\n        fields=(p/'stat')")
     common=common.replace('except (FileNotFoundError,ProcessLookupError):',
                           'except (PermissionError,FileNotFoundError,ProcessLookupError):')
+    start=common.index('def gpu_rows():');end=common.index('\ndef verify():',start)
+    common=common[:start]+'''def gpu_rows(gpus=None):
+    from gpu_probe import collect
+    rows,errors=collect(range(8) if gpus is None else gpus)
+    save(RUN/'gpu_health_latest.json',dict(unix=time.time(),checked=[r['gpu'] for r in rows]+list(errors),errors=errors))
+    return rows
+'''+common[end:]
     (HERE/'cloud_common.py').write_text(common,encoding='utf-8',newline='\n')
     proof=dict(parent_worker_sha256=sha(OLD/'cloud_worker.py'),worker_sha256=sha(HERE/'cloud_worker.py'),
                science_functions_ast_equal=sorted(names),selector='attention mass G; no V-dependent ranking',
@@ -86,7 +95,6 @@ def build():
         " rec=row['judger_receipt'];rid=rec['reservation_id']")
     audit=audit.replace("assert ready['verified_weight_files']==15", "assert abs(ready['target_norm']-1.3758320808410645)<1e-6\nassert ready['verified_weight_files']==15")
     (HERE/'verify_formal_worker.py').write_text(audit,encoding='utf-8',newline='\n')
-    (HERE/'archive_failed_worker.py').write_bytes((OLD/'archive_failed_worker.py').read_bytes())
     return proof
 
 

@@ -29,7 +29,8 @@ add('stopped_attempt/worker.log',Path(worker['log']))
 base=run.parents[1]/'evidence/gpqa_repair_8096_20261028T161254Z/bundle'
 for name in list(load(base/'source_lock.json')['files'])+['source_lock.json']:
  add('referenced_bundle37/'+name,base/name)
-trace=[json.loads(x) for x in (out/'trace.jsonl').read_bytes().split(b'\\n') if x]
+tracefile=out/'trace.jsonl'
+trace=[json.loads(x) for x in tracefile.read_bytes().split(b'\\n') if x] if tracefile.exists() else []
 raw=out/'raw/requests_raw.jsonl'
 rawrows=[json.loads(x) for x in raw.read_bytes().split(b'\\n') if x] if raw.exists() else []
 proof=dict(pid=pid,gpu=worker['gpu'],initial_identity=worker['initial_identity'],admission=worker['admission'],
