@@ -13,3 +13,7 @@ GPU1逐次加载4worker完成，真实UID1000/start_ticks/argv/CVD1均独立核�
 2026-11-06T17:18Z巡检：一次完整UTF8 inspect私有落地，39/675唯一（新35+复用4），剩636；11complete/4running/210pending/0held，源及全部参考/复用快照SHA通过，无重复或越界。manager28169及四worker真实身份与启动一致，无新故障。28440的8条本attempt新答、28695的5条分别完成T/R/G全部独立核验，raw RID/token SHA、36x8x130位置/保护行/实际KV及native位置通过；至此四worker均已正式三标签核验（此前28172和28985已通过），两地证明保存。账本actual75097100/reserved34189/unknown58106，健康在途预留正常，无手工或重复结算，无未完成准确率。继续ACTIVE40分钟，常规健康进展不打扰。
 
 2026-11-06T17:58Z巡检：一次完整UTF8 inspect私有落地，59/675唯一（新55+复用4），剩616；18complete/4running/203pending/0held，无重复越界，源锁fa21c45d及所有参考/复用快照SHA完好。manager28169及四正式worker28172/28440/28695/28985健康，各提交15/16/10/14，均较上轮推进，无新故障。实际RID预留归属与真实存活worker/本run一致；账本75195247/reserved34260/unknown58106，在途正常，无手工/重复结算，无未完成准确率。中文管理接续两地保存，原科学锁和暂停run不变，ACTIVE40分钟继续。
+
+2026-11-06T18:38Z巡检：一次完整UTF8 inspect私有落地，80/675唯一（新76+复用4），剩595；24complete/4running/197pending/0held，无重复越界或新故障。源锁及所有快照SHA完好，manager28169与四正式worker真实身份健康，各提交18/21/17/20；RID预留均属于真实自有在途worker。账本75307948/reserved34920/unknown58106，无手工结算，继续ACTIVE40分钟，两地接续保存。
+
+完成阶段final_summary.py已在b974247冻结SHA两地保存；没有读取/计算当前正确率。须完整675精确键、全部队列完成/进程退出/预留0及归档通过，才调用冻结作者解析器复算。225/D106/nonD119分别报告，仅all225 R对T是预登记primary，子组和G比较均探索性；无shuffle不主张角色边界因果。KV是实际保留字节对原位置未压缩参照的加权比，费用按新run/pilot/前置A100失败的settled RID去重并对账本增量。4项合成测试与30源/3584公开快照复核通过，0模型调用。首次管理记录误用inspect basename导致远端FileNotFoundError，未改科学文件；改用active绝对路径后保存成功。
