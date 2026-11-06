@@ -17,3 +17,5 @@ GPU1逐次加载4worker完成，真实UID1000/start_ticks/argv/CVD1均独立核�
 2026-11-06T18:38Z巡检：一次完整UTF8 inspect私有落地，80/675唯一（新76+复用4），剩595；24complete/4running/197pending/0held，无重复越界或新故障。源锁及所有快照SHA完好，manager28169与四正式worker真实身份健康，各提交18/21/17/20；RID预留均属于真实自有在途worker。账本75307948/reserved34920/unknown58106，无手工结算，继续ACTIVE40分钟，两地接续保存。
 
 完成阶段final_summary.py已在b974247冻结SHA两地保存；没有读取/计算当前正确率。须完整675精确键、全部队列完成/进程退出/预留0及归档通过，才调用冻结作者解析器复算。225/D106/nonD119分别报告，仅all225 R对T是预登记primary，子组和G比较均探索性；无shuffle不主张角色边界因果。KV是实际保留字节对原位置未压缩参照的加权比，费用按新run/pilot/前置A100失败的settled RID去重并对账本增量。4项合成测试与30源/3584公开快照复核通过，0模型调用。首次管理记录误用inspect basename导致远端FileNotFoundError，未改科学文件；改用active绝对路径后保存成功。
+
+2026-11-06T19:18Z巡检：一次完整UTF8 inspect私有落地，109/675唯一（新105+复用4），剩566；35complete/4running/186pending/0held。源锁与快照SHA完好，无重复/越界/新故障，manager28169与4个真实自有worker正常，各提交25/27/26/27。实际RID预留均归属本run存活worker；账本75419606/reserved34080/unknown58106，健康在途不手工结算，未算未完成准确率。中文接续两地保存，原科学锁/旧暂停run不变，监控ACTIVE40分钟继续。
