@@ -25,3 +25,5 @@ GPU1逐次加载4worker完成，真实UID1000/start_ticks/argv/CVD1均独立核�
 2026-11-06T20:38Z巡检：一次完整UTF8 inspect私有落地，165/675唯一（新161+复用4），剩510；54complete/4running/167pending/0held。源锁与快照SHA完好，无重复/越界/新故障，manager28169与4个真实自有worker正常，各提交38/43/37/43。实际RID预留均归属本run存活worker；账本75653350/reserved34229/unknown58106，健康在途不手工结算，未算未完成准确率。中文接续两地保存，原科学锁/旧暂停run不变，监控ACTIVE40分钟继续。
 
 2026-11-06T21:18Z巡检：一次完整UTF8 inspect私有落地，188/675唯一（新184+复用4），剩487；62complete/4running/159pending/0held。源锁与快照SHA完好，无重复/越界/新故障，manager28169与4个真实自有worker正常，各提交42/49/42/51。实际RID预留均归属本run存活worker；账本75750767/reserved34128/unknown58106，健康在途不手工结算，未算未完成准确率。中文接续两地保存，原科学锁/旧暂停run不变，监控ACTIVE40分钟继续。
+
+2026-11-06T21:58Z巡检：一次完整UTF8 inspect私有落地，211/675唯一（新207+复用4），剩464；69complete/4running/152pending/0held。源锁与快照SHA完好，无重复/越界/新故障，manager28169与4个真实自有worker正常，各提交52/52/47/56。实际RID预留均归属本run存活worker；账本75856360/reserved25734/unknown58106，健康在途不手工结算，未算未完成准确率。中文接续两地保存，原科学锁/旧暂停run不变，监控ACTIVE40分钟继续。
