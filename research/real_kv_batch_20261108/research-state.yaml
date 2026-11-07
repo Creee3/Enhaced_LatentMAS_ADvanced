@@ -1,0 +1,7 @@
+status: completed_engineering_trial
+throughput_improvement: observed_1.660x_vs_four_processes
+trajectory_equivalence: failed_3_of_4_cases
+next_step: teacher_forced_logits_and_rng_divergence_localization
+production_integration: blocked_by_equivalence_check
+scientific_runs: unchanged
+background_jobs: none
