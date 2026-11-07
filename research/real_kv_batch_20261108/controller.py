@@ -19,25 +19,39 @@ def launch(mode,index=0):
  with (OUT/(mode+str(index)+'.log')).open('ab') as log:
   p=subprocess.Popen(argv,cwd=OUT,env=env,stdout=log,stderr=log,stdin=subprocess.DEVNULL,start_new_session=True)
  time.sleep(.1);meta=dict(pid=p.pid,identity=identity(p.pid),mode=mode,index=index);save(OUT/(mode+str(index)+'_identity.json'),meta);return p
+def admit(first,name):
+ start=time.monotonic()
+ while True:
+  fresh=subprocess.run(['nvidia-smi','-i','0','--query-gpu=utilization.gpu,memory.free,memory.total','--format=csv,noheader,nounits'],capture_output=True,text=True,check=True).stdout
+  u,f,t=map(int,fresh.strip().split(','));save(OUT/(name+'_admission.json'),dict(util=u,free=f,total=t,unix=time.time()))
+  if (u<=30 and f/t>=.70) if first else f>=21*1024:return
+  if time.monotonic()-start>120:raise RuntimeError('fresh admission still unavailable')
+  time.sleep(1)
 def main():
  a=load(OUT/'launch.json');wait_for(lambda:(OUT/'prepared.json').exists() and identity(a['prepare_pid']) is None)
  import torch
  packets=[torch.load(OUT/f'packet{i}.pt',weights_only=True) for i in range(4)]
  lens=[j['ids'].shape[-1] for j in packets]
- prep_cost=load(ROOT/'cumulative_budget.json')['actual_tokens']-a['ledger_before']
+ prep_trace=[json.loads(b) for b in (OUT/'prefix/trace.jsonl').read_bytes().split(b'\n') if b]
+ prep_cost=sum(x['actual_positions'] for x in prep_trace if x['event']=='request_settled')
  upper=prep_cost+sum(3*n+16+256 for n in lens)*2+4*(3*max(lens)+16+256)
  assert upper<=100000
  save(OUT/'preflight.json',dict(prefix_cost=prep_cost,total_conservative_bound=upper,prompt_lengths=lens,zero_extra_forward=True))
  # One model sequential and one model batch use same saved real KV packets.
  for mode in ['serial','batch']:
-  fresh=subprocess.run(['nvidia-smi','-i','0','--query-gpu=utilization.gpu,memory.free,memory.total','--format=csv,noheader,nounits'],capture_output=True,text=True,check=True).stdout
-  u,f,t=map(int,fresh.strip().split(','));assert u<=30 and f/t>=.70
+  meta=load(OUT/(mode+'0_identity.json'))
+  if meta and identity(meta['pid']):
+   actual=identity(meta['pid']);assert actual==meta['identity']
+   wait_for(lambda:identity(meta['pid']) is None)
+   assert load(OUT/mode/'done.json')['passed']
+  if (OUT/mode/'done.json').exists():
+   meta=load(OUT/(mode+'0_identity.json'));assert identity(meta['pid']) is None and load(OUT/mode/'done.json')['passed'];continue
+  admit(True,mode)
   p=launch(mode);wait_for(lambda:p.poll() is not None);assert p.returncode==0 and load(OUT/mode/'done.json')['passed']
  # Four separate resident models, staged loading with fresh resource admission.
  processes=[]
  for i in range(4):
-  fresh=subprocess.run(['nvidia-smi','-i','0','--query-gpu=utilization.gpu,memory.free,memory.total','--format=csv,noheader,nounits'],capture_output=True,text=True,check=True).stdout
-  u,f,t=map(int,fresh.strip().split(','));assert (u<=30 and f/t>=.70) if not i else f>=21*1024
+  admit(not i,'process'+str(i))
   p=launch('process',i);processes.append(p);wait_for(lambda i=i:(OUT/f'process{i}'/'ready.json').exists())
  cpus=sorted(os.sched_getaffinity(0));assert len(cpus)>=4
  for i,p in enumerate(processes):
