@@ -70,3 +70,5 @@ management/gpu01_expansion_verified.json、gpu0_takeover_verified.json、gpu01_m
 2026-11-07T07:18Z巡检：一次完整UTF8 inspect私有落地，647/675唯一（新643+复用4），剩28；213complete/8running/4pending/0held。源锁与快照SHA完好，无重复/越界/新故障，manager96471与8个真实自有worker正常，各提交119/130/108/127/41/38/37/43。实际RID预留均归属本run存活worker；账本77993876/reserved68169/unknown58106，健康在途不手工结算，未算未完成准确率。中文接续两地保存，原科学锁/旧暂停run不变，监控ACTIVE40分钟继续。
 
 2026-11-07T07:58Z巡检：一次完整UTF8 inspect私有落地，675/675唯一（新671+复用4），剩0；225complete/0running/0pending/0held。源锁与快照SHA完好，无重复/越界/新故障，manager已退出与0个真实自有worker正常，各提交121/133/114/129/45/42/39/48。实际RID预留均归属本run存活worker；账本78143752/reserved0/unknown58106，健康在途不手工结算，未算未完成准确率。中文接续两地保存，原科学锁/旧暂停run不变，监控ACTIVE40分钟继续。
+
+2026-11-07完成：675精确键，全部进程正常退出、预留0；完整671新答结构审计/费用对账/本地归档五重验证通过。冻结程序T104/225、R114/225、G114/225；R对T精确p=.220328未显著。Diamond与非Diamond分开报告见final_report.md，不宣称等价或边界因果收益。中文记录和结果两地保存，监控gpqa-448已删除，无新增实验。

@@ -11,9 +11,9 @@
 
 启动完成：manager28169，GPU1 slots PID28172/28440/28695/28985均独立15SHA/BF16CUDA/identity/norm通过，资源快照68830MiB/81920MiB；三方法本attempt新答正式核验仍由后续巡检继续，未冒称已全部正式。监控gpqa-448已ACTIVE，每40分钟。
 
-- [ ] 完成675唯一覆盖，所有自有进程退出、预留0、无held/pending缺失。
-- [ ] 全量归档与CRC/精确集合/逐成员/安全解包SHA，冻结程序统计与R对T精确McNemar，分开报告Diamond/非Diamond。
-- [ ] 两地最终记录/Git不push，完成后删除监控。
+- [x] 完成675唯一覆盖，所有自有进程退出、预留0、无held/pending缺失。
+- [x] 全量归档与CRC/精确集合/逐成员/安全解包SHA，冻结程序统计与R对T精确McNemar，分开报告Diamond/非Diamond。
+- [x] 两地最终记录/Git不push，完成后删除监控。
 
 完成阶段：使用已冻结SHA的final_summary.py；分析锁在run/management/analysis_program_lock.json。先归档验证，写completion_archive_verified.json，须含passed以及remote_stream_sha/gzip_crc/exact_members/per_member_sha/safe_full_extract_readback_sha均true，再执行汇总。不得绕过覆盖/退出/费用/归档门槛。
 
