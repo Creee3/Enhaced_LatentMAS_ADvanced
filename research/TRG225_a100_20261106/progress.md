@@ -39,3 +39,10 @@ GPU1逐次加载4worker完成，真实UID1000/start_ticks/argv/CVD1均独立核�
 2026-11-07T01:18Z巡检：一次完整UTF8 inspect私有落地，318/675唯一（新314+复用4），剩357；105complete/4running/116pending/0held。源锁与快照SHA完好，无重复/越界/新故障，manager28169与4个真实自有worker正常，各提交78/76/73/87。实际RID预留均归属本run存活worker；账本76364992/reserved25625/unknown58106，健康在途不手工结算，未算未完成准确率。中文接续两地保存，原科学锁/旧暂停run不变，监控ACTIVE40分钟继续。
 
 2026-11-07T01:58Z巡检：一次完整UTF8 inspect私有落地，341/675唯一（新337+复用4），剩334；112complete/4running/109pending/0held。源锁与快照SHA完好，无重复/越界/新故障，manager28169与4个真实自有worker正常，各提交87/81/79/90。实际RID预留均归属本run存活worker；账本76466521/reserved34009/unknown58106，健康在途不手工结算，未算未完成准确率。中文接续两地保存，原科学锁/旧暂停run不变，监控ACTIVE40分钟继续。
+
+2026-11-07T02:23Z巡检：一次完整UTF8 inspect私有落地，352/675唯一（新348+复用4），剩323；115complete/8running/102pending/0held。源锁与快照SHA完好，无重复/越界/新故障，manager96471与8个真实自有worker正常，各提交89/84/81/92/2/0/0/0。实际RID预留均归属本run存活worker；账本76537250/reserved51446/unknown58106，健康在途不手工结算，未算未完成准确率。中文接续两地保存，原科学锁/旧暂停run不变，监控ACTIVE40分钟继续。
+
+2026-11-07 GPU0扩展实际完成：真人明确授权GPU0/1各4、总8并发。新manager96471接管原GPU1驻留PID28172/28440/28695/28985，未重启迁移模型；GPU0 PID96474/96894/97300/97656四份模型均已ready，独立15SHA/fullBF16CUDA16381470720B/identity/mean-input-L2验证通过。GPU0目前2条新答，R/G原始RID/token SHA、36×8×130原位置、原KV gather/RoPE、保护行/实际19169280B核验通过，T尚在途；其余新worker尚待本attempt三臂新答，不能冒称全部正式三臂审计完成，后续按verify_worker.py继续。
+一次完整UTF8 inspect：352/675唯一（新348+复用4），剩323，115complete/8running/102pending/0held，0重复/越界/新故障。源锁fa21c45d93c74ab80fbd3196acb5f389a679830600a731a86ca6d26144db040f与两参考快照完好。账本actual76537250/reserved51446/unknown58106，健康预留不手工结算，未算未完成准确率。
+CPU资源观察：原GPU1四进程全部线程挤同一CPU70，各约25%CPU，允许8CPU且cgroup无节流。仅对已核验自有model-ready worker的线程在当时容器允许CPU集合内分开，不改线程数/科学参数；CPU集合会动态变化，不盲套过期核号。最终8进程亲和性分开后5次资源采样：GPU0 util100–100%、GPU1 99–100%，两卡P0/SM1410=max1410MHz；GPU0用70036/free11118MiB，GPU1用72658/free8496MiB，温度59/57C。保留生成余量，不提高功率或时钟，不把利用率/字节比解释为实测吞吐倍数，不据此宣称A100单流比4090快。
+management/gpu01_expansion_verified.json、gpu0_takeover_verified.json、gpu01_management_lock.json、cpu_distribution_verified.json及旧管理/队列快照两地保存；完整旧manager日志保留。原40分钟监控已更新两卡8并发与新管理入口，旧run继续暂停。
