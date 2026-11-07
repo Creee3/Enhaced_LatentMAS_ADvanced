@@ -60,3 +60,5 @@ management/gpu01_expansion_verified.json、gpu0_takeover_verified.json、gpu01_m
 2026-11-07T03:58Z巡检：一次完整UTF8 inspect私有落地，458/675唯一（新454+复用4），剩217；151complete/8running/66pending/0held。源锁与快照SHA完好，无重复/越界/新故障，manager96471与8个真实自有worker正常，各提交97/100/91/106/22/12/13/13。实际RID预留均归属本run存活worker；账本77017137/reserved59623/unknown58106，健康在途不手工结算，未算未完成准确率。中文接续两地保存，原科学锁/旧暂停run不变，监控ACTIVE40分钟继续。
 
 2026-11-07T04:38Z巡检：一次完整UTF8 inspect私有落地，499/675唯一（新495+复用4），剩176；164complete/8running/53pending/0held。源锁与快照SHA完好，无重复/越界/新故障，manager96471与8个真实自有worker正常，各提交101/109/94/111/27/14/17/22。实际RID预留均归属本run存活worker；账本77217020/reserved59871/unknown58106，健康在途不手工结算，未算未完成准确率。中文接续两地保存，原科学锁/旧暂停run不变，监控ACTIVE40分钟继续。
+
+2026-11-07T05:18Z巡检：一次完整UTF8 inspect私有落地，547/675唯一（新543+复用4），剩128；180complete/8running/37pending/0held。源锁与快照SHA完好，无重复/越界/新故障，manager96471与8个真实自有worker正常，各提交109/113/98/113/34/21/25/30。实际RID预留均归属本run存活worker；账本77428507/reserved59766/unknown58106，健康在途不手工结算，未算未完成准确率。中文接续两地保存，原科学锁/旧暂停run不变，监控ACTIVE40分钟继续。
