@@ -29,7 +29,7 @@ def main():
  q=full['queue'];b=full['budget'];counts='/'.join(str(w['committed']) for w in full['workers'])
  text=(f"\n{utc.strftime('%Y-%m-%dT%H:%MZ')}巡检：一次完整UTF8 inspect私有落地，{full['combined_unique']}/675唯一"
   f"（新{full['new_unique']}+复用4），剩{full['remaining']}；{q['complete']}complete/{q['running']}running/{q['pending']}pending/0held。"
-  f"源锁与快照SHA完好，无重复/越界/新故障，manager28169与{len(live)}个真实自有worker正常，各提交{counts}。"
+  f"源锁与快照SHA完好，无重复/越界/新故障，manager{full['manager_identity']['pid'] if full['manager_identity'] else '已退出'}与{len(live)}个真实自有worker正常，各提交{counts}。"
   f"实际RID预留均归属本run存活worker；账本{b['actual_tokens']}/reserved{b['reserved_tokens']}/unknown{b['unknown_cost_upper_bound_tokens']}，"
   "健康在途不手工结算，未算未完成准确率。中文接续两地保存，原科学锁/旧暂停run不变，监控ACTIVE40分钟继续。\n")
  progress=HERE/'progress.md';progress.write_text(progress.read_text(encoding='utf-8')+text,encoding='utf-8')

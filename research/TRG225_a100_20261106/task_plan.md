@@ -16,3 +16,5 @@
 - [ ] 两地最终记录/Git不push，完成后删除监控。
 
 完成阶段：使用已冻结SHA的final_summary.py；分析锁在run/management/analysis_program_lock.json。先归档验证，写completion_archive_verified.json，须含passed以及remote_stream_sha/gzip_crc/exact_members/per_member_sha/safe_full_extract_readback_sha均true，再执行汇总。不得绕过覆盖/退出/费用/归档门槛。
+
+2026-11-07用户追加明确授权：GPU0/1各4、总8并发；management/pool_manager.py版本接管，详见../TRG225_gpu0_expansion_20261107。原GPU1四模型保持驻留，科学锁不变。
