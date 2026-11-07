@@ -50,3 +50,7 @@ management/gpu01_expansion_verified.json、gpu0_takeover_verified.json、gpu01_m
 2026-11-07T02:38Z巡检：一次完整UTF8 inspect私有落地，373/675唯一（新369+复用4），剩302；123complete/8running/94pending/0held。源锁与快照SHA完好，无重复/越界/新故障，manager96471与8个真实自有worker正常，各提交91/87/84/93/6/1/3/4。实际RID预留均归属本run存活worker；账本76628796/reserved42714/unknown58106，健康在途不手工结算，未算未完成准确率。中文接续两地保存，原科学锁/旧暂停run不变，监控ACTIVE40分钟继续。
 
 2026-11-07T02:38Z扩展核验：GPU0 PID96474/97300/97656分别6/3/4条本attempt新答，T/R/G三臂独立15SHA/BF16CUDA/norm、raw RID/token SHA、36×8×130原位置/实际KV与保护行核验通过；PID96894只有G一条，结构核验通过且R/T仍健康在途，不冒称该worker正式三臂完成。八个worker及manager96471健康，management模块/资源策略SHA与科学锁均核对通过；checkpoint两地保存。按授权保持安静，不做重复长轮询或未完成准确率。
+
+2026-11-07T03:18Z巡检：一次完整UTF8 inspect私有落地，411/675唯一（新407+复用4），剩264；135complete/8running/82pending/0held。源锁与快照SHA完好，无重复/越界/新故障，manager96471与8个真实自有worker正常，各提交94/94/89/99/13/4/8/6。实际RID预留均归属本run存活worker；账本76808889/reserved59703/unknown58106，健康在途不手工结算，未算未完成准确率。中文接续两地保存，原科学锁/旧暂停run不变，监控ACTIVE40分钟继续。
+
+2026-11-07T03:18Z核验：GPU0最后待三臂worker PID96894已4条本attempt新答，T/R/G均独立核验通过（15文件SHA/BF16CUDA/identity/norm、raw RID/token SHA、36×8×130位置/实际KV/原KV gather/RoPE/保护行）。至此GPU0四份与原GPU1四份均有各自正式三臂证明；不以复用4条充当新提交。management模块/资源策略及科学锁SHA复核通过，证明两地保存。八worker和manager96471健康，不重复通知常规进展，监控40分钟继续。
