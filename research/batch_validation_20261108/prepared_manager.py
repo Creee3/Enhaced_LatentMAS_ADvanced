@@ -17,7 +17,8 @@ def main(execute=False):
  assert verify()['run_lock_sha256']==plan['source_run_lock_sha256']
  budget=load(ROOT/'cumulative_budget.json');upper=4*9*32768
  assert budget['actual_tokens']+budget['reserved_tokens']+budget['unknown_cost_upper_bound_tokens']+upper<=115000000
- if not execute:print(json.dumps(dict(validated=True,launched=False,conservative_upper_positions=upper)));return
+ if not execute:print(json.dumps(dict(validated=True,launched=False,scope_choice=plan.get('scope_choice','four_case_engineering_smoke_draft'),launch_authorized=plan.get('launch_authorized',False),conservative_upper_positions=upper)));return
+ assert plan.get('launch_authorized') is True,'Resolve the requested experiment scope before execution'
  guard=(OUT/'manager.lock').open('a');fcntl.flock(guard,fcntl.LOCK_EX|fcntl.LOCK_NB)
  assert not (OUT/'workers.json').exists(),'Never restart completed or partial attempts blindly'
  pipe=Path('/tmp')/('ltrg_'+str(os.getpid()));pipe.mkdir(mode=0o700);(OUT/'mps_logs').mkdir(mode=0o700)

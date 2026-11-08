@@ -39,7 +39,7 @@ def main(index):
   s=stages[-1];last=s['original_before']+s['prompt_len']-8;assert bool((((position>=last)&(position<last+8)).sum(-1)==8).all())
   torch.random.set_rng_state(rng[0]);torch.cuda.set_rng_state_all(rng[1]);start=time.monotonic();answer,receipt=ns['judge'](item,compact,absolute,mode)
   np.savez_compressed(out/(mode+'_positions.npz'),positions=position.cpu().numpy())
-  append(out/'results.jsonl',dict(engineering_only=True,packet=index,method=mode,seed=42,latent_steps=10,cap=8192,answer_text=answer,receipt=receipt,token_sha=hashlib.sha256(json.dumps(receipt['generated_ids']).encode()).hexdigest(),position_sha=hashlib.sha256(position.cpu().numpy().tobytes()).hexdigest(),shared_request_ids=shared,prefix_transfers=transfers,actual_kv_bytes=19169280,seconds=time.monotonic()-start,diagnostics=diagnostics))
+  append(out/'results.jsonl',dict(engineering_only=True,packet=index,method=mode,seed=42,latent_steps=10,cap=8192,answer_text=answer,receipt=receipt,token_sha=hashlib.sha256(json.dumps(receipt['generated_ids']).encode()).hexdigest(),position_sha=hashlib.sha256(position.cpu().numpy().tobytes()).hexdigest(),shared_request_ids=shared,prefix_stages=stages,prefix_transfers=transfers,source_k_equal_measured=True,source_v_equal_measured=True,actual_kv_bytes=19169280,original_end=absolute,seconds=time.monotonic()-start,diagnostics=diagnostics))
   del compact;gc.collect();torch.cuda.empty_cache()
  (out/'done.json').write_text(json.dumps(dict(passed=True,methods=order,accuracy_computed=False)))
 if __name__=='__main__':
