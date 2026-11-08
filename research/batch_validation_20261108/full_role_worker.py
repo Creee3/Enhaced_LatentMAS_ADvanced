@@ -11,6 +11,11 @@ def main(index):
  from stage_ops import observe,pairs,compress,make_cache,clone_cache
  from selector_dispatch import select
  from cloud_common import verify
+ old_check=Ledger.check
+ def check(self):
+  old_check(self)
+  if (OUT/'STOP').exists():raise RuntimeError('User requested STOP for this smoke run')
+ Ledger.check=check
  source=verify();plan=json.loads((OUT/'launch_plan.json').read_text());assert plan['status']=='VALIDATED_FOUR_CASE_SMOKE' and plan['methods']==['T','R','G'] and plan['case_indices']==[0,1,2,3]
  out=OUT/f'case{index}';out.mkdir();items=json.loads((RUN/'questions.json').read_text());item=items[index]
  names=['args_for','timed','context','stage','probe','judge','final_select'];tree=ast.parse((RUN/'cloud_worker.py').read_text());oldmain=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='main');defs=[n for n in ast.walk(oldmain) if isinstance(n,ast.FunctionDef) and n.name in names];assert len(defs)==7
