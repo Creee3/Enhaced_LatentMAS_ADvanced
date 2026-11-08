@@ -3,11 +3,12 @@ user_directions:
   - broaden_dataset_selection
   - keep_G_as_promising_candidate
   - discuss_R_at_every_role_handoff
+  - restore_role_specific_KV_mathematical_structure_as_original_motivation
 AI_proposal:
   development: 96_GPQA_questions_five_handoff_schedules
   new_datasets: MMLU_Pro_280_and_GSM8K_200_subject_to_budget
   primary_candidate_comparison: R_all_handoffs_vs_G_all_handoffs
-  execution_order: position_ablation_then_frozen_cross_task_validation
+  execution_order: role_structure_diagnostics_then_position_ablation_then_cross_task_validation
 scientific_parameters_approved: false
 question_manifest_frozen: false
 GPU_execution_authorized: false
