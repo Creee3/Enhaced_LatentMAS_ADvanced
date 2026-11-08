@@ -5,8 +5,9 @@ OUT=Path(__file__).resolve().parent;ROOT=OUT.parents[1];OLD=ROOT/'evidence/TRG22
 from cloud_common import identity,load,save
 def main():
  parent=Path(load(OUT/'launch.json')['parent']);children=[];daemon=False
- env=dict(os.environ,CUDA_VISIBLE_DEVICES=load(OUT/'launch.json')['gpu_uuid'],CUDA_MPS_PIPE_DIRECTORY=str(OUT/'pipe'),CUDA_MPS_LOG_DIRECTORY=str(OUT/'mps_logs'),LATENTMAS_SHARED_LEDGER=str(ROOT/'cumulative_budget.json'),OMP_NUM_THREADS='1',MKL_NUM_THREADS='1',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1')
- for n in ['pipe','mps_logs']:(OUT/n).mkdir(mode=0o700)
+ pipe=Path('/tmp')/('lmps_'+OUT.name[-12:]);pipe.mkdir(mode=0o700);(OUT/'mps_logs').mkdir(mode=0o700)
+ env=dict(os.environ,CUDA_VISIBLE_DEVICES=load(OUT/'launch.json')['gpu_uuid'],CUDA_MPS_PIPE_DIRECTORY=str(pipe),CUDA_MPS_LOG_DIRECTORY=str(OUT/'mps_logs'),LATENTMAS_SHARED_LEDGER=str(ROOT/'cumulative_budget.json'),OMP_NUM_THREADS='1',MKL_NUM_THREADS='1',HF_HUB_OFFLINE='1',TRANSFORMERS_OFFLINE='1')
+ save(OUT/'mps_namespace.json',dict(pipe=str(pipe),logs=str(OUT/'mps_logs'),uid=os.getuid()))
  control=lambda command:subprocess.run(['/usr/bin/nvidia-cuda-mps-control'],input=command+'\n',text=True,env=env,capture_output=True,timeout=30)
  def scene():
   report=[]
@@ -16,7 +17,7 @@ def main():
    if not x:continue
    try:values=dict(s.split(b'=',1) for s in (p/'environ').read_bytes().split(b'\0') if b'=' in s)
    except (FileNotFoundError,PermissionError,ProcessLookupError):continue
-   if values.get(b'CUDA_MPS_PIPE_DIRECTORY',b'').decode()==str(OUT/'pipe'):report.append(x)
+   if values.get(b'CUDA_MPS_PIPE_DIRECTORY',b'').decode()==str(pipe):report.append(x)
   return report
  def wait_for(test):
   start=time.monotonic()
