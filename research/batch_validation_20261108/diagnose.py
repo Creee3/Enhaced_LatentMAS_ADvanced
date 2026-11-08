@@ -90,8 +90,9 @@ def main():
     ids=torch.tensor(sampled,dtype=torch.long,device='cuda')[:,None];mask=torch.cat([mask,torch.tensor(active,dtype=mask.dtype,device='cuda')[:,None]],-1)
   seq=[list(x) for x in zip(*tokens)]
   result=dict(label=label,indices=indices,tokens=seq,diagnostics=diagnostics)
-  (OUT/(label+'.json')).write_text(json.dumps(result));del value,past,raw,scores;gc.collect();torch.cuda.empty_cache();return result
- for i in range(4):run([i],128,'serial_teacher',teacher=True)
+  suffix='_'+str(indices[0]) if label=='serial_teacher' else ''
+  (OUT/(label+suffix+'.json')).write_text(json.dumps(result));del value,past,raw,scores;gc.collect();torch.cuda.empty_cache();return result
+ serial_results=[run([i],128,'serial_teacher',teacher=True) for i in range(4)]
  batch=run(list(range(4)),128,'batch_teacher',teacher=True,compare=True)
  padded=run([0],128,'padded_teacher',teacher=True,compare=True,pad=max(p['ids'].shape[-1] for p in packets))
  same=run([0,0,0,0],128,'same_length_teacher',teacher=True,compare=True)
@@ -99,7 +100,7 @@ def main():
  eos=[mixed['tokens'][i][:h]==free['tokens'][i][:h] for i,h in enumerate([8,16,32,64])]
  def aggregate(result):
   ds=result['diagnostics'];return dict(first_logit_difference=next((d['step'] for d in ds if d['max_abs']>0),None),max_abs=max(d['max_abs'] for d in ds),mean_abs=sum(d['mean_abs'] for d in ds)/len(ds),all_rng_same=all(d['rng_same'] for d in ds),sample_mismatches=sum(not d['sample_same'] for d in ds))
- report=dict(passed=True,engineering_only=True,hf_reference=[{k:v for k,v in r.items() if k!='tokens'} for r in hf],teacher_forced={r['label']:aggregate(r) for r in [batch,padded,same]},eos_active_streams_match=eos,charged_positions=charged[0],formal_launch_ready=False)
+ report=dict(passed=True,engineering_only=True,hf_reference=[{k:v for k,v in r.items() if k!='tokens'} for r in hf],serial_teacher_matches_reference=[r['tokens'][0]==reference[i] for i,r in enumerate(serial_results)],teacher_forced={r['label']:aggregate(r) for r in [batch,padded,same]},eos_active_streams_match=eos,charged_positions=charged[0],formal_launch_ready=False)
  (OUT/'result.json').write_text(json.dumps(report,indent=2))
 if __name__=='__main__':
  try:main()
