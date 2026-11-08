@@ -1,0 +1,7 @@
+# 进展
+
+2026-11-08：用户明确确认576题与三条全交接臂，并将并发上限设为6。已读取旧冻结源和当前账本，actual78280627/reserved0/unknown58106。GPU0当时有其他负载、GPU1空闲，不作归属推断或停止。只下载冻结源参考到私有包，未启动新模型。
+
+已查到官方数据源revision：MMLU-Pro b189ec765aa7ed75c8acfea42df31fdae71f97be；GSM8K 740312add88f781978c0658806c59bc2815b9866。作者模板已支持GSM8K数学输出，MMLU-Pro需要A-J范围适配。后续按task_plan逐项推进。
+
+准备完成：本地和远端15项CPU测试通过，原生tokenizer零forward全576题上界16891674位置，最大原上下文12844，含现账本最大95230407<115M。新锁f1c9fa047d7743bba23e2fe7c67cf37ddb7d4481d22da7067913dd7a9d2973d7。启动负向检查确认超过worker上限的plan篡改、worker源篡改与未工程归档却执行formal均被拒绝；账本未变、无模型调用。

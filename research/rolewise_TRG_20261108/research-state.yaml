@@ -1,0 +1,10 @@
+status: implementation_and_preflight
+user_authorized_methods: [GGG, RRR, TTT]
+user_authorized_datasets: {gpqa: 96, mmlu_pro: 280, gsm8k: 200}
+target_unique_keys: 1728
+max_workers: 6
+latent_steps: 10
+seed: 42
+GPU_forward_started: false
+old_results: immutable
+automation: none
