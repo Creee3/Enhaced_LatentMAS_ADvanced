@@ -1,0 +1,27 @@
+{
+  "date_beijing": "2026-11-09",
+  "scope": "Targeted comparison of three user-named papers, not a systematic review",
+  "records": [
+    {
+      "name": "rclc_2609.32046v1",
+      "url": "https://arxiv.org/html/2609.32046v1",
+      "bytes": 488190,
+      "sha256": "6a704c518b1ea16b00465a6996bb3e5553e3daa358fc551b61afb915d3872c60",
+      "retrieved": true
+    },
+    {
+      "name": "latentmas_2511.20639v4",
+      "url": "https://arxiv.org/html/2511.20639v4",
+      "bytes": 779102,
+      "sha256": "46240a05731a2f327873290fcd37dcedc1a5d4cf877cfec7e8d0f6d1c98cc7f6",
+      "retrieved": true
+    },
+    {
+      "name": "obf_2604.13349v3",
+      "url": "https://arxiv.org/html/2604.13349v3",
+      "bytes": 664212,
+      "sha256": "14ad961f641346f01a02a7d66e00acd286b881bd821734a558b3af67d0b58488",
+      "retrieved": true
+    }
+  ]
+}

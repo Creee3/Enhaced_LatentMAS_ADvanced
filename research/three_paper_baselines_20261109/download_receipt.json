@@ -1,0 +1,22 @@
+[
+  {
+    "path": "/home/ubuntu/ICML2027/reference_repos/rclc-official_c9cbefaf54df",
+    "commit": "c9cbefaf54dfd8f13fdc952143698c4aab99f768",
+    "files": 102,
+    "archive_sha256": "e7e5e6b5a0e48cbddbd035d51f3a5e3f1c3c7ecd54ce06fd3299db26a42a5c28",
+    "stream_sha_and_gzip_crc": true,
+    "exact_members": true,
+    "all_files_readback_sha": true,
+    "uid": 1000
+  },
+  {
+    "path": "/home/ubuntu/ICML2027/reference_repos/rclc-paper-v1_15bc3f7a2f93",
+    "commit": "15bc3f7a2f93229b11ea982a534ce21528552fbc",
+    "files": 335,
+    "archive_sha256": "79e95314ca1d6470357a47528b133657c8d6a76212c50db65bbc6fa2eef1127d",
+    "stream_sha_and_gzip_crc": true,
+    "exact_members": true,
+    "all_files_readback_sha": true,
+    "uid": 1000
+  }
+]
