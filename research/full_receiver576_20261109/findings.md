@@ -1,0 +1,1 @@
+原receiver逐字节调用冻结stage_ops.compress，每个发送方新prompt保留32（末8强制），完整保留已留历史/latent/sink；典型46/88/130。Full完整原KV。两者共享一次Planner，Full不额外probe、receiver三个必要probe计费，每题10RID共5760。旧GGG/RRR/TTT同题只读，不声称跨run共享RID/逐token一致，跨runPlanner SHA匹配数最终单列。原stage_ops.py在SCIENCE目录，非BASE/runtime；只读路径已修正。CPU首次toy使用float/dim1触发真实147456B/row断言，改为符合Qwen3 BF16/dim128的测试夹具后5项通过，零模型forward。
