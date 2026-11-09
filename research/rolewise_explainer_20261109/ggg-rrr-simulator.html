@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GGG / RRR · 三次 KV 交接实验室</title><style>
+:root{color-scheme:light dark;--bg:#f5f6fa;--surface:#fff;--ink:#182233;--muted:#647086;--line:#dfe4ec;--soft:#eef1f6;--g:#00897b;--r:#7954ce;--p:#4388cc;--c:#ae61ad;--f:#ce8a2e;--latent:#279e79;--sink:#677488;--shadow:0 8px 28px #1b304008}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif}main{max-width:1380px;margin:auto;padding:42px 36px}h1,h2,p{margin:0}h1{font-size:clamp(25px,3.3vw,42px);line-height:1.3;letter-spacing:-1px;font-weight:650;margin:12px 0}h2{font-size:19px;font-weight:600;line-height:1.45}button,input,select{font:inherit}button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:9px;padding:9px 14px;cursor:pointer}button:hover{border-color:var(--muted)}button.active,button[aria-pressed=true]{background:var(--ink);color:var(--surface);border-color:var(--ink)}button:disabled{opacity:.5;cursor:wait}select,input[type=number]{border:1px solid var(--line);border-radius:7px;background:var(--surface);color:var(--ink);padding:7px 9px;max-width:100%}input[type=number]{width:88px}input[type=range]{accent-color:var(--r);width:100%;cursor:pointer}label{display:flex;align-items:center;gap:9px;color:var(--muted);font-size:13px}b,strong{font-weight:600}small,.tiny{font-size:12px;color:var(--muted)}.hero{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}.eyebrow{font:11px/1.5 ui-monospace,Consolas,monospace;letter-spacing:1.6px;color:var(--muted)}.lead{font-size:17px;color:var(--muted)}.dataset-tag{font-size:12px;padding:8px 12px;background:var(--soft);border-radius:20px;white-space:nowrap;margin-top:8px}.settings{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:30px;padding-bottom:16px;border-bottom:1px solid var(--line)}#status{font-size:12px;color:var(--muted)}.shape-line{display:flex;gap:22px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:12px 0 28px}.shape-line b{color:var(--ink)}.pipeline{display:grid;grid-template-columns:1fr 83px 1fr 83px 1fr 83px 1fr;gap:10px;align-items:center;margin:30px 0}.agent{display:flex;flex-direction:column;min-width:0}.agent>span{font:12px ui-monospace,monospace;color:var(--muted)}.agent>strong{font-size:20px;margin:3px 0}.agent>small{font-size:11px}.hop{font-size:12px;padding:10px 4px;line-height:1.65}.hop b{font:16px ui-monospace,monospace}.process{margin:30px 0 20px}.section-top{display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap}.section-top h2{margin-top:5px}.play{font-size:13px}.phase-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.phase-tabs button{font-size:13px}.step-control{display:grid;grid-template-columns:180px 1fr 170px;gap:15px;align-items:center;margin:17px 0 10px}.step-control label{color:var(--ink);justify-content:space-between}.step-control b{font:12px ui-monospace,monospace}.step-control>span{font-size:12px;color:var(--muted)}.story{font-size:14px;min-height:44px;color:var(--muted)}.twins{display:grid;grid-template-columns:1fr 1fr;gap:20px}.lane{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;min-width:0;box-shadow:var(--shadow)}.lane-title{display:flex;gap:15px;align-items:center}.lane-title p{font-size:12px;color:var(--muted);margin-top:3px}.method{font:bold 19px ui-monospace,monospace;padding:9px 11px;border-radius:9px}.g .method{background:color-mix(in srgb,var(--g) 11%,transparent);color:var(--g)}.r .method{background:color-mix(in srgb,var(--r) 11%,transparent);color:var(--r)}.equation{font:13px/1.7 ui-monospace,Consolas,monospace;background:var(--soft);border-radius:8px;padding:9px 12px;margin:16px 0;color:var(--muted)}.equation.small{font-size:12px}.lane-stats{display:flex;justify-content:space-between;gap:8px;margin:18px 0}.stat small{display:block}.stat strong{display:block;font:22px ui-monospace,Consolas,monospace;margin-top:3px}.stat strong span{font-size:12px;color:var(--muted)}.map-label,.vector-top{display:flex;justify-content:space-between;gap:8px;font-size:12px;margin-top:19px;margin-bottom:10px}.map-label>span,.vector-top>span{color:var(--muted)}canvas{display:block;width:100%;touch-action:manipulation}.token-map{height:168px}.readout{height:115px}.role-counts{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;font-size:12px}.role-counts i{display:inline-block;width:7px;height:7px;margin-right:5px;border-radius:2px}.bank-info{font-size:12px;color:var(--muted);margin:13px 0;min-height:38px}.metrics{display:flex;justify-content:space-between;gap:8px;font-size:12px;margin-top:10px}.metrics span{color:var(--muted)}.metrics b{font:13px ui-monospace,monospace;color:var(--ink)}.legend{display:flex;flex-wrap:wrap;gap:10px 20px;margin:16px 2px 23px;font-size:11px;color:var(--muted)}.legend>span{display:flex;align-items:center;gap:5px}.legend i{width:9px;height:9px;border-radius:2px;background:var(--p)}.legend .c{background:var(--c)}.legend .f{background:var(--f)}.legend .latent{background:var(--latent)}.legend .sink{background:var(--sink)}.legend .dropped{background:var(--soft);border:1px solid var(--muted)}.legend .gone{background:var(--soft);opacity:.5}.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;margin-top:20px}.controls{display:flex;gap:26px;flex-wrap:wrap;align-items:center;padding:18px 24px}.query-label{display:grid;grid-template-columns:84px 1fr;flex:1;min-width:250px}.query-label b{font-size:12px;font-weight:400;color:var(--ink)}.query-label input{grid-column:1 / -1}.color-key{font-size:11px;color:var(--muted);display:flex;gap:6px;align-items:center}.gradient{display:inline-block;width:60px;height:8px;background:linear-gradient(90deg,var(--p),var(--soft),var(--f));border-radius:4px}.block-panel{display:grid;grid-template-columns:1fr 1.2fr;gap:35px;align-items:center}.block-panel h2{margin:8px 0}.block-panel p{color:var(--muted);font-size:13px}.block-row{display:grid;grid-template-columns:110px 1fr 86px;gap:12px;align-items:center;margin:14px 0;font-size:12px}.bar-stack{display:grid;gap:4px}.bar-track{height:6px;background:var(--soft);border-radius:4px;overflow:hidden}.bar{height:100%;border-radius:4px;min-width:0}.bar.gbar{background:var(--g)}.bar.rbar{background:var(--r)}.bar-value{font:10px/1.7 ui-monospace,monospace;color:var(--muted)}.block-legend{display:flex;gap:18px;color:var(--muted);font-size:11px}.block-legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px}.inspect .section-top{justify-content:flex-start}.inspect .section-top>div{margin-right:auto}.inspect-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:18px}.inspect-label{font-size:12px;margin-bottom:10px;min-height:38px}.kv-heat{height:145px}.inspect .tiny{margin-top:12px}.table-wrap{overflow-x:auto;margin-top:16px}table{border-collapse:collapse;width:100%;font-size:12px;white-space:nowrap}th,td{text-align:left;padding:13px 12px;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:400}td{font-variant-numeric:tabular-nums}.journey h2{margin-top:7px}.takeaway{display:flex;gap:10px;flex-wrap:wrap;padding-top:20px;font-size:13px}.takeaway span{color:var(--muted)}details summary{cursor:pointer;font-weight:600;font-size:14px}.code-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}.code-grid b{font-size:14px}.code-grid p,details>p{font-size:13px;color:var(--muted);margin-top:7px}footer{display:flex;justify-content:space-between;gap:20px;font-size:11px;color:var(--muted);margin:24px 0 0}#tooltip{position:fixed;z-index:10;padding:9px 12px;border-radius:8px;background:var(--ink);color:var(--surface);font:12px/1.5 ui-monospace,monospace;max-width:280px;pointer-events:none;box-shadow:0 6px 20px #0002}.busy{opacity:.55;pointer-events:none}@media(prefers-color-scheme:dark){:root{--bg:#111720;--surface:#19212e;--ink:#e1e8f2;--muted:#9caabd;--line:#303d50;--soft:#243043;--g:#55c9af;--r:#b294f1;--p:#78a9e4;--c:#cf8bcb;--f:#e6b361;--latent:#68c3a7;--sink:#a3afc1;--shadow:none}}@media(max-width:1000px){main{padding:28px 20px}.hero{display:block}.dataset-tag{display:inline-block}.pipeline{grid-template-columns:repeat(7,minmax(0,1fr));gap:5px}.agent strong{font-size:16px}.agent small{font-size:10px}.lane{padding:18px}.lane-title{gap:10px}.lane-title h2{font-size:16px}.block-panel{grid-template-columns:1fr}.stat strong{font-size:19px}}@media(max-width:720px){.twins{grid-template-columns:1fr}.inspect-grid{grid-template-columns:1fr}.hero h1{letter-spacing:0}.pipeline{grid-template-columns:1fr 76px 1fr;row-gap:14px}.pipeline .agent:nth-child(5){grid-column:1}.pipeline .hop:nth-child(4){grid-column:2}.pipeline .agent:nth-child(7){grid-column:3}.pipeline .agent:nth-child(5){grid-row:2}.pipeline .hop:nth-child(4){grid-row:2}.pipeline .hop:nth-child(6){grid-row:3;grid-column:2}.pipeline .agent:nth-child(7){grid-row:3}.agent small{font-size:11px}.step-control{grid-template-columns:1fr}.step-control input{grid-row:2}.step-control>span{text-align:right}.story{min-height:65px}.controls{gap:16px}.controls>label{width:100%}.query-label{min-width:0}.controls select{min-width:0;max-width:220px}.settings{gap:13px}.dataset-tag{white-space:normal}.block-row{grid-template-columns:90px 1fr 76px;gap:7px}.code-grid{grid-template-columns:1fr}.panel{padding:18px}footer{flex-direction:column;gap:4px}.legend{font-size:11px}.phase-tabs button{flex:1;min-width:135px}}@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+.intro{max-width:970px;margin-top:20px;font-size:14px;color:var(--muted);line-height:1.85}
+
+</style></head>
+<body><main id="relay-lab">
+<header class="hero"><div><div class="eyebrow">LATENT COLLABORATION / RELAY LAB</div><h1>同一段历史，三次不同的取舍。</h1><p class="lead">把 GGG 与 RRR 从 Planner 一直展开到 Judger。</p></div><span class="dataset-tag">合成 Q/K/V · 128 维 · 按冻结 G/R 规则选位</span></header>
+<p class="intro">三个字母对应三次交接：Planner → Critic → Refiner → Judger。GGG每跳都按接收者注意力选行；RRR每跳都尽量保住各来源块的读出贡献。第一次从同一个Planner缓存分叉，后面各自沿压缩后的历史继续生成。</p>
+<section class="settings" aria-label="示例设置"><label>示例种子 <input id="seed" type="number" min="1" max="99999" value="42"></label><label>观察层 <select id="layer" aria-label="观察层"></select></label><label>KV头 <select id="head" aria-label="KV头"></select></label><button id="rebuild">重新计算这个视图</button><span id="status" role="status" aria-live="polite">准备合成128维数据…</span></section>
+<div class="shape-line"><span>单层单头决策视图</span><span>Q = 4个GQA query头 × 末16个query = <b>64 × 128</b></span><span>全模型字节按 <b>36层 × 8个KV头 × BF16</b> 换算</span></div>
+<nav class="pipeline" aria-label="三次交接"><div class="agent"><span>01</span><strong>Planner</strong><small>160 prompt + 10 latent</small></div><button class="hop active" data-hop="0" aria-pressed="true">交接①<br><b>110行</b></button><div class="agent"><span>02</span><strong>Critic</strong><small>144 prompt + 10 latent</small></div><button class="hop" data-hop="1" aria-pressed="false">交接②<br><b>120行</b></button><div class="agent"><span>03</span><strong>Refiner</strong><small>176 prompt + 10 latent</small></div><button class="hop" data-hop="2" aria-pressed="false">交接③<br><b>130行</b></button><div class="agent"><span>04</span><strong>Judger</strong><small>接收历史，继续读出</small></div></nav>
+<section class="process"><div class="section-top"><div><span class="eyebrow" id="hop-label">HANDOFF 01 / PLANNER → CRITIC</span><h2 id="stage-title">先用接收者的视角，检查整段KV。</h2></div><button id="play" class="play">▶ 顺序演示</button></div><div class="phase-tabs" role="group" aria-label="查看压缩阶段"><button data-phase="full">1 看原始KV</button><button data-phase="bank">2 建候选池</button><button data-phase="delete">3 查看剔除</button><button data-phase="final" class="active">4 交付原K/V</button></div><div class="step-control"><label for="delete-step">候选池内删除 <b id="step-count">0 / 60</b></label><input id="delete-step" type="range" min="0" max="60" value="60"><span id="step-caption">保留96行prompt</span></div><p id="story" class="story"></p></section>
+<section class="twins" aria-label="GGG和RRR同步比较">
+<article class="lane g" data-method="G"><div class="lane-title"><span class="method">GGG</span><div><h2>读得多的行，优先保留</h2><p>同64个query上，按 attention mass 排序。</p></div></div><div class="equation">score(i) = Σ<sub>q</sub> a<sub>qi</sub>　→　Top 96 prompt</div><div class="lane-stats" id="stats-G"></div><div class="map-label"><b>原位置地图</b><span id="map-info-G"></span></div><canvas id="map-G" class="token-map" aria-label="GGG原KV位置保留地图"></canvas><div class="role-counts" id="roles-G"></div><div class="bank-info" id="bank-G"></div><div class="vector-top"><b>128维接收读出</b><span>同一局部probe重归一化</span></div><canvas id="readout-G" class="readout" aria-label="GGG原始读出、压缩后读出与误差的128维热图"></canvas><div class="metrics" id="errors-G"></div></article>
+<article class="lane r" data-method="R"><div class="lane-title"><span class="method">RRR</span><div><h2>每个来源的贡献，都分别看</h2><p>逐次尝试删除，选分块读出误差最小的一行。</p></div></div><div class="equation">L<sub>R</sub> = mean<sub>b,q,d</sub> (y<sub>b</sub> − ŷ<sub>b</sub>)²</div><div class="lane-stats" id="stats-R"></div><div class="map-label"><b>原位置地图</b><span id="map-info-R"></span></div><canvas id="map-R" class="token-map" aria-label="RRR原KV位置保留地图"></canvas><div class="role-counts" id="roles-R"></div><div class="bank-info" id="bank-R"></div><div class="vector-top"><b>128维接收读出</b><span>同一个Z，不按角色各自归一化</span></div><canvas id="readout-R" class="readout" aria-label="RRR原始读出、压缩后读出与误差的128维热图"></canvas><div class="metrics" id="errors-R"></div></article>
+</section>
+<div class="legend"><span><i class="p"></i>Planner prompt</span><span><i class="c"></i>Critic prompt</span><span><i class="f"></i>Refiner prompt</span><span><i class="latent"></i>latent · 永久保留</span><span><i class="sink"></i>4 sink</span><span><i class="dropped"></i>当前删除</span><span><i class="gone"></i>前跳已删除</span><span>白色角点 = 最新发送方末8行</span></div>
+<section class="panel controls"><label>读出视角 <select id="block"><option value="total">整体读出（四块求和）</option><option value="0">块0 · self + sink</option><option value="1">块1 · Planner来源</option><option value="2">块2 · Critic来源</option><option value="3">块3 · Refiner来源</option></select></label><label class="query-label">观察 query <b id="query-label">GQA头1 · 倒数第16个query</b><input id="query" type="range" min="0" max="63" value="0"></label><div class="color-key">读出热图：<span class="gradient"></span> 负 ← 0 → 正</div></section>
+<section class="panel block-panel"><div><span class="eyebrow">WHAT R IS PRESERVING</span><h2>分别看四个来源块的读出误差</h2><p>来源指写入KV的角色。保留行改变后，所有块都使用新的公共分母 Z。</p><div class="equation small">ŷ<sub>b,q</sub> = Σ<sub>i∈保留且来源b</sub> a<sub>qi</sub>v<sub>i</sub> / Σ<sub>i∈全部保留</sub> a<sub>qi</sub></div></div><div id="block-bars" aria-label="四个来源块64个query平均误差"></div></section>
+<section class="panel inspect"><div class="section-top"><div><span class="eyebrow">ORIGINAL K / V GATHER</span><h2>点一个位置，展开它的128维。</h2></div><label>原位置 <input id="position" type="number" min="0" max="169" value="20"></label><label>向量 <select id="kv-kind"><option value="v">V · 值向量</option><option value="k">K · 键向量</option></select></label></div><div class="inspect-grid"><div><div id="inspect-label-G" class="inspect-label"></div><canvas id="kv-G" class="kv-heat" aria-label="GGG选中位置的128维向量"></canvas></div><div><div id="inspect-label-R" class="inspect-label"></div><canvas id="kv-R" class="kv-heat" aria-label="RRR选中位置的128维向量"></canvas></div></div><p class="tiny">每个方格是一维。悬停查看数值；保留的行直接从原K/V gather，向量不改写。</p></section>
+<section class="panel journey"><span class="eyebrow">THE WHOLE JOURNEY</span><h2>三次交接，每次只带走当前保留下来的历史。</h2><div class="table-wrap"><table><thead><tr><th>交接</th><th>完整原位置</th><th>prompt预算</th><th>保护行</th><th>实际交付</th><th>全模型BF16 KV</th><th>相对Full位置参考</th></tr></thead><tbody id="journey"></tbody></table></div><div class="takeaway"><b>最后交给Judger：96 prompt + 30 latent + 4 sink = 130行。</b><span>Judger自己的prompt随后加入；答案生成期间不逐token再次执行这套选位。</span></div></section>
+<details class="panel details"><summary>把一次操作对应回实验代码</summary><div class="code-grid"><div><b>① 接收者probe</b><p>复制发送方缓存，加入接收者prompt。取4个GQA query头的末16个query，得到64个观测；self仅用于读出目标。</p></div><div><b>② 共用候选池</b><p>按注意力建立最多192行prompt候选池，包含发送方末8行。所有历史latent、4个sink和probe self不参加删除。</p></div><div><b>③ G / R分叉</b><p>G直接选attention mass最高的96行。R从候选池逐次删除，每次精确计算删后公共分母Z及四块读出误差。</p></div><div><b>④ 原KV交接</b><p>按升序原位置gather K/V。接收者沿自己的新历史生成prompt KV与10个latent，进入下一次交接。</p></div></div><p>对应：relay_select.py → masks / select_relay；attention_selector.py → select；block_selector.py → components / select。</p><p>此页计算选定的一层一头。合成角色前向使用上下文读出生成128维Q/K/V；层数36、KV头数8用于本实验形状与字节换算。</p></details>
+<footer><span>96 是共同prompt总预算，R不固定分配每个角色的行数。</span><span>本页没有模型调用或正确率评分。</span></footer>
+<div id="tooltip" role="tooltip" hidden></div>
+</main><script>
+/* Synthetic 128-D role forwards + frozen G/R selection mechanics. No model/API. */
+(function(root){
+function makeRelayEngine(){
+  const D=128,Q=64,PROMPTS=[160,144,176],SELF=[144,176,152];
+  function rng(seed){let a=seed>>>0;return()=>{a+=0x6D2B79F5;let t=a;t=Math.imul(t^t>>>15,t|1);t^=t+Math.imul(t^t>>>7,t|61);return((t^t>>>14)>>>0)/4294967296;};}
+  const dot=(a,b)=>{let s=0;for(let i=0;i<a.length;i++)s+=a[i]*b[i];return s;};
+  function summary(rows){const v=new Float64Array(D);if(!rows.length)return v;for(const r of rows)for(let d=0;d<D;d++)v[d]+=r.v[d]/rows.length;return v;}
+  function promptRows(role,n,start,history,seed,self=false){
+    const random=rng(seed+role*100003),ctx=summary(history),out=[];
+    for(let j=0;j<n;j++){
+      const k=new Float64Array(D),v=new Float64Array(D),rare=j%19===7;
+      for(let d=0;d<D;d++){
+        const inRole=d>=16+(role-1)*32&&d<16+role*32;
+        k[d]=(random()-.5)*1.4+.10*ctx[d]+(inRole?.45:0);
+        v[d]=(random()-.5)*.48+.22*ctx[d]+(d<16?.22*Math.sin(j*.19+d*.2):0)+(inRole?(rare?2.8:.42)*Math.sin(d*.23+j*.09):0);
+      }
+      k[0]=(rare?.12:1.4+.65*Math.sin(j*.7));k[1]=role*.65;
+      out.push({id:start+j,role:self||(role===1&&j<4)?0:role,source:role,kind:!self&&role===1&&j<4?'sink':self?'self':'prompt',k,v});
+    }
+    return out;
+  }
+  function oneRead(rows,q){const scores=rows.map(r=>dot(q,r.k)/Math.sqrt(D)),max=Math.max(...scores),w=scores.map(x=>Math.exp(x-max)),z=w.reduce((a,b)=>a+b,0),v=new Float64Array(D);for(let i=0;i<rows.length;i++)for(let d=0;d<D;d++)v[d]+=w[i]/z*rows[i].v[d];return v;}
+  function roleForward(history,role,start,seed){
+    const fresh=promptRows(role,PROMPTS[role-1],start,history,seed),rows=history.concat(fresh),random=rng(seed+role*70001);
+    let state=summary(rows);
+    for(let t=0;t<10;t++){
+      const q=Float64Array.from(state,(x,d)=>x+(d<16?.6:0)+Math.sin(d*.13+t*.17)*.2),read=oneRead(rows,q),k=new Float64Array(D),v=new Float64Array(D);
+      for(let d=0;d<D;d++){v[d]=.62*read[d]+.25*state[d]+(random()-.5)*.12;k[d]=.7*v[d]+Math.sin(d*.17+t)*.14;}
+      rows.push({id:start+fresh.length+t,role,source:role,kind:'latent',k,v});state=v;
+    }
+    return rows;
+  }
+  function probe(history,hop,seed){
+    const role=hop+2,end=[170,324,510][hop],self=promptRows(role,SELF[hop],end,history,seed,true),rows=history.concat(self),N=rows.length;
+    const A=new Float64Array(Q*N),random=rng(seed+role*32003),ctx=summary(history);
+    for(let q=0;q<Q;q++){
+      const query=new Float64Array(D),group=Math.floor(q/16),position=self.length-16+q%16;
+      for(let d=0;d<D;d++)query[d]=(random()-.5)*1.4+.15*ctx[d]+(d>=16+(hop%3)*32&&d<48+(hop%3)*32?.5:0);
+      query[0]=4+group*.2;query[1]=.8;let max=-Infinity;
+      for(let i=0;i<N;i++){const x=i>=history.length&&i-history.length>position?-Infinity:dot(query,rows[i].k)/Math.sqrt(D);A[q*N+i]=x;if(x>max)max=x;}
+      let z=0;for(let i=0;i<N;i++){A[q*N+i]=Math.exp(A[q*N+i]-max);z+=A[q*N+i];}for(let i=0;i<N;i++)A[q*N+i]/=z;
+    }
+    const values=new Float64Array(N*D);rows.forEach((r,i)=>values.set(r.v,i*D));
+    return {d:D,q:Q,n:N,rows,A,values,relayN:history.length,hop,end};
+  }
+  function components(s,keep){
+    const out=new Float64Array(4*s.q*s.d),z=new Float64Array(s.q);
+    for(let q=0;q<s.q;q++)for(let i=0;i<s.n;i++)if(keep[i])z[q]+=s.A[q*s.n+i];
+    for(let i=0;i<s.n;i++)if(keep[i]){const r=s.rows[i].role;for(let q=0;q<s.q;q++){const w=s.A[q*s.n+i]/z[q],base=(r*s.q+q)*s.d;for(let d=0;d<s.d;d++)out[base+d]+=w*s.values[i*s.d+d];}}
+    return {out,z};
+  }
+  function metrics(s,keep){
+    const after=components(s,keep),perRole=[0,0,0,0];let total=0;
+    for(let q=0;q<s.q;q++)for(let d=0;d<s.d;d++){let e=0;for(let b=0;b<4;b++){const ix=(b*s.q+q)*s.d+d,delta=after.out[ix]-s.target[ix];perRole[b]+=delta*delta/(s.q*s.d);e+=delta;}total+=e*e/(s.q*s.d);}
+    return {out:after.out,z:after.z,roleMSE:perRole,blockMSE:perRole.reduce((a,b)=>a+b,0)/4,totalMSE:total};
+  }
+  function makeBank(s,budget=96){
+    const mass=new Float64Array(s.n),protectedMask=new Uint8Array(s.n),mandatory=new Uint8Array(s.n);let candidates=[];
+    const lastStart=[0,170,324][s.hop],lastEnd=[160,314,500][s.hop];
+    for(let i=0;i<s.n;i++){
+      for(let q=0;q<s.q;q++)mass[i]+=s.A[q*s.n+i];
+      const r=s.rows[i];if(r.kind==='prompt'){candidates.push(i);if(r.id>=lastEnd-8&&r.id<lastEnd&&r.id>=lastStart)mandatory[i]=1;}else protectedMask[i]=1;
+    }
+    budget=Math.min(budget,candidates.length);
+    const required=candidates.filter(i=>mandatory[i]),rank=candidates.filter(i=>!mandatory[i]).sort((a,b)=>mass[b]-mass[a]||a-b),bankSize=Math.min(2*budget,candidates.length);
+    const bank=required.concat(rank.slice(0,bankSize-required.length)).sort((a,b)=>a-b);
+    return {mass,protectedMask,mandatory,candidates,rank,required,bank,budget,bankSize};
+  }
+  function chooseR(s,bankInfo){
+    const {bank,protectedMask,mandatory,budget}=bankInfo,C=bank.length,d=s.d,qc=s.q,N=s.n,keep=Uint8Array.from(protectedMask);for(const i of bank)keep[i]=1;
+    const initial=components(s,keep),num=new Float64Array(initial.out.length),z=initial.z.slice();
+    for(let b=0;b<4;b++)for(let q=0;q<qc;q++)for(let d0=0;d0<d;d0++){const t=(b*qc+q)*d+d0;num[t]=initial.out[t]*z[q];}
+    const gram=new Float64Array(C*C),nv=new Float64Array(C*qc),tv=new Float64Array(C*qc),base2=new Float64Array(qc),nt=new Float64Array(qc),target2=new Float64Array(qc);
+    for(let c=0;c<C;c++)for(let j=0;j<=c;j++){let x=0;for(let k=0;k<d;k++)x+=s.values[bank[c]*d+k]*s.values[bank[j]*d+k];gram[c*C+j]=gram[j*C+c]=x;}
+    for(let c=0;c<C;c++){const b=s.rows[bank[c]].role;for(let q=0;q<qc;q++){let n=0,t=0;for(let k=0;k<d;k++){const v=s.values[bank[c]*d+k],i=(b*qc+q)*d+k;n+=num[i]*v;t+=s.target[i]*v;}nv[c*qc+q]=n;tv[c*qc+q]=t;}}
+    for(let q=0;q<qc;q++)for(let b=0;b<4;b++)for(let k=0;k<d;k++){const i=(b*qc+q)*d+k;base2[q]+=num[i]*num[i];nt[q]+=num[i]*s.target[i];target2[q]+=s.target[i]*s.target[i];}
+    const active=new Uint8Array(C).fill(1),trace=[],candidateLosses=[];
+    for(let step=0;step<C-budget;step++){
+      let best=-1,bestLoss=Infinity;
+      const losses=[];
+      for(let c=0;c<C;c++){
+        if(!active[c]||mandatory[bank[c]])continue;
+        let loss=0;for(let q=0;q<qc;q++){const w=s.A[q*N+bank[c]],zp=z[q]-w;if(zp<=0){loss=Infinity;break;}loss+=(base2[q]-2*w*nv[c*qc+q]+w*w*gram[c*C+c])/(zp*zp)-2*(nt[q]-w*tv[c*qc+q])/zp+target2[q];}
+        loss/=qc*4*d;if(step===0)losses.push({index:bank[c],loss});
+        if(loss<bestLoss){bestLoss=loss;best=c;}
+      }
+      if(best<0)throw Error('没有可删除候选');
+      const index=bank[best],role=s.rows[index].role;
+      for(let q=0;q<qc;q++){
+        const w=s.A[q*N+index];base2[q]+=-2*w*nv[best*qc+q]+w*w*gram[best*C+best];nt[q]-=w*tv[best*qc+q];z[q]-=w;
+        for(let c=0;c<C;c++)if(active[c]&&s.rows[bank[c]].role===role)nv[c*qc+q]-=w*gram[c*C+best];
+      }
+      active[best]=0;keep[index]=0;trace.push({index,id:s.rows[index].id,loss:Math.max(0,bestLoss)});if(step===0)candidateLosses.push(...losses);
+    }
+    return {keep,trace,candidateLosses};
+  }
+  function select(s,mode){
+    s.target=components(s,new Uint8Array(s.n).fill(1)).out;s.bankInfo=makeBank(s);
+    const b=s.bankInfo;
+    if(mode==='R'){const r=chooseR(s,b);s.trace=r.trace;s.firstLosses=r.candidateLosses;s.keep=r.keep;}
+    else{
+      const keep=Uint8Array.from(b.protectedMask);for(const i of b.required.concat(b.rank.slice(0,b.budget-b.required.length)))keep[i]=1;
+      s.keep=keep;s.trace=b.bank.filter(i=>!keep[i]).sort((a,c)=>b.mass[a]-b.mass[c]||c-a).map(index=>({index,id:s.rows[index].id,loss:null}));
+    }
+    s.mode=mode;s.finalMetrics=metrics(s,s.keep);return s;
+  }
+  function stateMask(s,phase,step){
+    if(phase==='full')return new Uint8Array(s.n).fill(1);
+    const mask=Uint8Array.from(s.bankInfo.protectedMask);for(const i of s.bankInfo.bank)mask[i]=1;
+    if(phase==='final')return s.keep.slice();
+    if(phase==='delete')for(let j=0;j<Math.min(step,s.trace.length);j++)mask[s.trace[j].index]=0;
+    return mask;
+  }
+  function run({seed=42,layer=1,head=1}={}){
+    const salt=(Number(seed)+layer*101+head*1009)>>>0,planner=roleForward([],1,0,salt),result={seed:Number(seed),layer,head,d:D,q:Q,paths:{G:[],R:[]}};
+    for(const mode of ['G','R']){
+      let history=planner;
+      for(let hop=0;hop<3;hop++){
+        if(hop>0)history=roleForward(history,hop+1,[0,170,324][hop],salt);
+        const s=select(probe(history,hop,salt),mode);result.paths[mode].push(s);
+        history=s.rows.slice(0,s.relayN).filter((_,i)=>s.keep[i]);
+        if(history.length!==110+hop*10)throw Error('交接长度不一致');
+        if(history.filter(r=>r.kind==='latent').length!==10*(hop+1))throw Error('latent保护失效');
+        if(history.filter(r=>r.kind==='sink').length!==4)throw Error('sink保护失效');
+      }
+    }
+    return result;
+  }
+  return {run,components,metrics,makeBank,chooseR,stateMask,select,rng};
+}
+if(typeof module!=='undefined'&&module.exports)module.exports=makeRelayEngine();
+else root.makeRelayEngine=makeRelayEngine;
+})(globalThis);
+
+</script><script>
+(function(){
+const root=document.getElementById('relay-lab'),$=id=>document.getElementById(id),E=makeRelayEngine();
+let data=null,hop=0,phase='final',step=0,position=20,query=0,block='total',playing=false,timer=null,cache={},worker=null,job=0;
+const names=['Planner','Critic','Refiner','Judger'],roleNames=['self / sink','Planner','Critic','Refiner'],maxEnds=[170,324,510];
+const fmt=x=>x===0?'0':x.toExponential(2),mb=x=>(x/1e6).toFixed(2),rgba=(c,a)=>{const h=c.replace('#','');return `rgba(${parseInt(h.slice(0,2),16)},${parseInt(h.slice(2,4),16)},${parseInt(h.slice(4,6),16)},${a})`;};
+function colors(){const c=getComputedStyle(document.documentElement);return Object.fromEntries(['surface','ink','muted','soft','line','g','r','p','c','f','latent','sink'].map(k=>[k,c.getPropertyValue('--'+k).trim()]));}
+function setup(canvas,height){if(height)canvas.style.height=height+'px';const dpr=window.devicePixelRatio||1,w=canvas.clientWidth,h=canvas.clientHeight;canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);const c=canvas.getContext('2d');c.setTransform(dpr,0,0,dpr,0,0);return {c,w,h};}
+function mix(a,b,t){const expand=c=>{const h=c.replace('#','');return h.length===3?h.split('').map(x=>x+x).join(''):h;},x=expand(a),y=expand(b),v=[0,2,4].map(i=>Math.round(parseInt(x.slice(i,i+2),16)*(1-t)+parseInt(y.slice(i,i+2),16)*t));return `rgb(${v.join(',')})`;}
+function heat(v,max,C){return mix(C.surface,v<0?C.p:C.f,Math.min(1,Math.abs(v)/(max||1))*.9);}
+function current(s){const key=s.mode+hop+phase+step;if(cache[s.mode]?.key===key)return cache[s.mode];const keep=E.stateMask(s,phase,step),metrics=phase==='final'?s.finalMetrics:E.metrics(s,keep),value={key,keep,metrics};cache[s.mode]=value;return value;}
+function vector(s,array,q,b){const out=new Float64Array(s.d);for(let d=0;d<s.d;d++){if(b==='total'){for(let r=0;r<4;r++)out[d]+=array[(r*s.q+q)*s.d+d];}else out[d]=array[(Number(b)*s.q+q)*s.d+d];}return out;}
+function updateStory(){
+ $('hop-label').textContent=`HANDOFF 0${hop+1} / ${names[hop].toUpperCase()} → ${names[hop+1].toUpperCase()}`;
+ const title={full:'接收者先观察整段历史。',bank:'先限定候选池，再决定删谁。',delete:'预算不变，逐行看看两种取舍。',final:`交付${110+hop*10}行原K/V，进入${names[hop+1]}。`};$('stage-title').textContent=title[phase];
+ const text={full:`${names[hop+1]}的prompt只在probe中临时加入；本次携带${10*(hop+1)}个已有latent和4个sink。`,bank:'最多192行prompt进入候选池，最新发送方末8行强制入池。latent、sink和接收者self都固定保留。',delete:'G依据注意力排名；R每删一行都重新计算四块读出误差，所有块共享新的归一化分母Z。',final:hop===0?'第一次选择从同一个Planner缓存和同一个probe起点分叉。Critic随后分别沿G、R自己的历史生成。':hop===1?'前一跳删掉的prompt不再出现。新Critic的prompt和旧Planner幸存行一起竞争96行预算。':'第三跳合并剩余三种来源竞争96行prompt。Judger接收96 prompt + 30 latent + 4 sink。'};
+ $('story').textContent=text[phase];
+ document.querySelectorAll('[data-hop]').forEach(b=>{const active=Number(b.dataset.hop)===hop;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
+ document.querySelectorAll('[data-phase]').forEach(b=>{const active=b.dataset.phase===phase;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
+ const n=data.paths.R[hop].trace.length;$('delete-step').max=n;$('delete-step').value=phase==='full'||phase==='bank'?0:phase==='final'?n:step;
+ $('step-count').textContent=`${$('delete-step').value} / ${n}`;$('step-caption').textContent=phase==='final'?'96行prompt，已交付':phase==='delete'?`候选池内第${step}次删除`:'候选池以外行先移除';
+ $('query-label').textContent=`GQA头${Math.floor(query/16)+1} · 倒数第${16-query%16}个query`;
+ $('position').max=maxEnds[hop]-1;
+}
+function drawMap(method,s,keep){
+ const canvas=$('map-'+method),C=colors(),cols=Math.max(20,Math.floor(canvas.clientWidth/12)),rows=Math.ceil(s.end/cols),{c,w,h}=setup(canvas,rows*13+22),cw=w/cols,ch=12;
+ const lookup=new Map(s.rows.slice(0,s.relayN).map((r,i)=>[r.id,{r,i}]));canvas._map={cols,cw,ch,lookup,s,keep};
+ for(let id=0;id<s.end;id++){
+  const x=id%cols*cw,y=Math.floor(id/cols)*13,item=lookup.get(id);
+  if(!item){c.fillStyle=rgba(C.muted,.07);c.fillRect(x,y,cw-2,ch-1);continue;}
+  const {r,i}=item,base=r.kind==='latent'?C.latent:r.kind==='sink'?C.sink:[C.sink,C.p,C.c,C.f][r.role];
+  c.fillStyle=keep[i]?base:rgba(base,.13);c.fillRect(x,y,cw-2,ch-1);
+  if(!keep[i]){c.strokeStyle=rgba(base,.55);c.lineWidth=.7;c.beginPath();c.moveTo(x+2,y+ch-3);c.lineTo(x+cw-4,y+2);c.stroke();}
+  if(s.bankInfo.mandatory[i]){c.fillStyle=C.surface;c.fillRect(x+1,y+1,3,3);}
+  if(id===position){c.strokeStyle=C.ink;c.lineWidth=1.5;c.strokeRect(x-1,y-1,cw,ch+1);}
+ }
+ c.fillStyle=C.muted;c.font='11px system-ui';c.fillText('原位置 0',0,h-3);c.textAlign='right';c.fillText(String(s.end-1),w,h-3);c.textAlign='left';
+}
+function drawReadout(method,s,metrics){
+ const C=colors(),{c,w}=setup($('readout-'+method)),before=vector(s,s.target,query,block),after=vector(s,metrics.out,query,block),err=Float64Array.from(after,(v,i)=>v-before[i]);
+ const max=Math.max(...before.map(Math.abs),...after.map(Math.abs),1e-10),emax=Math.max(...err.map(Math.abs),1e-10),left=76,cw=(w-left)/s.d,values=[before,after,err],labels=['原读出','删后读出','Δ 独立色标'];
+ for(let r=0;r<3;r++){const y=r*28;c.fillStyle=C.muted;c.font='11px system-ui';c.fillText(labels[r],0,y+13);for(let d=0;d<s.d;d++){c.fillStyle=heat(values[r][d],r===2?emax:max,C);c.fillRect(left+d*cw,y,cw+.2,18);}}
+ c.fillStyle=C.muted;c.font='11px ui-monospace';for(const d of [0,31,63,95,127]){c.textAlign=d===127?'right':'left';c.fillText('d'+(d+1),left+d*cw,105);}c.textAlign='left';
+ $('readout-'+method)._data={values,left,cw};
+}
+function lane(method){
+ const s=data.paths[method][hop],{keep,metrics}=current(s),kept=s.rows.slice(0,s.relayN).filter((_,i)=>keep[i]),count=kept.length,bytes=count*147456,latent=kept.filter(r=>r.kind==='latent').length,prompts=kept.filter(r=>r.kind==='prompt').length;
+ $('stats-'+method).innerHTML=`<div class="stat"><small>交付历史KV</small><strong>${count}<span> 行</span></strong></div><div class="stat"><small>其中prompt / latent</small><strong>${prompts}<span> / ${latent}</span></strong></div><div class="stat"><small>BF16全模型换算</small><strong>${mb(bytes)}<span> MB</span></strong></div>`;
+ $('map-info-'+method).textContent=`${s.relayN}行可用历史 · self ${s.n-s.relayN}行仅probe`;
+ drawMap(method,s,keep);
+ $('roles-'+method).innerHTML=[1,2,3].map((r,j)=>{const color=[colors().p,colors().c,colors().f][j],n=kept.filter(x=>x.kind==='prompt'&&x.role===r).length;return `<span><i style="background:${color}"></i>${roleNames[r]} ${n}</span>`;}).join('');
+ const b=s.bankInfo,deleted=phase==='delete'&&step>0?s.trace[Math.min(step,s.trace.length)-1]:null;
+ $('bank-'+method).textContent=`prompt ${b.candidates.length} → 候选池 ${b.bankSize} → 最终 ${b.budget}。`+(deleted?` 本步剔除原位置 ${deleted.id}。`:'')+(method==='G'?' G直接选Top96；剔除顺序按排名展示。':' R逐次选“删后分块误差最小”的行。');
+ drawReadout(method,s,metrics);$('errors-'+method).innerHTML=`<span>四块平均 MSE <b>${fmt(metrics.blockMSE)}</b></span><span>整体读出 MSE <b>${fmt(metrics.totalMSE)}</b></span>`;
+ return {s,keep,metrics};
+}
+function blockBars(g,r){
+ const max=Math.max(...g.metrics.roleMSE,...r.metrics.roleMSE,1e-15);$('block-bars').innerHTML='<div class="block-legend"><span><i style="background:var(--g)"></i>G 当前局部probe</span><span><i style="background:var(--r)"></i>R 当前局部probe</span></div>'+roleNames.map((n,i)=>`<div class="block-row"><span>${n}</span><div class="bar-stack"><div class="bar-track"><div class="bar gbar" style="width:${100*g.metrics.roleMSE[i]/max}%"></div></div><div class="bar-track"><div class="bar rbar" style="width:${100*r.metrics.roleMSE[i]/max}%"></div></div></div><div class="bar-value">G ${fmt(g.metrics.roleMSE[i])}<br>R ${fmt(r.metrics.roleMSE[i])}</div></div>`).join('');
+}
+function inspect(method,s,keep){
+ const canvas=$('kv-'+method),C=colors(),row=s.rows.slice(0,s.relayN).findIndex(r=>r.id===position),{c,w,h}=setup(canvas),gap=3,cw=(w-gap*15)/16,ch=(h-18-gap*7)/8;
+ let vector=null;
+ if(row>=0){const r=s.rows[row];vector=r[$('kv-kind').value];$('inspect-label-'+method).textContent=`${method==='G'?'GGG':'RRR'} · 原位置${position} · ${roleNames[r.role]} / ${r.kind} · ${keep[row]?'保留，原值直接gather':'本次删除'}`;}
+ else $('inspect-label-'+method).textContent=`${method==='G'?'GGG':'RRR'} · 原位置${position} · 前跳已删除，本跳不再候选`;
+ const max=vector?Math.max(...vector.map(Math.abs),1e-10):1;
+ for(let d=0;d<128;d++){const x=d%16*(cw+gap),y=Math.floor(d/16)*(ch+gap);c.fillStyle=vector?heat(vector[d],max,C):C.soft;c.fillRect(x,y,cw,ch);}
+ c.fillStyle=C.muted;c.font='11px system-ui';c.fillText(vector?`128维 · min ${Math.min(...vector).toFixed(3)} / max ${Math.max(...vector).toFixed(3)}`:'该行不在当前缓存',0,h-2);canvas._data={vector,cw,ch,gap};
+}
+function journey(){
+ $('journey').innerHTML=[0,1,2].map(h=>{const n=110+h*10,original=maxEnds[h];return `<tr><td>${names[h]} → ${names[h+1]}</td><td>${original}行</td><td>96，共同竞争</td><td>${10*(h+1)} latent + 4 sink</td><td>${n}行</td><td>${mb(n*147456)} MB</td><td>${(100*n/original).toFixed(1)}%</td></tr>`;}).join('');
+}
+function render(){if(!data)return;updateStory();const g=lane('G'),r=lane('R');blockBars(g,r);inspect('G',g.s,g.keep);inspect('R',r.s,r.keep);window.__relayView={hop,phase,step,query,block,position,rowsG:g.s.rows.slice(0,g.s.relayN).filter((_,i)=>g.keep[i]).length,rowsR:r.s.rows.slice(0,r.s.relayN).filter((_,i)=>r.keep[i]).length};}
+function stop(){playing=false;clearInterval(timer);$('play').textContent='▶ 顺序演示';}
+function calculate(){
+ stop();const cfg={seed:Number($('seed').value)||42,layer:Number($('layer').value),head:Number($('head').value)},id=++job;$('status').textContent='计算64 × 128读出与逐行剔除…';$('rebuild').disabled=true;
+ const done=result=>{if(id!==job)return;data=result;window.__relayData=data;cache={};step=data.paths.R[hop].trace.length;phase='final';$('rebuild').disabled=false;$('status').textContent=`已计算三次交接 · 第${cfg.layer}层 / KV头${cfg.head} · seed ${cfg.seed}`;journey();render();};
+ const fallback=()=>setTimeout(()=>{try{done(E.run(cfg));}catch(e){$('status').textContent='计算错误：'+e.message;$('rebuild').disabled=false;}},30);
+ try{if(worker)worker.terminate();const source=`const E=(${makeRelayEngine.toString()})();onmessage=e=>{try{postMessage({result:E.run(e.data)})}catch(err){postMessage({error:err.message})}}`;
+  const url=URL.createObjectURL(new Blob([source],{type:'text/javascript'}));worker=new Worker(url);URL.revokeObjectURL(url);worker.onmessage=e=>{if(e.data.error){$('status').textContent=e.data.error;$('rebuild').disabled=false;}else done(e.data.result);};worker.onerror=()=>{worker.terminate();fallback();};worker.postMessage(cfg);
+ }catch{fallback();}
+}
+for(let i=1;i<=36;i++)$('layer').add(new Option(`第${i} / 36层`,i));for(let i=1;i<=8;i++)$('head').add(new Option(`第${i} / 8头`,i));
+document.querySelectorAll('[data-hop]').forEach(b=>b.onclick=()=>{stop();hop=Number(b.dataset.hop);phase='final';step=data?data.paths.R[hop].trace.length:0;position=Math.min(position,maxEnds[hop]-1);$('position').value=position;render();});
+document.querySelectorAll('[data-phase]').forEach(b=>b.onclick=()=>{stop();phase=b.dataset.phase;step=phase==='delete'?0:data?.paths.R[hop].trace.length||0;render();});
+$('delete-step').oninput=()=>{stop();phase='delete';step=Number($('delete-step').value);render();};$('query').oninput=()=>{query=Number($('query').value);render();};$('block').onchange=()=>{block=$('block').value;render();};$('position').oninput=()=>{position=Math.max(0,Math.min(maxEnds[hop]-1,Number($('position').value)||0));render();};$('kv-kind').onchange=render;$('rebuild').onclick=calculate;
+$('play').onclick=()=>{if(playing){stop();return;}if(!data)return;playing=true;hop=0;phase='full';step=0;$('play').textContent='Ⅱ 暂停';render();let tick=0;timer=setInterval(()=>{if(phase==='full')phase='bank';else if(phase==='bank'){phase='delete';step=0;}else if(phase==='delete'){step=Math.min(data.paths.R[hop].trace.length,step+8);if(step===data.paths.R[hop].trace.length)phase='final';}else if(hop<2){hop++;phase='full';step=0;}else{stop();}tick++;render();},600);};
+function tooltip(text,e){const t=$('tooltip');t.textContent=text;t.hidden=false;t.style.left=Math.max(8,Math.min(window.innerWidth-290,e.clientX+12))+'px';t.style.top=Math.max(8,Math.min(window.innerHeight-80,e.clientY+12))+'px';}
+for(const method of ['G','R']){
+ const canvas=$('map-'+method);function hit(e){const a=canvas._map;if(!a)return null;const r=canvas.getBoundingClientRect(),col=Math.floor((e.clientX-r.left)/a.cw),row=Math.floor((e.clientY-r.top)/13),id=row*a.cols+col;return id<a.s.end?id:null;}
+ canvas.onclick=e=>{const id=hit(e);if(id===null)return;position=id;$('position').value=id;render();};
+ canvas.onmousemove=e=>{const id=hit(e),a=canvas._map;if(id===null||!a){$('tooltip').hidden=true;return;}const x=a.lookup.get(id);tooltip(x?`位置${id} · ${roleNames[x.r.role]} ${x.r.kind} · ${a.keep[x.i]?'保留':'本次删除'}`:`位置${id} · 前跳已删除`,e);};canvas.onmouseleave=()=>$('tooltip').hidden=true;
+ $('kv-'+method).onmousemove=e=>{const canvas=$('kv-'+method),v=canvas._data;if(!v?.vector)return;const r=canvas.getBoundingClientRect(),col=Math.floor((e.clientX-r.left)/(v.cw+v.gap)),row=Math.floor((e.clientY-r.top)/(v.ch+v.gap)),d=row*16+col;if(d>=0&&d<128)tooltip(`d${d+1} = ${v.vector[d].toFixed(6)}`,e);};$('kv-'+method).onmouseleave=()=>$('tooltip').hidden=true;
+ $('readout-'+method).onmousemove=e=>{const c=$('readout-'+method),v=c._data;if(!v)return;const r=c.getBoundingClientRect(),d=Math.floor((e.clientX-r.left-v.left)/v.cw),row=Math.floor((e.clientY-r.top)/28);if(d>=0&&d<128&&row>=0&&row<3)tooltip(`${['原读出','删后读出','差值'][row]} · d${d+1} = ${v.values[row][d].toFixed(7)}`,e);};$('readout-'+method).onmouseleave=()=>$('tooltip').hidden=true;
+}
+window.addEventListener('resize',()=>requestAnimationFrame(render));window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',render);calculate();
+})();
+
+</script></body></html>

@@ -1,0 +1,35 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+async function main(){
+ const dir=__dirname,port=fs.readFileSync(path.join(dir,'browser-qa-profile/DevToolsActivePort'),'utf8').split('\n')[0];
+ const targets=await(await fetch(`http://127.0.0.1:${port}/json/list`)).json(),target=targets.find(x=>x.type==='page');
+ const ws=new WebSocket(target.webSocketDebuggerUrl),pending=new Map(),errors=[];let id=0;
+ ws.onmessage=e=>{const m=JSON.parse(e.data);if(m.id){const p=pending.get(m.id);pending.delete(m.id);if(m.error)p.reject(m.error);else p.resolve(m.result);}if(m.method==='Runtime.exceptionThrown')errors.push(m.params.exceptionDetails);};
+ await new Promise(r=>ws.onopen=r);
+ const send=(method,params={})=>new Promise((resolve,reject)=>{const n=++id;pending.set(n,{resolve,reject});ws.send(JSON.stringify({id:n,method,params}));});
+ const evaluate=async expression=>{const x=await send('Runtime.evaluate',{expression,awaitPromise:true,returnByValue:true});if(x.exceptionDetails)throw Error(JSON.stringify(x.exceptionDetails));return x.result.value;};
+ await send('Runtime.enable');await send('Page.enable');await send('Emulation.setDeviceMetricsOverride',{width:1440,height:1100,deviceScaleFactor:1,mobile:false});
+ await send('Page.navigate',{url:'file:///'+path.join(dir,'ggg-rrr-simulator.html').replaceAll('\\','/')});
+ let loaded=false;for(let i=0;i<80;i++){if(await evaluate('Boolean(window.__relayData && window.__relayView)')){loaded=true;break;}await new Promise(r=>setTimeout(r,100));}assert(loaded,'Simulation loaded');
+ assert.equal((await evaluate('window.__relayView')).rowsG,110);assert.equal((await evaluate('window.__relayView')).rowsR,110);
+ await evaluate(`document.querySelector('[data-hop="1"]').click()`);assert.equal((await evaluate('window.__relayView')).rowsR,120);
+ await evaluate(`document.querySelector('[data-phase="full"]').click()`);assert.equal((await evaluate('window.__relayView')).rowsR,264);
+ await evaluate(`document.getElementById('delete-step').value=20;document.getElementById('delete-step').dispatchEvent(new Event('input'))`);assert.equal((await evaluate('window.__relayView')).rowsR,196);
+ await evaluate(`document.querySelector('[data-hop="2"]').click();document.getElementById('query').value=63;document.getElementById('query').dispatchEvent(new Event('input'));document.getElementById('block').value='2';document.getElementById('block').dispatchEvent(new Event('change'))`);
+ let state=await evaluate('window.__relayView');assert.equal(state.rowsG,130);assert.equal(state.rowsR,130);assert.equal(state.query,63);assert.equal(state.block,'2');
+ await evaluate(`document.getElementById('position').value=340;document.getElementById('position').dispatchEvent(new Event('input'));document.getElementById('kv-kind').value='k';document.getElementById('kv-kind').dispatchEvent(new Event('change'))`);assert.equal((await evaluate('window.__relayView')).position,340);
+ const heatColors=await evaluate(`(()=>{const c=document.getElementById('kv-G'),d=c.getContext('2d').getImageData(0,0,c.width,c.height).data,s=new Set();for(let i=0;i<d.length;i+=4)if(d[i+3])s.add(d[i]+','+d[i+1]+','+d[i+2]);return s.size;})()`);assert(heatColors>30,'128D heatmap has varying visible colors');
+ await evaluate(`document.getElementById('block').value='total';document.getElementById('block').dispatchEvent(new Event('change'))`);
+ const desktop=await evaluate('({scroll:document.documentElement.scrollWidth,width:innerWidth,height:document.documentElement.scrollHeight,status:document.getElementById("status").textContent})');assert(desktop.scroll<=desktop.width);
+ const shot=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:{x:0,y:0,width:1440,height:desktop.height,scale:1}});fs.writeFileSync(path.join(dir,'qa-desktop.png'),Buffer.from(shot.data,'base64'));
+ await send('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});await evaluate('window.dispatchEvent(new Event("resize"))');await new Promise(r=>setTimeout(r,250));
+ const mobile=await evaluate('({scroll:document.documentElement.scrollWidth,width:innerWidth,height:document.documentElement.scrollHeight})');assert(mobile.scroll<=mobile.width,`Mobile overflow ${JSON.stringify(mobile)}`);
+ const mobileShot=await send('Page.captureScreenshot',{format:'png'});fs.writeFileSync(path.join(dir,'qa-mobile.png'),Buffer.from(mobileShot.data,'base64'));
+ await send('Emulation.setDeviceMetricsOverride',{width:320,height:844,deviceScaleFactor:1,mobile:true});await evaluate('window.dispatchEvent(new Event("resize"))');await new Promise(r=>setTimeout(r,200));assert(await evaluate('document.documentElement.scrollWidth<=innerWidth'),'320px fit');
+ await evaluate(`document.getElementById('seed').value=7;document.getElementById('layer').value=36;document.getElementById('head').value=8;document.getElementById('rebuild').click()`);
+ let rebuilt=false;for(let i=0;i<80;i++){if(await evaluate('window.__relayData.seed===7 && window.__relayData.layer===36 && window.__relayData.head===8 && !document.getElementById("rebuild").disabled')){rebuilt=true;break;}await new Promise(r=>setTimeout(r,100));}assert(rebuilt,'New seed / layer / head recomputes');
+ await evaluate(`document.getElementById('play').click()`);await new Promise(r=>setTimeout(r,2200));const playback=await evaluate('window.__relayView');assert(playback.phase==='delete'&&playback.step>0,'Playback advances deletion');await evaluate(`document.getElementById('play').click()`);
+ assert.equal(errors.length,0,JSON.stringify(errors));
+ const proof={passed:true,browser:'isolated headless Chrome',desktop,mobile,heatColors,checks:['3 handoffs','full / bank / deletion / final states','delete slider','query and source block','128D K/V inspector','visible varying heatmap colors','seed/layer/head recalculation','autoplay','390px and 320px no horizontal overflow','zero runtime exceptions'],model_calls:0};
+ fs.writeFileSync(path.join(dir,'browser-qa.json'),JSON.stringify(proof,null,2));console.log(JSON.stringify(proof));await send('Browser.close');
+}
+main().catch(e=>{console.error(e);process.exitCode=1;});

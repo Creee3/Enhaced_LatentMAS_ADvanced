@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "browser": "isolated headless Chrome",
+  "desktop": {
+    "scroll": 1425,
+    "width": 1440,
+    "height": 2776,
+    "status": "已计算三次交接 · 第1层 / KV头1 · seed 42"
+  },
+  "mobile": {
+    "scroll": 390,
+    "width": 390,
+    "height": 5044
+  },
+  "heatColors": 441,
+  "checks": [
+    "3 handoffs",
+    "full / bank / deletion / final states",
+    "delete slider",
+    "query and source block",
+    "128D K/V inspector",
+    "visible varying heatmap colors",
+    "seed/layer/head recalculation",
+    "autoplay",
+    "390px and 320px no horizontal overflow",
+    "zero runtime exceptions"
+  ],
+  "model_calls": 0
+}
