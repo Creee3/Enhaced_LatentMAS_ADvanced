@@ -1,4 +1,4 @@
-status: preflight_verified
+status: engineering_loading
 methods: [Full, receiver]
 datasets: {gpqa: 96, mmlu_pro: 280, gsm8k: 200}
 new_target_keys: 1152
@@ -8,4 +8,4 @@ max_per_gpu: 3
 latent_steps: 10
 seed: 42
 model_forward_started: false
-automation: requested_hourly_pending_creation
+automation: full-receiver-576
