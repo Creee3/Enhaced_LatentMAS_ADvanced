@@ -1,4 +1,4 @@
-status: formal_running
+status: completed_archived_scored
 methods: [Full, receiver]
 datasets: {gpqa: 96, mmlu_pro: 280, gsm8k: 200}
 new_target_keys: 1152
