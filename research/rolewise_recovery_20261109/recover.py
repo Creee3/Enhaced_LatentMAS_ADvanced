@@ -2,7 +2,7 @@
 
 Requires verified full stopped archive and fresh empty A100. No retry loop.
 """
-import argparse, hashlib, json, os, subprocess, sys, time, traceback
+import argparse, hashlib, importlib.util, json, os, subprocess, sys, time, traceback
 from pathlib import Path
 
 def matches(row, ref):
@@ -61,8 +61,9 @@ def main(run, child=False):
     sample = subprocess.check_output(['nvidia-smi', '-i', '1', '--query-gpu=uuid,utilization.gpu,memory.free,memory.total', '--format=csv,noheader,nounits'], text=True).strip().split(', ')
     uuid, util, free, total = sample[0], *map(int, sample[1:])
     assert uuid == 'GPU-250104ae-64db-3b01-4660-a580491ebc0d' and util <= 30 and free/total >= .7
-    from manager import foreign_mps
-    assert not foreign_mps(dict(index=1, uuid=uuid), [])
+    spec = importlib.util.spec_from_file_location('recovery_original_manager', run/'manager.py')
+    original_manager = importlib.util.module_from_spec(spec); spec.loader.exec_module(original_manager)
+    assert not original_manager.foreign_mps(dict(index=1, uuid=uuid), [])
     folder.mkdir()
     c.save(folder/'reference.json', {k:refs[0][k] for k in ['index', 'method', 'shared_planner_kv_sha', 'fork_rng_sha', 'shared_request_ids']})
     c.save(folder/'identity.json', dict(identity=c.identity(os.getpid()), unix=time.time()))
@@ -100,8 +101,7 @@ def main(run, child=False):
         if process is not None: process.wait()
         stop = subprocess.run(['/usr/bin/nvidia-cuda-mps-control'], input='quit\n', text=True, env=env, capture_output=True, timeout=30)
         time.sleep(2)
-        from manager import own_pipe
-        c.save(folder/'mps_stop.json', dict(returncode=stop.returncode, owned_after=own_pipe(pipe), unix=time.time()))
+        c.save(folder/'mps_stop.json', dict(returncode=stop.returncode, owned_after=original_manager.own_pipe(pipe), unix=time.time()))
 
 if __name__ == '__main__':
     p=argparse.ArgumentParser();p.add_argument('--run',type=Path,required=True);p.add_argument('--child',action='store_true');a=p.parse_args();main(a.run,a.child)
