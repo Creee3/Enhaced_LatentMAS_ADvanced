@@ -1,4 +1,4 @@
-status: formal_loading
+status: formal_running
 methods: [Full, receiver]
 datasets: {gpqa: 96, mmlu_pro: 280, gsm8k: 200}
 new_target_keys: 1152
