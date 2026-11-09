@@ -10,3 +10,5 @@
 2026-11-09 17:28北京时间巡检：一次inspect298/1152，147complete/6running/423pending/0held，无新故障。GPU0/1各3共6个已验证worker继续健康native生成，manager461868与本地v2controller23700身份保持，stderr为空；模型不重启迁移。源锁24文件及旧32/bundle37 SHA通过。actual85349027/reserved51197/unknown61211，6个健康在途RID不手工结算。GPQA两臂192键已提交，MMLU104/GSM2键；全量未完成，不计算准确率、不并发收集评分。原工程门槛失败保留，正常健康进展保持安静。
 
 2026-11-09 18:25北京时间巡检：一次inspect469/1152，233complete/6running/337pending/0held，无新故障。GPU0/1各3共6个已正式验证worker UID/start_ticks持续匹配，native进展新鲜，manager461868及本地v2controller23700身份保持、stderr为空；模型不重启迁移。源锁24文件及旧32/bundle37 SHA通过。actual85930370/reserved51571/unknown61211，自有6个健康在途RID不手工或重复结算。全量未完成，不统计准确率、不并发collect/score；原工程门槛失败保留，相同健康进展安静。
+
+2026-11-09 19:29北京时间巡检：一次inspect688/1152，342complete/6running/228pending/0held，无新故障。GPU0/1各3共6个已正式验证worker及manager461868的UID/start_ticks持续匹配，native生成进展新鲜，本地v2controller23700身份保持、stderr为空；健康模型不重启迁移。源锁24文件及旧32/bundle37 SHA通过。actual86680920/reserved51031/unknown61211，6个健康在途RID不手工或重复结算。全量未完成，不计算中途准确率、不并发collect/score，原工程门槛失败保留；正常健康进展安静。
