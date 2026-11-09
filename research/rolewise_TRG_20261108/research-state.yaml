@@ -1,4 +1,4 @@
-status: formal_running
+status: completed_archived_scored
 user_authorized_methods: [GGG, RRR, TTT]
 user_authorized_datasets: {gpqa: 96, mmlu_pro: 280, gsm8k: 200}
 target_unique_keys: 1728
@@ -7,6 +7,6 @@ latent_steps: 10
 seed: 42
 GPU_forward_started: true
 old_results: immutable
-automation: ggg-rrr-ttt-576
+automation: deleted_after_completion
 GPU_models_loading: false
 controller_process: explicit_one_run_not_automation
