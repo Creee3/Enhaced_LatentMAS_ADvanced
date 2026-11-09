@@ -32,7 +32,6 @@ def main(run):
        "assert stage=='formal' or (load(folder/'finished.json')['all_eligible_complete'] and not (folder/'failure.json').exists())"),
       ("assert not (out/'failure.json').exists() and load(out/'exit.json')['normal']",
        "assert worker['pid']==343277 or (not (out/'failure.json').exists() and load(out/'exit.json')['normal'])"),
-      ("assert set(raw)==ids", "assert set(raw)=={x['reservation_id'] for x in settled if not x['failed']}"),
       ("assert all(not x['failed'] and x['independent_unknown']==0 for x in settled)",
        "assert all((x['reservation_id']=='343277-1794152736751573869' and x['failed'] and x['independent_unknown']==3105) or (not x['failed'] and x['independent_unknown']==0) for x in settled)"),
       ("assert len({tuple(x['shared_request_ids']) for x in trio})==len({x['shared_planner_kv_sha'] for x in trio})==len({x['fork_rng_sha'] for x in trio})==1",
