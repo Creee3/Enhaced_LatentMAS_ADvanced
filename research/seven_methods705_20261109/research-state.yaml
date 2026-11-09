@@ -1,4 +1,4 @@
-status: sealed_preflight_verified_not_started
+status: HL_engineering_loading
 new_keys: 2055
 existing_frozen_keys: 2880
 final_keys: 4935
@@ -9,3 +9,6 @@ max_per_gpu: 3
 subruns_serial: [HL, extension]
 seed: 42
 latent_steps: 10
+controller_pid: 22804
+controller_single_execution: true
+app_automation_created: false
