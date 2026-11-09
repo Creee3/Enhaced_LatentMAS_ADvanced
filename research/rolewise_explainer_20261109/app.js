@@ -91,5 +91,6 @@ for(const method of ['G','R']){
  $('kv-'+method).onmousemove=e=>{const canvas=$('kv-'+method),v=canvas._data;if(!v?.vector)return;const r=canvas.getBoundingClientRect(),col=Math.floor((e.clientX-r.left)/(v.cw+v.gap)),row=Math.floor((e.clientY-r.top)/(v.ch+v.gap)),d=row*16+col;if(d>=0&&d<128)tooltip(`d${d+1} = ${v.vector[d].toFixed(6)}`,e);};$('kv-'+method).onmouseleave=()=>$('tooltip').hidden=true;
  $('readout-'+method).onmousemove=e=>{const c=$('readout-'+method),v=c._data;if(!v)return;const r=c.getBoundingClientRect(),d=Math.floor((e.clientX-r.left-v.left)/v.cw),row=Math.floor((e.clientY-r.top)/28);if(d>=0&&d<128&&row>=0&&row<3)tooltip(`${['原读出','删后读出','差值'][row]} · d${d+1} = ${v.values[row][d].toFixed(7)}`,e);};$('readout-'+method).onmouseleave=()=>$('tooltip').hidden=true;
 }
+$('layer').onchange=calculate;$('head').onchange=calculate;$('seed').onchange=calculate;
 window.addEventListener('resize',()=>requestAnimationFrame(render));window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',render);calculate();
 })();

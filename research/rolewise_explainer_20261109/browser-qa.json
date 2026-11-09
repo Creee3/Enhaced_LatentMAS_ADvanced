@@ -21,6 +21,7 @@
     "128D K/V inspector",
     "visible varying heatmap colors",
     "seed/layer/head recalculation",
+    "automatic head change updates readout values",
     "autoplay",
     "390px and 320px no horizontal overflow",
     "zero runtime exceptions"

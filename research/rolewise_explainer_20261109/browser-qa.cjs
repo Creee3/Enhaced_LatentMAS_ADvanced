@@ -28,8 +28,12 @@ async function main(){
  await evaluate(`document.getElementById('seed').value=7;document.getElementById('layer').value=36;document.getElementById('head').value=8;document.getElementById('rebuild').click()`);
  let rebuilt=false;for(let i=0;i<80;i++){if(await evaluate('window.__relayData.seed===7 && window.__relayData.layer===36 && window.__relayData.head===8 && !document.getElementById("rebuild").disabled')){rebuilt=true;break;}await new Promise(r=>setTimeout(r,100));}assert(rebuilt,'New seed / layer / head recomputes');
  await evaluate(`document.getElementById('play').click()`);await new Promise(r=>setTimeout(r,2200));const playback=await evaluate('window.__relayView');assert(playback.phase==='delete'&&playback.step>0,'Playback advances deletion');await evaluate(`document.getElementById('play').click()`);
+ const oldReadout=await evaluate('Array.from(window.__relayData.paths.G[0].target.slice(0,128))');
+ await evaluate(`document.getElementById('head').value=2;document.getElementById('head').dispatchEvent(new Event('change'))`);
+ let auto=false;for(let i=0;i<80;i++){if(await evaluate('window.__relayData.head===2 && !document.getElementById("rebuild").disabled')){auto=true;break;}await new Promise(r=>setTimeout(r,100));}assert(auto,'Head change automatically recalculates');
+ assert.notDeepEqual(await evaluate('Array.from(window.__relayData.paths.G[0].target.slice(0,128))'),oldReadout,'Different head changes readout values');
  assert.equal(errors.length,0,JSON.stringify(errors));
- const proof={passed:true,browser:'isolated headless Chrome',desktop,mobile,heatColors,checks:['3 handoffs','full / bank / deletion / final states','delete slider','query and source block','128D K/V inspector','visible varying heatmap colors','seed/layer/head recalculation','autoplay','390px and 320px no horizontal overflow','zero runtime exceptions'],model_calls:0};
+ const proof={passed:true,browser:'isolated headless Chrome',desktop,mobile,heatColors,checks:['3 handoffs','full / bank / deletion / final states','delete slider','query and source block','128D K/V inspector','visible varying heatmap colors','seed/layer/head recalculation','automatic head change updates readout values','autoplay','390px and 320px no horizontal overflow','zero runtime exceptions'],model_calls:0};
  fs.writeFileSync(path.join(dir,'browser-qa.json'),JSON.stringify(proof,null,2));console.log(JSON.stringify(proof));await send('Browser.close');
 }
 main().catch(e=>{console.error(e);process.exitCode=1;});
