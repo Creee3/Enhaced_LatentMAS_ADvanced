@@ -1,5 +1,5 @@
 """Management-only cardinality correction; original manager remains frozen."""
-import sys
+import hashlib,sys
 from pathlib import Path
 
 def expected_keys(indices, methods, audit):
@@ -12,7 +12,9 @@ if __name__=='__main__':
     run=Path(__file__).resolve().parents[1]
     sys.path.insert(0,str(run))
     from common import load,verify
-    source=verify();queue=load(run/'queue.json');plan=load(run/'plan.json');audit=load(run/'engineering_audit_verified.json');archive=load(run/'engineering_archive_verified.json')
+    source=verify();lock=load(run/'management/gate6_management_lock.json')
+    assert hashlib.sha256(Path(__file__).read_bytes()).hexdigest()==lock['manager_wrapper_sha256']
+    queue=load(run/'queue.json');plan=load(run/'plan.json');audit=load(run/'engineering_audit_verified.json');archive=load(run/'engineering_archive_verified.json')
     count=expected_keys(queue['engineering_indices'],plan['methods'],audit)
     assert archive['passed'] and all(archive[k] for k in ['remote_stream_sha','gzip_crc','exact_members','per_member_sha','safe_full_extract_readback_sha'])
     assert audit['run_lock_sha256']==source['run_lock_sha256']

@@ -1,4 +1,4 @@
-status: engineering_loading
+status: formal_loading
 methods: [Full, receiver]
 datasets: {gpqa: 96, mmlu_pro: 280, gsm8k: 200}
 new_target_keys: 1152
@@ -7,5 +7,5 @@ max_workers: 6
 max_per_gpu: 3
 latent_steps: 10
 seed: 42
-model_forward_started: false
+model_forward_started: true
 automation: full-receiver-576
