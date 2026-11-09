@@ -1,0 +1,11 @@
+status: sealed_preflight_verified_not_started
+new_keys: 2055
+existing_frozen_keys: 2880
+final_keys: 4935
+cases: 705
+datasets: {gpqa: 225, mmlu_pro: 280, gsm8k: 200}
+max_workers_total: 6
+max_per_gpu: 3
+subruns_serial: [HL, extension]
+seed: 42
+latent_steps: 10

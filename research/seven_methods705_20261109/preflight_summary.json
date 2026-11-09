@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "cpu_tests_per_subrun": 5,
+  "formal_before_engineering_rejected": true,
+  "model_forward_calls": 0,
+  "run_locks": {
+    "HL": "3ac0acee665725a912d6143b178ab03ac5c7f3cbdb50e0ec198fd04d773cf16b",
+    "extension": "24216805b4b10c5ff9a96ff8c99fdabb69fc22b48890c382faadc622df196b67"
+  },
+  "joint": {
+    "passed": true,
+    "charged_before": 87597951,
+    "total_upper_positions": 19389543,
+    "maximum_total": 106987494,
+    "limit": 115000000,
+    "model_forward_calls": 0,
+    "subruns": {
+      "HL": {
+        "total_cases": 705,
+        "target_keys": 1410,
+        "upper_positions": 12980309,
+        "max_original_context": 12844
+      },
+      "extension": {
+        "total_cases": 129,
+        "target_keys": 645,
+        "upper_positions": 6409234,
+        "max_original_context": 11730
+      }
+    },
+    "runs": {
+      "HL": "/home/ubuntu/ICML2027/experiments/latentmas_cumulative_history_20261025/evidence/HL_705exp_s42_l10_20261109T124902Z",
+      "extension": "/home/ubuntu/ICML2027/experiments/latentmas_cumulative_history_20261025/evidence/extension_705exp_s42_l10_20261109T124902Z"
+    }
+  }
+}

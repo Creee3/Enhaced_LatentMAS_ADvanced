@@ -1,0 +1,5 @@
+# 进度
+
+2026-11-09：准备705同题清单（旧576原索引保持、追加GPQA129），作者三源下载并固定SHA；新H/L adapter、原生分支worker、联合预算公式及审计准备。没有启动新增模型forward。
+
+2026-11-09封存前验证：两run各5项CPU通过，原作者H/L三次实际BF16尺寸gather/保护/头差异核验通过；提前formal被拒、无attempt/forward。联合零forward上界19389543，加账本87597951共106987494<115M。HL源锁3ac0acee665725a912d6143b178ab03ac5c7f3cbdb50e0ec198fd04d773cf16b；extension源锁24216805b4b10c5ff9a96ff8c99fdabb69fc22b48890c382faadc622df196b67。时间重建排除Full/receiver不需要的共享首probe成本。尚未启动新GPU。
