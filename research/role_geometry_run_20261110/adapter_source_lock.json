@@ -1,0 +1,33 @@
+{
+  "adapter_version": "role_geometry_run_20261110_v1",
+  "selection_manifest_sha256": "7756c583be41780cd60ae9d88b04a562d99246069d85e654e22982ccb1f344e5",
+  "source_files": {
+    "task_adapter.py": "756106c344b8d040d27358b18daa411e7a560e71c70bcd6321c8a0341049f187",
+    "prepare_data.py": "0cab226db30ad2639d86f9106fc03bddfe99267d7480c95591a46da7f28ca777",
+    "test_task_adapter.py": "25aceb287b885523389999cc21f58255fae7b8b0fc55fc1cb7bab5904703b206"
+  },
+  "upstream": {
+    "path": "D:\\liuxin_workspace\\ICML2027\\04_参考代码与历史实验\\上游参考代码\\LatentMAS-official",
+    "commit": "9a9e4d331eb11430bd9e64754c6b252b06d73031",
+    "files": {
+      "data.py": "ca00592eadd7b8c268f51c70bbfb49d8088fe387ea9952d288b65a6f5d80839a",
+      "prompts.py": "8cf16184937f2d0bb78c856426685ccc8d5cd639e8df0f5c7642dfa87064e800",
+      "utils.py": "f58309e2b549ac9c560aea3642e82f9406f3591d1c7c7c18c3f584faadb9bb69",
+      "methods/latent_mas.py": "3fb7b5a7032c2ebe912a39b681ca6a19aec6664eb1742c71dfbca4cf5e164d33"
+    }
+  },
+  "isolated_executor": {
+    "path": "D:\\liuxin_workspace\\ICML2027\\advanced_MOC\\experiments\\moc_v21_humaneval_test_20261015",
+    "files": {
+      "sandbox.py": "608619a4734f7765e15911176a884b080873cc3c66e66ec8a4a3cda79376e313",
+      "sandbox_child.py": "e5943eab6bddf08e7f24117f718aac28fa8b41630e343666229acbf95662411f"
+    }
+  },
+  "private_artifacts": {
+    "questions.json": "8e70e44bab7756fbc41c6c571e499877bf35b13b58d940d66230a1175af9d988",
+    "data_manifest.json": "4a065a18f7d7ea6c631043db131801cda5f31642a4eafabb43dc5e5978b459f4",
+    "dependencies/humanevalplus_tests.json": "95a6db4fa57c78d73f32fc1578b5305079dc005c807bb8d5a8a275493cbd1527"
+  },
+  "model_forward_calls": 0,
+  "source_only_lock": true
+}

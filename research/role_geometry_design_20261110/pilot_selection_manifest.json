@@ -1,0 +1,701 @@
+{
+  "status": "prepared_not_run",
+  "purpose": "exploratory role-geometry/readout pilot; no accuracy claim",
+  "salt": "role_geometry_pilot_20261110_v1",
+  "hash_rule": "sha256(salt|dataset_group|stable_id), ascending",
+  "groups": {
+    "AIME24": 20,
+    "GPQA-Diamond": 20,
+    "GPQA-nonDiamond": 20,
+    "HumanEval+": 20,
+    "MedQA": 20,
+    "MMLU-Pro": 20
+  },
+  "total_questions": 120,
+  "sources": {
+    "AIME24": {
+      "path": "D:\\liuxin_workspace\\ICML2027\\课程材料\\LatentMAS_GPU2_复现_20261107\\downloaded_data\\HuggingFaceH4--aime_2024--data--train-00000-of-00001.parquet",
+      "file_sha256": "26139847601a5037c237d5928b195e7260ca8074cf4f264b794af42847f79ccf",
+      "manifest_sha256": "f6f44f8c841e8c37363fce021235f4412cd72b8cc2fbab1e1eab3e25d43293d5",
+      "rows": 30
+    },
+    "GPQA-Diamond": {
+      "path": "D:\\liuxin_workspace\\ICML2027\\advanced_MOC\\experiments\\latentmas_role_blocks_main448_20261102\\cohort_questions.json",
+      "file_sha256": "841cdf675d4e5c7dfd24720ea504d0750d4985b757af46ec9b4760de3a5949b3",
+      "rows": 198
+    },
+    "GPQA-nonDiamond": {
+      "path": "D:\\liuxin_workspace\\ICML2027\\advanced_MOC\\experiments\\latentmas_role_blocks_main448_20261102\\cohort_questions.json",
+      "file_sha256": "841cdf675d4e5c7dfd24720ea504d0750d4985b757af46ec9b4760de3a5949b3",
+      "rows": 250
+    },
+    "HumanEval+": {
+      "path": "D:\\liuxin_workspace\\ICML2027\\课程材料\\LatentMAS_GPU2_复现_20261107\\downloaded_data\\evalplus--humanevalplus--data--test-00000-of-00001-5973903632b82d40.parquet",
+      "file_sha256": "4436f5c03d77c17e0cbc57543b90665b5c1266f55a43992a5ed7922cd34a7558",
+      "manifest_sha256": "a63ef6ccdcccee3f1a0a322a61c01841791cb3ec76971bd677b1805a8438a827",
+      "rows": 164
+    },
+    "MedQA": {
+      "path": "D:\\liuxin_workspace\\ICML2027\\04_参考代码与历史实验\\上游参考代码\\LatentMAS-official\\data\\medqa.json",
+      "file_sha256": "3198c1831919bd01cce74c9ce0bbaf4cf6b9b77e87ba6bbcfa355d81d7fb6714",
+      "rows": 300
+    },
+    "MMLU-Pro": {
+      "path": "D:\\liuxin_workspace\\ICML2027\\advanced_MOC\\experiments\\cloud_completed_backup_20261110\\runs\\HL_705exp_s42_l10_20261109T124902Z\\source_data\\TIGER-Lab__MMLU-Pro\\data\\test-00000-of-00001.parquet",
+      "file_sha256": "0e24a191921c2f453518a537a8b2117bd137e7714d4ef1565e9ba06c1ecb9ad8",
+      "rows": 12032,
+      "categories": [
+        "biology",
+        "business",
+        "chemistry",
+        "computer science",
+        "economics",
+        "engineering",
+        "health",
+        "history",
+        "law",
+        "math",
+        "other",
+        "philosophy",
+        "physics",
+        "psychology"
+      ]
+    }
+  },
+  "selected": {
+    "AIME24": [
+      {
+        "stable_id": "aime24:75",
+        "source_index": 15,
+        "rank_sha256": "17aae21df67648e2a8ef4144029e85ef95ff9c27b38b862f05218264b67d963b"
+      },
+      {
+        "stable_id": "aime24:69",
+        "source_index": 9,
+        "rank_sha256": "17ab6f64ae647b2747edcf676423c8fc3fbb427063e3d3e237b7eb103429aab2"
+      },
+      {
+        "stable_id": "aime24:71",
+        "source_index": 11,
+        "rank_sha256": "2050830d74aedae3fe2f4967a52868b2d08b1d122dc4a1cccbba2d963f38880f"
+      },
+      {
+        "stable_id": "aime24:84",
+        "source_index": 24,
+        "rank_sha256": "21ac03472028924b7b5ce3d4c238f1d3845ccde29d5fb4b650fc171652d84688"
+      },
+      {
+        "stable_id": "aime24:72",
+        "source_index": 12,
+        "rank_sha256": "2f0fc41fe439d431dfbd77627a57226db329cedb1a50782b43d05530fcf1cfa2"
+      },
+      {
+        "stable_id": "aime24:63",
+        "source_index": 3,
+        "rank_sha256": "38a68f2ad8321b29f34f06fb2a271296376ac381c62b0d3bcb0d0645173d37a4"
+      },
+      {
+        "stable_id": "aime24:81",
+        "source_index": 21,
+        "rank_sha256": "3f9181e6eef049e250bb15e24ff2d512fe3f2a2a65fbd3624caf053a755b4596"
+      },
+      {
+        "stable_id": "aime24:60",
+        "source_index": 0,
+        "rank_sha256": "53c10c710c6c6e6d42e546bd105dbca5c7c37d3897116bdb0062880ef6cad250"
+      },
+      {
+        "stable_id": "aime24:89",
+        "source_index": 29,
+        "rank_sha256": "5f8aae83b9217dc2336efb62741f950175df2c70babf12684673f2fd1291eab4"
+      },
+      {
+        "stable_id": "aime24:68",
+        "source_index": 8,
+        "rank_sha256": "67ad5c788ccaeaa69318c603f64f20e4921b2831fa550cacd7410cc80f3005f6"
+      },
+      {
+        "stable_id": "aime24:85",
+        "source_index": 25,
+        "rank_sha256": "6d5dcf150f3bc4bceccfd3364192c37f6779c94a206b0abd8887b9974fc8902e"
+      },
+      {
+        "stable_id": "aime24:62",
+        "source_index": 2,
+        "rank_sha256": "76f5559229334027d9ffe83f8599c639eac74ef6e45b529b45297b3e2170a14a"
+      },
+      {
+        "stable_id": "aime24:79",
+        "source_index": 19,
+        "rank_sha256": "78f1cde0330839084a7282bff7fffd0c4e5e1e7383bf0b5b582764f3a87f9ed2"
+      },
+      {
+        "stable_id": "aime24:77",
+        "source_index": 17,
+        "rank_sha256": "84f7b71f3e2d78562ee705488d88a001661e2123964f707626c94a5638045372"
+      },
+      {
+        "stable_id": "aime24:74",
+        "source_index": 14,
+        "rank_sha256": "8de31e2a52ade904bcce0ddfb018d48f4ea6a2ecf2c2fc3722d4b5b9a8107e68"
+      },
+      {
+        "stable_id": "aime24:64",
+        "source_index": 4,
+        "rank_sha256": "93d512df0155cbfa41fb79c39ce78e7f51f777e1a44720597d5148e03383b6c8"
+      },
+      {
+        "stable_id": "aime24:65",
+        "source_index": 5,
+        "rank_sha256": "974dfecf0e26093c7dd9f499fdf31be6296d5f1ef8b523dec848e32615dff810"
+      },
+      {
+        "stable_id": "aime24:73",
+        "source_index": 13,
+        "rank_sha256": "a04c4caddce1c1fcdfdd7ff11e6f5b0e3f2c379bcd0ed2ee9b65552725833c6c"
+      },
+      {
+        "stable_id": "aime24:82",
+        "source_index": 22,
+        "rank_sha256": "a164770527e4ee129eedf9ab977d0c6a74d976a548216a2aea5d97de074295b3"
+      },
+      {
+        "stable_id": "aime24:83",
+        "source_index": 23,
+        "rank_sha256": "aefb96f99eddefb1f05b3f21a7b04eb3dfb27275b395ea5a9d29624b4c6eddc6"
+      }
+    ],
+    "GPQA-Diamond": [
+      {
+        "stable_id": "gpqa_diamond_test_165",
+        "source_index": 418,
+        "rank_sha256": "03989067a0936eee534ca5659aac95e9e43c4d1e3a630b3d1dde8ae0ddf9d122"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_175",
+        "source_index": 166,
+        "rank_sha256": "0583eb2236f0acc08ec5e5b27da63d0987da2f012474eefb2596450f7061ce4c"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_129",
+        "source_index": 349,
+        "rank_sha256": "05f6740315e4aa8dd3f0fc0b9a7b229db57a3f77fe2697022a5caf8bec4af0c2"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_139",
+        "source_index": 415,
+        "rank_sha256": "082b818bad561d38b66ad40457b809c2d2b127165eb7e2d3134d7cb4089d1ae8"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_183",
+        "source_index": 411,
+        "rank_sha256": "08f35eefd93f3a5cadf3273c8c1f4e05813e3394e87ba01c1ae57b070e37494f"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_197",
+        "source_index": 5,
+        "rank_sha256": "0cfdc4bc2bfd764d69d0938e5d1ccd43b41e9efcb79fc9880a06e61ad586943b"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_126",
+        "source_index": 341,
+        "rank_sha256": "0d0b19c6d9db66c7e841bd16df9c3e521f78aa6e73cedf8f2d32b77473fe74d1"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_063",
+        "source_index": 196,
+        "rank_sha256": "0d6cff3a22c7e79e4cdf503c3015d85e4e936aaf527130d9605c11179ed5f083"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_133",
+        "source_index": 380,
+        "rank_sha256": "0d96fdce3a2e73320494481696c5ff370329f6513b050dc2876ab0a5e2e02d7d"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_128",
+        "source_index": 346,
+        "rank_sha256": "0e75fc591daeff18402269cd57d091ddc71eaf03ee7acdeec2dfc24dfe1bde45"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_172",
+        "source_index": 140,
+        "rank_sha256": "1104c0eb79fc3c5653373692735495b51f072e9c0f51d301094f4de098855471"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_177",
+        "source_index": 287,
+        "rank_sha256": "12dee23ddcb07c7278da603cca31af1993868e12b9e2d332e8185cc07be96400"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_169",
+        "source_index": 51,
+        "rank_sha256": "131b5a32e7688ddb638e814d4e3b05489fa1e61aa7598675359f6fe466262ba6"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_119",
+        "source_index": 304,
+        "rank_sha256": "13d31e1e6db24990ab695957098e485bb96477f11054a004bb8f437fe8652790"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_181",
+        "source_index": 379,
+        "rank_sha256": "13ebe2fc1b0898fbb6fe7b083538c0686c0889947e7b98371538aceef2a438ff"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_054",
+        "source_index": 393,
+        "rank_sha256": "18d6702f25e03e16f98ffd7fdaa8c653a68102e537b93326fd983b8407136295"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_178",
+        "source_index": 288,
+        "rank_sha256": "1922cc608f64cf4967b23fe74542c78b13ee7e11feaf06a215c4cefc76bfaeda"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_195",
+        "source_index": 338,
+        "rank_sha256": "1aeea4040f8f047455308642928601903a6587275861cf618f987cf2fa60b306"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_004",
+        "source_index": 225,
+        "rank_sha256": "1b31b2230a8eeede19c567a2b8551e09904cac179542df773db14293a913e56e"
+      },
+      {
+        "stable_id": "gpqa_diamond_test_088",
+        "source_index": 82,
+        "rank_sha256": "1c26d134556231176898bdf27811c913c57dcfc7aa0d689fc8215bce34b00d60"
+      }
+    ],
+    "GPQA-nonDiamond": [
+      {
+        "stable_id": "gpqa_main_minus_diamond_0185",
+        "source_index": 185,
+        "rank_sha256": "004f82f1c9d35c123b7c05f8945af5b303c46e17c2473f8c2afbb84924a95038"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0321",
+        "source_index": 321,
+        "rank_sha256": "010ae0413a4527db48995daa8ab1a69cb703f884be1d3381d300d16d70d71698"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0384",
+        "source_index": 384,
+        "rank_sha256": "05ff56cdbfa8669aade2162998badd3479c5e4b4e069fc5ea8025baed64d56ca"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0180",
+        "source_index": 180,
+        "rank_sha256": "06193cd609638b93a5a129e84b482ab43d6abecc9172f9d38aa6fd90212fbccb"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0269",
+        "source_index": 269,
+        "rank_sha256": "0734c56d7afe90b3fdfd072ece639bf00ad7ee18bb9af0562168eab646932ced"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0081",
+        "source_index": 81,
+        "rank_sha256": "09ab0220696c87aa04eef5585dc436bbc2eed15ae03a67404a97e1fd479f5166"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0085",
+        "source_index": 85,
+        "rank_sha256": "0a0020c80030cc6fdc492029fe01d0364fbb9ae42ef253c339aa84658b241b34"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0028",
+        "source_index": 28,
+        "rank_sha256": "0a42e990855b943e351548bd34a1e9729d703d13bc30b35df03e551807768599"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0127",
+        "source_index": 127,
+        "rank_sha256": "0a7c70af21a7a39019b99f04e24cdda0ecd713b7737698dbee77cfc1cbac2aca"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0342",
+        "source_index": 342,
+        "rank_sha256": "0b9c4378e93719dcb6a575b7b71131968c25c1bf45ed9e973fc5a6e68b529956"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0118",
+        "source_index": 118,
+        "rank_sha256": "0bc852b3a2daab534fceda5a20129d1c29b6f8ff58434758c50c558b235411be"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0175",
+        "source_index": 175,
+        "rank_sha256": "0d5dac15871f522b46af080c57e3cedc26052141f6362e49d4d4c08b03c3533b"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0299",
+        "source_index": 299,
+        "rank_sha256": "0d9e9df777814d02a4815697e488d2feba085f41f38fe5cb7d091043c8f0d1c3"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0037",
+        "source_index": 37,
+        "rank_sha256": "0de6d82a64d2c95d89556cc81ac77807240b514e4b746e6382314ee999adb2ec"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0286",
+        "source_index": 286,
+        "rank_sha256": "0fbc843352e00a9acc793bedac849e8111383191d5de943664822c2e987fb5a5"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0437",
+        "source_index": 437,
+        "rank_sha256": "1098c5b1f383ae43f3088124051e5786c3115012e3649ff64c0f2c4e42d95e4e"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0283",
+        "source_index": 283,
+        "rank_sha256": "11ac14aae893f7c0fdf1746fe719159cd4b47755e9784dc28894f65c2deb4e67"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0345",
+        "source_index": 345,
+        "rank_sha256": "11ae16d55a615624ceff86e2ab13bc441e05743ff45fcd926e23fa16c4a3a19c"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0168",
+        "source_index": 168,
+        "rank_sha256": "128a4a65dc773846a9c170d58af6670e26fa3705e84ed5781684325ffe485a9f"
+      },
+      {
+        "stable_id": "gpqa_main_minus_diamond_0000",
+        "source_index": 0,
+        "rank_sha256": "12a2acebeb5325d76371f82e22acbcc1c3fe9ace542e4f3faaccf5415dc0e857"
+      }
+    ],
+    "HumanEval+": [
+      {
+        "stable_id": "HumanEval/2",
+        "source_index": 2,
+        "rank_sha256": "02282a203bf092c1f82f72afa2f805ec37dcb6df4e3a8fbb0ec83eb1d0804c6a"
+      },
+      {
+        "stable_id": "HumanEval/55",
+        "source_index": 55,
+        "rank_sha256": "0282e5d576d37610945a2a9de563c1b0ea2bbcddb1dcff792350fd80c72ca7b7"
+      },
+      {
+        "stable_id": "HumanEval/124",
+        "source_index": 124,
+        "rank_sha256": "04db2100ae5287441437852b44db535db391858c73e5ad211f3fbe377ccc2fd7"
+      },
+      {
+        "stable_id": "HumanEval/35",
+        "source_index": 35,
+        "rank_sha256": "06a615e88a7da694589e5608f2efc377f4715e7a05dc0fe564a4ee872723ec81"
+      },
+      {
+        "stable_id": "HumanEval/32",
+        "source_index": 32,
+        "rank_sha256": "0b340f73303e73bba945c7877d0c38dcac3e1b7bfea0b436a0702e56b6a9879c"
+      },
+      {
+        "stable_id": "HumanEval/47",
+        "source_index": 47,
+        "rank_sha256": "0cbd09c7a43fd7b45126777b8607d33bae6f2dc56c8e7b6b363c8d90b4994503"
+      },
+      {
+        "stable_id": "HumanEval/86",
+        "source_index": 86,
+        "rank_sha256": "0fa67effc13996da036d56af1cee9d325b5d8818fbaaa43cc21db4b8bc9cae75"
+      },
+      {
+        "stable_id": "HumanEval/48",
+        "source_index": 48,
+        "rank_sha256": "0ff1ab6f8a5e7004e5c9e0686ddbdd49640ea0d2112a255c09ae2caf3182c61b"
+      },
+      {
+        "stable_id": "HumanEval/52",
+        "source_index": 52,
+        "rank_sha256": "109161a5df63fcec25caeaf1c3199e67c767783c7418d7477661412b8ae2cb23"
+      },
+      {
+        "stable_id": "HumanEval/142",
+        "source_index": 142,
+        "rank_sha256": "1170625855715d27740dfa6e34579eb7c98b01dbf9e7f6f1631e0f6ee90397d5"
+      },
+      {
+        "stable_id": "HumanEval/78",
+        "source_index": 78,
+        "rank_sha256": "130dbce778e29f4c4f59389d09a7ba4f2e078c9b8b00df49e94179b96e2f8c50"
+      },
+      {
+        "stable_id": "HumanEval/121",
+        "source_index": 121,
+        "rank_sha256": "1513f8e513df3e6b01c22acedb2e18623171fa2dabd508d71dedeb7710408026"
+      },
+      {
+        "stable_id": "HumanEval/148",
+        "source_index": 148,
+        "rank_sha256": "15690f6fabd4aff3fa5b096552b185c2a388e4120b2d129ec186fefb62cd039a"
+      },
+      {
+        "stable_id": "HumanEval/114",
+        "source_index": 114,
+        "rank_sha256": "17746822fa20a22e0fb607d4834aaa4f9531ee18a380a1eb7b9a531702e7f095"
+      },
+      {
+        "stable_id": "HumanEval/84",
+        "source_index": 84,
+        "rank_sha256": "1793c3b37715966880e424938446f457dc66bca6febd2b1deee7f3a025f5cb0a"
+      },
+      {
+        "stable_id": "HumanEval/95",
+        "source_index": 95,
+        "rank_sha256": "19ab966bc05eeeced974f4bc343274335deeda453725e655a974e05038d148b3"
+      },
+      {
+        "stable_id": "HumanEval/8",
+        "source_index": 8,
+        "rank_sha256": "1b4776dfae68f4b81d01067c9c13b792846a0a9c853e2cf6f9c529df37edf286"
+      },
+      {
+        "stable_id": "HumanEval/37",
+        "source_index": 37,
+        "rank_sha256": "1c04e537faecd75e6f793c96afe2c7d3fadd635b85ea9e6d62b3bdd706bcb9c2"
+      },
+      {
+        "stable_id": "HumanEval/30",
+        "source_index": 30,
+        "rank_sha256": "1c24715367df00e26e90dd64cdfc8d83f3b98f431c8664469af2537e3074cee9"
+      },
+      {
+        "stable_id": "HumanEval/41",
+        "source_index": 41,
+        "rank_sha256": "1d1a7e95db26e42145c01655115041d5f5b049216add5b963e48e7ddb86a2624"
+      }
+    ],
+    "MedQA": [
+      {
+        "stable_id": "medqa:13:13:13",
+        "source_index": 13,
+        "rank_sha256": "00095f5255e51639c67f13716cf15cf76b92213f98bc97cfc549efc8ea2523cd"
+      },
+      {
+        "stable_id": "medqa:224:124:124",
+        "source_index": 224,
+        "rank_sha256": "0058bc8e7f68eb5327802a529d14dc18efb72ea7e9037b10d39b8faddbf3ce6e"
+      },
+      {
+        "stable_id": "medqa:272:172:172",
+        "source_index": 272,
+        "rank_sha256": "014ba8c5570ae844a392d7f6c4ae074a62e28d37b8610516c3a258839aa913e9"
+      },
+      {
+        "stable_id": "medqa:211:111:111",
+        "source_index": 211,
+        "rank_sha256": "02235278ff778d4923eaa47f192a391a034505f513c0d36843f36195b1beeea2"
+      },
+      {
+        "stable_id": "medqa:135:35:35",
+        "source_index": 135,
+        "rank_sha256": "0279599daea454f6559c1193b1227ca3b1ea3edb1827ad26805442f8212fa69e"
+      },
+      {
+        "stable_id": "medqa:146:46:46",
+        "source_index": 146,
+        "rank_sha256": "04183dda7f66edf8531385b15b487d867b366b0d96925733a0485fc33a6cc2cc"
+      },
+      {
+        "stable_id": "medqa:41:41:41",
+        "source_index": 41,
+        "rank_sha256": "05e856cec4e7011939f5566d4cf7518785b7cffb891dabae221e49207cd00e21"
+      },
+      {
+        "stable_id": "medqa:40:40:40",
+        "source_index": 40,
+        "rank_sha256": "06962b4f4df7ba1dfde15d7c7d04734dd55616ef11deadec8fe95e420371fe84"
+      },
+      {
+        "stable_id": "medqa:51:51:51",
+        "source_index": 51,
+        "rank_sha256": "075c8a63a41dc541abb8011cbcd6cbcfa40ae2e549fb327ecbeb7179d4be8f39"
+      },
+      {
+        "stable_id": "medqa:243:143:143",
+        "source_index": 243,
+        "rank_sha256": "09ecff254b27f537b473b18b6e1e9a9c6799bf381f350750bc7548ed67745d72"
+      },
+      {
+        "stable_id": "medqa:116:16:16",
+        "source_index": 116,
+        "rank_sha256": "0d6be249b0edfb65e090a4cc1e36fa6944f63bfe4a0c50feebb3a69c9eb4766b"
+      },
+      {
+        "stable_id": "medqa:110:10:10",
+        "source_index": 110,
+        "rank_sha256": "0e1f61bebbfa49891579e1a109f5c4afe79e02f8631c336a768722318044e076"
+      },
+      {
+        "stable_id": "medqa:18:18:18",
+        "source_index": 18,
+        "rank_sha256": "0e913ff48f1e999980daba5de061d70f4dcc25fb6d1693b9bc8885771531da4b"
+      },
+      {
+        "stable_id": "medqa:86:86:86",
+        "source_index": 86,
+        "rank_sha256": "0ed3238c968f9e5a33decfa8a1a47898936ac806b13aa40657217614f64b0c15"
+      },
+      {
+        "stable_id": "medqa:266:166:166",
+        "source_index": 266,
+        "rank_sha256": "0ff4857e5d77a039e0eca653a51d0b9e6565d9596abc6aeb7c9cfc39823a3d0c"
+      },
+      {
+        "stable_id": "medqa:42:42:42",
+        "source_index": 42,
+        "rank_sha256": "104c40943950924db31e5cd5886da2645a58a3def28b646c419c5a859115f637"
+      },
+      {
+        "stable_id": "medqa:145:45:45",
+        "source_index": 145,
+        "rank_sha256": "10f1c0b90e3dd43e44054a4a1e76357eb145d8bced841f5ce3d0ab3e4b42db1f"
+      },
+      {
+        "stable_id": "medqa:68:68:68",
+        "source_index": 68,
+        "rank_sha256": "117836ffda21a2709c1a2114d7686cb7c7c9b21c7c28d8c2cadb019a3cf5dc1d"
+      },
+      {
+        "stable_id": "medqa:184:84:84",
+        "source_index": 184,
+        "rank_sha256": "122ace53e99e3fc65ed2e478133924d80bc124d5c7dbaa93acc304f912cf26b1"
+      },
+      {
+        "stable_id": "medqa:217:117:117",
+        "source_index": 217,
+        "rank_sha256": "12907dc0950c111330b4bdd2ef582c4d2aa1d9446b3fdee58a44805b83be3277"
+      }
+    ],
+    "MMLU-Pro": [
+      {
+        "stable_id": "mmlu_pro:biology:2962",
+        "source_index": 2844,
+        "category": "biology",
+        "rank_sha256": "0063559f8e9aed88af128fadb38e3e685138ca2525a4b70a53937eb4ff328efc"
+      },
+      {
+        "stable_id": "mmlu_pro:business:698",
+        "source_index": 621,
+        "category": "business",
+        "rank_sha256": "004dd6dd77536f16bd2f795ca9e5dcdc4daf8edda3ce6847863619257d62f24f"
+      },
+      {
+        "stable_id": "mmlu_pro:chemistry:4593",
+        "source_index": 4461,
+        "category": "chemistry",
+        "rank_sha256": "0022a1606fd20735d2c5884a6b9994a3ded2fe3c65c10ff935c5b721fcec46b5"
+      },
+      {
+        "stable_id": "mmlu_pro:computer science:10772",
+        "source_index": 10562,
+        "category": "computer science",
+        "rank_sha256": "008ae8c622e379acbb6bedf36c1cf6af2d9d035a03450d99f37c5cc11ff4e7b3"
+      },
+      {
+        "stable_id": "mmlu_pro:economics:7030",
+        "source_index": 6862,
+        "category": "economics",
+        "rank_sha256": "008a41f84f9d7e301445c26f589abb3ec15ce2527ffe6b3ba72c235ddb47793f"
+      },
+      {
+        "stable_id": "mmlu_pro:engineering:11807",
+        "source_index": 11583,
+        "category": "engineering",
+        "rank_sha256": "008cc57e6a59fb016f9b43a9f0dfbf5cbb53cabe4577e9124ac65c8b073d12bb"
+      },
+      {
+        "stable_id": "mmlu_pro:health:6823",
+        "source_index": 6657,
+        "category": "health",
+        "rank_sha256": "00a3e5588acd494e20cd58d9ce8579bf51ac8b045d9c9a6b0ad5c6dbbc9c6f49"
+      },
+      {
+        "stable_id": "mmlu_pro:history:4719",
+        "source_index": 4587,
+        "category": "history",
+        "rank_sha256": "031a3c056d2a6f55e35ed0ce7fe4f77614b15e856426493913b47968a4807565"
+      },
+      {
+        "stable_id": "mmlu_pro:law:1303",
+        "source_index": 1219,
+        "category": "law",
+        "rank_sha256": "008608247642d9b3d72333869dfbf64b6c718338f48bbbdb750c3d16c5faee4b"
+      },
+      {
+        "stable_id": "mmlu_pro:math:7930",
+        "source_index": 7747,
+        "category": "math",
+        "rank_sha256": "005adbd700ac03a49b61bf86f3b0f78bbd4bf856488db60e61e9e726a3823718"
+      },
+      {
+        "stable_id": "mmlu_pro:other:5947",
+        "source_index": 5788,
+        "category": "other",
+        "rank_sha256": "0075546997fe1c6a687e1af20655f9b8f660b8c1aa0912ca2f985747cff17dd8"
+      },
+      {
+        "stable_id": "mmlu_pro:philosophy:11262",
+        "source_index": 11041,
+        "category": "philosophy",
+        "rank_sha256": "00d62e0aa4117cd68dff10407a0d8914a99411c1a0ba7176345a004da78f1e3e"
+      },
+      {
+        "stable_id": "mmlu_pro:physics:9950",
+        "source_index": 9757,
+        "category": "physics",
+        "rank_sha256": "000e5f0eac1369cffff1c508c7ab333d755dbfe1453dbcfa0853f2a2e6ccc392"
+      },
+      {
+        "stable_id": "mmlu_pro:psychology:2431",
+        "source_index": 2329,
+        "category": "psychology",
+        "rank_sha256": "00c470326d5e83a9035b7ad2db2cf7910900a23038c2016bb83c81aa44939e72"
+      },
+      {
+        "stable_id": "mmlu_pro:chemistry:3949",
+        "source_index": 3826,
+        "category": "chemistry",
+        "rank_sha256": "0032eec2d926339c8e6268c75cd4b105a7ba411946c7196cc3d0c03dbec32e48"
+      },
+      {
+        "stable_id": "mmlu_pro:physics:10155",
+        "source_index": 9957,
+        "category": "physics",
+        "rank_sha256": "0044fedfa9bfc4bd60408ab9ade4394d458248654910f7e04b1010f3779fe049"
+      },
+      {
+        "stable_id": "mmlu_pro:chemistry:4272",
+        "source_index": 4145,
+        "category": "chemistry",
+        "rank_sha256": "006dd67d9b41a43eb1c1704046d70c42aef197cbc55c152e9b0a4003a207b460"
+      },
+      {
+        "stable_id": "mmlu_pro:business:234",
+        "source_index": 163,
+        "category": "business",
+        "rank_sha256": "007b8e87a81cc20efadcfacc45f4cf1c1b4d5659969c4d60965acf677ffaa29e"
+      },
+      {
+        "stable_id": "mmlu_pro:biology:2969",
+        "source_index": 2851,
+        "category": "biology",
+        "rank_sha256": "008688ee7bef81e7f7f130f5dfa17a890a476947a7758b0a05cde766b1d16682"
+      },
+      {
+        "stable_id": "mmlu_pro:biology:2989",
+        "source_index": 2871,
+        "category": "biology",
+        "rank_sha256": "00909dd681b99b8776921b17798da7ac6a79848f925c44682418f5f47a9968fd"
+      }
+    ]
+  },
+  "answer_blind_selection": true,
+  "gsm8k_included": false
+}

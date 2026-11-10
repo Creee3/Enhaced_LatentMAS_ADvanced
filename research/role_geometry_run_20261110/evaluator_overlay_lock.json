@@ -1,0 +1,34 @@
+{
+  "task_id": "HumanEval/32",
+  "raw_test_sha256": "b4eccf838d1b0f79daeb40e130ae3e37ee9d75ca739be3dbe93b8caac886c760",
+  "rendered_test_sha256": "3e56952a3bc59fda0597ae7d8d33943ec72bc052a26a8fa8b3209c3712e81205",
+  "tests_file_sha256": "95a6db4fa57c78d73f32fc1578b5305079dc005c807bb8d5a8a275493cbd1527",
+  "source": "official EvalPlus predicate parameter-order-only overlay",
+  "official_sources": {
+    "evalplus/eval/__init__.py": {
+      "commit": "26d6d00bb1fd0fa37f39c99d5290da67891d1c5e",
+      "path": "dependencies/evaluator_overlay/__init__.py",
+      "sha256": "3c833c39b842e33f251c83db4347e0a95191909f23b390c12d73ab29a28a4daf",
+      "bytes": 10651
+    },
+    "evalplus/eval/_special_oracle.py": {
+      "commit": "26d6d00bb1fd0fa37f39c99d5290da67891d1c5e",
+      "path": "dependencies/evaluator_overlay/_special_oracle.py",
+      "sha256": "92b126b907ee493121b55de06f6a34058b6e18adc8cf1c48737eedcd83f24cdd",
+      "bytes": 1900
+    }
+  },
+  "expected_patch_count": 1,
+  "input_count": 886,
+  "threshold": 0.0001,
+  "absolute_value_added": false,
+  "original_source_modified": false,
+  "witness": {
+    "path": "dependencies/evaluator_overlay/humaneval32_root_witness.json",
+    "sha256": "d967c5c6aa191b4ae2168c119fed6f6fe1256a4d55836ac728e9baef6ccef572",
+    "bytes": 468999,
+    "precision_digits": 100,
+    "inputs": 886
+  },
+  "known_original_canonical_numerical_failure": true
+}
