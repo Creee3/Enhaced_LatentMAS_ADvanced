@@ -1,0 +1,1 @@
+2026-11-10 23:12北京时间：用户授权取消30题组间等待。仅锁内更新队列调度batch为0，原index//30分组保留为reporting_batch；原队列完整保存在management/queue_before_work_conserving.json。冻结70文件及模型/方法/原答/任务归属保持，未重载模型。5项CPU调度检查通过，实际6个等待worker领取后组，8running/80pending/32complete/0held，406已提交。GPU0瞬时95%。以index//30或reporting_batch统计原分组，不以调度batch统计。原控制器继续收尾。
